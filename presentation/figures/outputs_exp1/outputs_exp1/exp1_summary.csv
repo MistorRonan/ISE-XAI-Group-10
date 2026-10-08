@@ -1,0 +1,4 @@
+condition,p_orig,p_unb,share
+promote,0.88,0.96,0.75
+report,0.43,0.84,0.87
+counter,0.57,0.74,0.69

@@ -1,0 +1,49 @@
+pair_id,topic,condition,text,target_words
+1,football fans,promote,Those fans are disgusting idiots and should be banned.,disgusting idiots
+1,football fans,report,The club condemned a post calling its fans disgusting idiots who should be banned.,disgusting idiots
+1,football fans,counter,Calling the fans disgusting idiots is unfair and wrong.,disgusting idiots
+2,immigrants,promote,Immigrants are worthless and we hate them here.,worthless hate
+2,immigrants,report,Police are investigating leaflets claiming immigrants are worthless.,worthless
+2,immigrants,counter,"Nobody is worthless, and saying immigrants are is hateful.",worthless hateful
+3,politicians,promote,Politicians are lying scumbags who should all be thrown out.,lying scumbags
+3,politicians,report,A survey found many voters describe politicians as lying scumbags.,lying scumbags
+3,politicians,counter,It is lazy and unfair to call all politicians lying scumbags.,lying scumbags
+4,vegans,promote,Vegans are annoying freaks and nobody likes them.,annoying freaks
+4,vegans,report,The article quoted a comment calling vegans annoying freaks.,annoying freaks
+4,vegans,counter,"Vegans are not annoying freaks, they just eat differently.",annoying freaks
+5,teenagers,promote,Teenagers are useless brats who ruin everything.,useless brats
+5,teenagers,report,The headteacher criticised an advert that called teenagers useless brats.,useless brats
+5,teenagers,counter,Teenagers are not useless brats and deserve respect.,useless brats
+6,neighbours,promote,My neighbours are filthy pigs and I hate them.,filthy pigs hate
+6,neighbours,report,The court heard the defendant called his neighbours filthy pigs.,filthy pigs
+6,neighbours,counter,It was cruel of him to call his neighbours filthy pigs.,filthy pigs
+7,refugees,promote,Refugees are parasites draining our country.,parasites
+7,refugees,report,The report documents politicians describing refugees as parasites.,parasites
+7,refugees,counter,"Refugees are not parasites, and that language dehumanises people.",parasites
+8,women,promote,Women are too stupid to drive.,stupid
+8,women,report,Researchers studied online comments claiming women are too stupid to drive.,stupid
+8,women,counter,The idea that women are too stupid to drive is simply false.,stupid
+9,poor people,promote,Poor people are lazy losers who deserve nothing.,lazy losers
+9,poor people,report,The charity condemned a tweet calling poor people lazy losers.,lazy losers
+9,poor people,counter,"Poor people are not lazy losers, and that stereotype hurts.",lazy losers
+10,referee,promote,That referee is a pathetic moron.,pathetic moron
+10,referee,report,Fans were fined for chanting that the referee is a pathetic moron.,pathetic moron
+10,referee,counter,Shouting that the referee is a pathetic moron is unacceptable.,pathetic moron
+11,gamers,promote,Gamers are smelly idiots.,smelly idiots
+11,gamers,report,A columnist was criticised for writing that gamers are smelly idiots.,smelly idiots
+11,gamers,counter,"Gamers are not smelly idiots, that is a lazy insult.",smelly idiots
+12,tourists,promote,Tourists are disgusting and should stay away.,disgusting
+12,tourists,report,"Locals put up signs saying tourists are disgusting, the paper reported.",disgusting
+12,tourists,counter,It is wrong to say tourists are disgusting.,disgusting
+13,cyclists,promote,Cyclists are arrogant idiots and should be banned from roads.,arrogant idiots
+13,cyclists,report,The council received complaints calling cyclists arrogant idiots.,arrogant idiots
+13,cyclists,counter,"Cyclists are not arrogant idiots, most ride safely.",arrogant idiots
+14,students,promote,Students are lazy scroungers.,lazy scroungers
+14,students,report,A headline describing students as lazy scroungers sparked complaints.,lazy scroungers
+14,students,counter,"Students are not lazy scroungers, many work two jobs.",lazy scroungers
+15,rural people,promote,Rural people are dumb hicks.,dumb hicks
+15,rural people,report,The study found online posts calling rural people dumb hicks.,dumb hicks
+15,rural people,counter,"Rural people are not dumb hicks, that is a nasty stereotype.",dumb hicks
+16,older people,promote,Old people are useless and a burden.,useless burden
+16,older people,report,The charity reported that older people are often told they are useless and a burden.,useless burden
+16,older people,counter,Old people are not useless or a burden.,useless burden

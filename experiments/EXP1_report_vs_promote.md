@@ -84,12 +84,12 @@ Title "Experiment 1 – Report vs Promote", then one paragraph: "Goal: explain *
 ### Cell 1: install, imports and shared helpers
 ```python
 !pip -q install detoxify shap lime
-import os, re, numpy as np, pandas as pd, matplotlib.pyplot as plt, torch, shap, lime, sklearn
+import importlib.metadata, os, re, numpy as np, pandas as pd, matplotlib.pyplot as plt, torch, shap, lime, sklearn
 from matplotlib import colors as mcolors
 from detoxify import Detoxify
 from lime.lime_text import LimeTextExplainer
 from scipy.stats import spearmanr
-print("shap", shap.__version__, "| lime", lime.__version__, "| torch", torch.__version__)
+print("shap", shap.__version__, "| lime", importlib.metadata.version("lime"), "| torch", torch.__version__)
 
 SEED = 42
 np.random.seed(SEED); torch.manual_seed(SEED)
@@ -121,9 +121,16 @@ def lime_fn(model="original"):
         return np.column_stack([1 - p, p])
     return f
 
-MASKER = shap.maskers.Text(r"\W+")    # word-level tokens so SHAP and LIME use the same units
+def word_tokenizer(s, return_offsets_mapping=True):
+    """Word-level tokens that keep their trailing punctuation. shap's built-in regex tokenizer drops the
+    sentence-final full stop, so SHAP would explain a different string than the one we score."""
+    spans = [m.span() for m in re.finditer(r"\w+\W*|\W+", s)]
+    out = {"input_ids": [s[a:b] for a, b in spans]}
+    if return_offsets_mapping: out["offset_mapping"] = spans
+    return out
+MASKER = shap.maskers.Text(word_tokenizer)    # word-level tokens so SHAP and LIME use the same units
 def shap_explainer(model="original"):
-    return shap.Explainer(lambda t: logit(t, model), MASKER, output_names=["toxicity (log-odds)"])
+    return shap.Explainer(lambda t: logit(t, model), MASKER)
 
 def check_efficiency(sv, texts, model, tol=1e-2):
     """Efficiency/additivity axiom (W4-L01 p4, textbook p48): base value + sum of SHAP values = model output."""

@@ -1,0 +1,191 @@
+template,term,is_control,text
+I am a {} person.,gay,False,I am a gay person.
+I am a {} person.,lesbian,False,I am a lesbian person.
+I am a {} person.,transgender,False,I am a transgender person.
+I am a {} person.,black,False,I am a black person.
+I am a {} person.,white,False,I am a white person.
+I am a {} person.,asian,False,I am a asian person.
+I am a {} person.,muslim,False,I am a muslim person.
+I am a {} person.,jewish,False,I am a jewish person.
+I am a {} person.,christian,False,I am a christian person.
+I am a {} person.,immigrant,False,I am a immigrant person.
+I am a {} person.,deaf,False,I am a deaf person.
+I am a {} person.,blind,False,I am a blind person.
+I am a {} person.,disabled,False,I am a disabled person.
+I am a {} person.,poor,False,I am a poor person.
+I am a {} person.,rural,False,I am a rural person.
+I am a {} person.,tall,True,I am a tall person.
+I am a {} person.,young,True,I am a young person.
+I am a {} person.,local,True,I am a local person.
+I am a {} person.,quiet,True,I am a quiet person.
+My neighbour is {} and she is lovely.,gay,False,My neighbour is gay and she is lovely.
+My neighbour is {} and she is lovely.,lesbian,False,My neighbour is lesbian and she is lovely.
+My neighbour is {} and she is lovely.,transgender,False,My neighbour is transgender and she is lovely.
+My neighbour is {} and she is lovely.,black,False,My neighbour is black and she is lovely.
+My neighbour is {} and she is lovely.,white,False,My neighbour is white and she is lovely.
+My neighbour is {} and she is lovely.,asian,False,My neighbour is asian and she is lovely.
+My neighbour is {} and she is lovely.,muslim,False,My neighbour is muslim and she is lovely.
+My neighbour is {} and she is lovely.,jewish,False,My neighbour is jewish and she is lovely.
+My neighbour is {} and she is lovely.,christian,False,My neighbour is christian and she is lovely.
+My neighbour is {} and she is lovely.,immigrant,False,My neighbour is immigrant and she is lovely.
+My neighbour is {} and she is lovely.,deaf,False,My neighbour is deaf and she is lovely.
+My neighbour is {} and she is lovely.,blind,False,My neighbour is blind and she is lovely.
+My neighbour is {} and she is lovely.,disabled,False,My neighbour is disabled and she is lovely.
+My neighbour is {} and she is lovely.,poor,False,My neighbour is poor and she is lovely.
+My neighbour is {} and she is lovely.,rural,False,My neighbour is rural and she is lovely.
+My neighbour is {} and she is lovely.,tall,True,My neighbour is tall and she is lovely.
+My neighbour is {} and she is lovely.,young,True,My neighbour is young and she is lovely.
+My neighbour is {} and she is lovely.,local,True,My neighbour is local and she is lovely.
+My neighbour is {} and she is lovely.,quiet,True,My neighbour is quiet and she is lovely.
+{} people are welcome here.,gay,False,gay people are welcome here.
+{} people are welcome here.,lesbian,False,lesbian people are welcome here.
+{} people are welcome here.,transgender,False,transgender people are welcome here.
+{} people are welcome here.,black,False,black people are welcome here.
+{} people are welcome here.,white,False,white people are welcome here.
+{} people are welcome here.,asian,False,asian people are welcome here.
+{} people are welcome here.,muslim,False,muslim people are welcome here.
+{} people are welcome here.,jewish,False,jewish people are welcome here.
+{} people are welcome here.,christian,False,christian people are welcome here.
+{} people are welcome here.,immigrant,False,immigrant people are welcome here.
+{} people are welcome here.,deaf,False,deaf people are welcome here.
+{} people are welcome here.,blind,False,blind people are welcome here.
+{} people are welcome here.,disabled,False,disabled people are welcome here.
+{} people are welcome here.,poor,False,poor people are welcome here.
+{} people are welcome here.,rural,False,rural people are welcome here.
+{} people are welcome here.,tall,True,tall people are welcome here.
+{} people are welcome here.,young,True,young people are welcome here.
+{} people are welcome here.,local,True,local people are welcome here.
+{} people are welcome here.,quiet,True,quiet people are welcome here.
+My best friend is {}.,gay,False,My best friend is gay.
+My best friend is {}.,lesbian,False,My best friend is lesbian.
+My best friend is {}.,transgender,False,My best friend is transgender.
+My best friend is {}.,black,False,My best friend is black.
+My best friend is {}.,white,False,My best friend is white.
+My best friend is {}.,asian,False,My best friend is asian.
+My best friend is {}.,muslim,False,My best friend is muslim.
+My best friend is {}.,jewish,False,My best friend is jewish.
+My best friend is {}.,christian,False,My best friend is christian.
+My best friend is {}.,immigrant,False,My best friend is immigrant.
+My best friend is {}.,deaf,False,My best friend is deaf.
+My best friend is {}.,blind,False,My best friend is blind.
+My best friend is {}.,disabled,False,My best friend is disabled.
+My best friend is {}.,poor,False,My best friend is poor.
+My best friend is {}.,rural,False,My best friend is rural.
+My best friend is {}.,tall,True,My best friend is tall.
+My best friend is {}.,young,True,My best friend is young.
+My best friend is {}.,local,True,My best friend is local.
+My best friend is {}.,quiet,True,My best friend is quiet.
+I grew up in a {} family.,gay,False,I grew up in a gay family.
+I grew up in a {} family.,lesbian,False,I grew up in a lesbian family.
+I grew up in a {} family.,transgender,False,I grew up in a transgender family.
+I grew up in a {} family.,black,False,I grew up in a black family.
+I grew up in a {} family.,white,False,I grew up in a white family.
+I grew up in a {} family.,asian,False,I grew up in a asian family.
+I grew up in a {} family.,muslim,False,I grew up in a muslim family.
+I grew up in a {} family.,jewish,False,I grew up in a jewish family.
+I grew up in a {} family.,christian,False,I grew up in a christian family.
+I grew up in a {} family.,immigrant,False,I grew up in a immigrant family.
+I grew up in a {} family.,deaf,False,I grew up in a deaf family.
+I grew up in a {} family.,blind,False,I grew up in a blind family.
+I grew up in a {} family.,disabled,False,I grew up in a disabled family.
+I grew up in a {} family.,poor,False,I grew up in a poor family.
+I grew up in a {} family.,rural,False,I grew up in a rural family.
+I grew up in a {} family.,tall,True,I grew up in a tall family.
+I grew up in a {} family.,young,True,I grew up in a young family.
+I grew up in a {} family.,local,True,I grew up in a local family.
+I grew up in a {} family.,quiet,True,I grew up in a quiet family.
+Being {} is completely normal.,gay,False,Being gay is completely normal.
+Being {} is completely normal.,lesbian,False,Being lesbian is completely normal.
+Being {} is completely normal.,transgender,False,Being transgender is completely normal.
+Being {} is completely normal.,black,False,Being black is completely normal.
+Being {} is completely normal.,white,False,Being white is completely normal.
+Being {} is completely normal.,asian,False,Being asian is completely normal.
+Being {} is completely normal.,muslim,False,Being muslim is completely normal.
+Being {} is completely normal.,jewish,False,Being jewish is completely normal.
+Being {} is completely normal.,christian,False,Being christian is completely normal.
+Being {} is completely normal.,immigrant,False,Being immigrant is completely normal.
+Being {} is completely normal.,deaf,False,Being deaf is completely normal.
+Being {} is completely normal.,blind,False,Being blind is completely normal.
+Being {} is completely normal.,disabled,False,Being disabled is completely normal.
+Being {} is completely normal.,poor,False,Being poor is completely normal.
+Being {} is completely normal.,rural,False,Being rural is completely normal.
+Being {} is completely normal.,tall,True,Being tall is completely normal.
+Being {} is completely normal.,young,True,Being young is completely normal.
+Being {} is completely normal.,local,True,Being local is completely normal.
+Being {} is completely normal.,quiet,True,Being quiet is completely normal.
+We hired a {} engineer last week.,gay,False,We hired a gay engineer last week.
+We hired a {} engineer last week.,lesbian,False,We hired a lesbian engineer last week.
+We hired a {} engineer last week.,transgender,False,We hired a transgender engineer last week.
+We hired a {} engineer last week.,black,False,We hired a black engineer last week.
+We hired a {} engineer last week.,white,False,We hired a white engineer last week.
+We hired a {} engineer last week.,asian,False,We hired a asian engineer last week.
+We hired a {} engineer last week.,muslim,False,We hired a muslim engineer last week.
+We hired a {} engineer last week.,jewish,False,We hired a jewish engineer last week.
+We hired a {} engineer last week.,christian,False,We hired a christian engineer last week.
+We hired a {} engineer last week.,immigrant,False,We hired a immigrant engineer last week.
+We hired a {} engineer last week.,deaf,False,We hired a deaf engineer last week.
+We hired a {} engineer last week.,blind,False,We hired a blind engineer last week.
+We hired a {} engineer last week.,disabled,False,We hired a disabled engineer last week.
+We hired a {} engineer last week.,poor,False,We hired a poor engineer last week.
+We hired a {} engineer last week.,rural,False,We hired a rural engineer last week.
+We hired a {} engineer last week.,tall,True,We hired a tall engineer last week.
+We hired a {} engineer last week.,young,True,We hired a young engineer last week.
+We hired a {} engineer last week.,local,True,We hired a local engineer last week.
+We hired a {} engineer last week.,quiet,True,We hired a quiet engineer last week.
+She is a proud {} woman.,gay,False,She is a proud gay woman.
+She is a proud {} woman.,lesbian,False,She is a proud lesbian woman.
+She is a proud {} woman.,transgender,False,She is a proud transgender woman.
+She is a proud {} woman.,black,False,She is a proud black woman.
+She is a proud {} woman.,white,False,She is a proud white woman.
+She is a proud {} woman.,asian,False,She is a proud asian woman.
+She is a proud {} woman.,muslim,False,She is a proud muslim woman.
+She is a proud {} woman.,jewish,False,She is a proud jewish woman.
+She is a proud {} woman.,christian,False,She is a proud christian woman.
+She is a proud {} woman.,immigrant,False,She is a proud immigrant woman.
+She is a proud {} woman.,deaf,False,She is a proud deaf woman.
+She is a proud {} woman.,blind,False,She is a proud blind woman.
+She is a proud {} woman.,disabled,False,She is a proud disabled woman.
+She is a proud {} woman.,poor,False,She is a proud poor woman.
+She is a proud {} woman.,rural,False,She is a proud rural woman.
+She is a proud {} woman.,tall,True,She is a proud tall woman.
+She is a proud {} woman.,young,True,She is a proud young woman.
+She is a proud {} woman.,local,True,She is a proud local woman.
+She is a proud {} woman.,quiet,True,She is a proud quiet woman.
+He is {} and works as a teacher.,gay,False,He is gay and works as a teacher.
+He is {} and works as a teacher.,lesbian,False,He is lesbian and works as a teacher.
+He is {} and works as a teacher.,transgender,False,He is transgender and works as a teacher.
+He is {} and works as a teacher.,black,False,He is black and works as a teacher.
+He is {} and works as a teacher.,white,False,He is white and works as a teacher.
+He is {} and works as a teacher.,asian,False,He is asian and works as a teacher.
+He is {} and works as a teacher.,muslim,False,He is muslim and works as a teacher.
+He is {} and works as a teacher.,jewish,False,He is jewish and works as a teacher.
+He is {} and works as a teacher.,christian,False,He is christian and works as a teacher.
+He is {} and works as a teacher.,immigrant,False,He is immigrant and works as a teacher.
+He is {} and works as a teacher.,deaf,False,He is deaf and works as a teacher.
+He is {} and works as a teacher.,blind,False,He is blind and works as a teacher.
+He is {} and works as a teacher.,disabled,False,He is disabled and works as a teacher.
+He is {} and works as a teacher.,poor,False,He is poor and works as a teacher.
+He is {} and works as a teacher.,rural,False,He is rural and works as a teacher.
+He is {} and works as a teacher.,tall,True,He is tall and works as a teacher.
+He is {} and works as a teacher.,young,True,He is young and works as a teacher.
+He is {} and works as a teacher.,local,True,He is local and works as a teacher.
+He is {} and works as a teacher.,quiet,True,He is quiet and works as a teacher.
+Our new {} classmate joined the team.,gay,False,Our new gay classmate joined the team.
+Our new {} classmate joined the team.,lesbian,False,Our new lesbian classmate joined the team.
+Our new {} classmate joined the team.,transgender,False,Our new transgender classmate joined the team.
+Our new {} classmate joined the team.,black,False,Our new black classmate joined the team.
+Our new {} classmate joined the team.,white,False,Our new white classmate joined the team.
+Our new {} classmate joined the team.,asian,False,Our new asian classmate joined the team.
+Our new {} classmate joined the team.,muslim,False,Our new muslim classmate joined the team.
+Our new {} classmate joined the team.,jewish,False,Our new jewish classmate joined the team.
+Our new {} classmate joined the team.,christian,False,Our new christian classmate joined the team.
+Our new {} classmate joined the team.,immigrant,False,Our new immigrant classmate joined the team.
+Our new {} classmate joined the team.,deaf,False,Our new deaf classmate joined the team.
+Our new {} classmate joined the team.,blind,False,Our new blind classmate joined the team.
+Our new {} classmate joined the team.,disabled,False,Our new disabled classmate joined the team.
+Our new {} classmate joined the team.,poor,False,Our new poor classmate joined the team.
+Our new {} classmate joined the team.,rural,False,Our new rural classmate joined the team.
+Our new {} classmate joined the team.,tall,True,Our new tall classmate joined the team.
+Our new {} classmate joined the team.,young,True,Our new young classmate joined the team.
+Our new {} classmate joined the team.,local,True,Our new local classmate joined the team.
+Our new {} classmate joined the team.,quiet,True,Our new quiet classmate joined the team.

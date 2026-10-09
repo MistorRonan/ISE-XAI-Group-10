@@ -1,0 +1,141 @@
+case,model,text,term,n,seed,weight,rank,top_word,top3,r2
+strong (reference),original,Being gay is completely normal.,gay,500,0,0.8071830810688129,1,gay,gay completely is,0.9968166269345755
+strong (reference),original,Being gay is completely normal.,gay,500,1,0.8069053779631342,1,gay,gay completely is,0.9970480569057315
+strong (reference),original,Being gay is completely normal.,gay,500,2,0.8098959580842464,1,gay,gay completely is,0.9965526050279508
+strong (reference),original,Being gay is completely normal.,gay,500,3,0.8071739637828507,1,gay,gay completely is,0.9970141805605786
+strong (reference),original,Being gay is completely normal.,gay,500,4,0.809771035413674,1,gay,gay completely is,0.9970039087621464
+strong (reference),original,Being gay is completely normal.,gay,500,5,0.8063678629009384,1,gay,gay completely is,0.9974183782586378
+strong (reference),original,Being gay is completely normal.,gay,500,6,0.8095339934698517,1,gay,gay completely is,0.9970066756767264
+strong (reference),original,Being gay is completely normal.,gay,500,7,0.8064424062260628,1,gay,gay completely is,0.9965663221603105
+strong (reference),original,Being gay is completely normal.,gay,500,8,0.8108287109052116,1,gay,gay completely is,0.997050193863132
+strong (reference),original,Being gay is completely normal.,gay,500,9,0.8109801877497462,1,gay,gay completely is,0.9970313892063756
+strong (reference),original,Being gay is completely normal.,gay,5000,0,0.8254330931444973,1,gay,gay completely is,0.9974127136245495
+strong (reference),original,Being gay is completely normal.,gay,5000,1,0.8251500386218354,1,gay,gay completely is,0.9972438636954406
+strong (reference),original,Being gay is completely normal.,gay,5000,2,0.8253803776047234,1,gay,gay completely is,0.9974561639750924
+strong (reference),original,Being gay is completely normal.,gay,5000,3,0.826127406752678,1,gay,gay completely is,0.997547612704933
+strong (reference),original,Being gay is completely normal.,gay,5000,4,0.824038691819992,1,gay,gay completely is,0.9973987201441818
+strong (reference),original,Being gay is completely normal.,gay,5000,5,0.8243929316163077,1,gay,gay completely is,0.9974140029141999
+strong (reference),original,Being gay is completely normal.,gay,5000,6,0.8251110552127756,1,gay,gay completely is,0.9975506662523815
+strong (reference),original,Being gay is completely normal.,gay,5000,7,0.824645661585259,1,gay,gay completely is,0.9974006195607498
+strong (reference),original,Being gay is completely normal.,gay,5000,8,0.825288459795015,1,gay,gay completely is,0.997379174415197
+strong (reference),original,Being gay is completely normal.,gay,5000,9,0.8247337208157252,1,gay,gay completely is,0.9974520701494606
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,0,0.00010493190679253219,2,a,a immigrant we,0.24971986652200018
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,1,-0.00013031396554951934,4,a,a last we,0.2694957187669982
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,2,-6.493294282959068e-05,3,a,a we immigrant,0.24274428636925582
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,3,-5.326141170159786e-06,2,a,a immigrant we,0.28265113851813717
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,4,-8.749216435891079e-06,2,a,a immigrant we,0.25104658602533114
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,5,3.6294430382456527e-06,2,a,a immigrant we,0.23947480529476817
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,6,-4.821967040548778e-07,3,a,a we immigrant,0.2328974298470341
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,7,6.352165231109062e-05,2,a,a immigrant we,0.24554835480304948
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,8,-0.0001234643021541207,4,a,a we last,0.25232472239755444
+weak signal,original,We hired a immigrant engineer last week.,immigrant,500,9,8.462388308937438e-05,2,a,a immigrant we,0.24098714990660253
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,0,-8.196507953265203e-06,2,a,a immigrant we,0.24168632990529249
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,1,-2.921960910402569e-05,3,a,a we immigrant,0.24092573289399288
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,2,3.7729490051565915e-06,3,a,a we immigrant,0.2437654255047893
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,3,-4.93690551412926e-05,3,a,a we immigrant,0.23647877936176132
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,4,-3.2684896910281316e-05,3,a,a we immigrant,0.24513692089185024
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,5,-3.565061128552779e-05,3,a,a we immigrant,0.24210635309564743
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,6,-2.0543526560148633e-05,3,a,a we immigrant,0.24774990154414755
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,7,7.16801366276628e-06,3,a,a we immigrant,0.2397357775215162
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,8,-3.1334863470054994e-05,3,a,a we immigrant,0.23851130780413365
+weak signal,original,We hired a immigrant engineer last week.,immigrant,5000,9,-5.664558798304387e-06,3,a,a we immigrant,0.24220394219671693
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,0,-0.0008549504065110974,4,up,up a grew,0.15427631692714783
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,1,-0.00013258135195618574,3,a,a up immigrant,0.3405184581854691
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,2,-0.00045999723768450914,3,up,up a immigrant,0.183689221221926
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,3,-0.0006127126598439845,5,up,up a i,0.14649368351679926
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,4,-0.0010261310492845812,5,up,up a grew,0.13402137659790014
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,5,-0.000531769492797615,4,up,up a grew,0.1398597711567725
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,6,-0.0009878151320403797,5,up,up a grew,0.1469942390704011
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,7,-0.0006776935047496325,4,up,up a grew,0.12851008628977378
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,8,-0.001272102241023926,5,up,up grew a,0.12745541997198706
+near-tie top words,original,I grew up in a immigrant family.,immigrant,500,9,-0.0008714281270844329,5,up,up a grew,0.09682988006485338
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,0,-0.0006150685657579498,4,up,up a grew,0.1520251323583356
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,1,-0.0008743775456656966,4,up,up a grew,0.1271182002910547
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,2,-0.0007604379178397747,5,up,up a grew,0.13990501999218952
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,3,-0.0007761934391101796,4,up,up a grew,0.1252556749439524
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,4,-0.0006802589118012451,4,up,up a grew,0.14297521686161818
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,5,-0.0007105852667779534,5,up,up a grew,0.14749058355731015
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,6,-0.0005879311077545553,4,up,up a grew,0.14534192153615455
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,7,-0.0006747401103965977,4,up,up a grew,0.12946748178152978
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,8,-0.0008523054305020967,5,up,up a grew,0.1312108207851368
+near-tie top words,original,I grew up in a immigrant family.,immigrant,5000,9,-0.000756897743901083,5,up,up a grew,0.1360616594199182
+negative push,original,She is a proud rural woman.,rural,500,0,-0.04021538375293068,6,woman,woman is she,0.24321584816659536
+negative push,original,She is a proud rural woman.,rural,500,1,-0.03276422990064646,6,woman,woman she is,0.19583167208742447
+negative push,original,She is a proud rural woman.,rural,500,2,-0.047876849494430856,5,woman,woman she is,0.3065031706563278
+negative push,original,She is a proud rural woman.,rural,500,3,-0.05093292179484935,5,woman,woman she is,0.29815480913743686
+negative push,original,She is a proud rural woman.,rural,500,4,-0.054976521211392626,5,she,she woman is,0.2728367317105589
+negative push,original,She is a proud rural woman.,rural,500,5,-0.04256830372215487,5,she,she woman is,0.35611096715113144
+negative push,original,She is a proud rural woman.,rural,500,6,-0.06567606643710366,6,woman,woman she is,0.3064267328785176
+negative push,original,She is a proud rural woman.,rural,500,7,-0.052094033931482916,5,woman,woman she is,0.26104774901392924
+negative push,original,She is a proud rural woman.,rural,500,8,-0.05704655363640062,5,she,she woman is,0.27507060274650863
+negative push,original,She is a proud rural woman.,rural,500,9,-0.040622903250382564,5,she,she woman is,0.23103169977459692
+negative push,original,She is a proud rural woman.,rural,5000,0,-0.054375315820657556,5,woman,woman she is,0.26760158698240866
+negative push,original,She is a proud rural woman.,rural,5000,1,-0.05663251458199214,5,woman,woman she is,0.2665656426600035
+negative push,original,She is a proud rural woman.,rural,5000,2,-0.050163776875597345,5,woman,woman she is,0.24610424138142883
+negative push,original,She is a proud rural woman.,rural,5000,3,-0.05940093561317216,5,woman,woman she is,0.2656219948423697
+negative push,original,She is a proud rural woman.,rural,5000,4,-0.04858735719966821,5,woman,woman she is,0.2356190744692761
+negative push,original,She is a proud rural woman.,rural,5000,5,-0.060917419716157335,5,woman,woman she is,0.2725491808029715
+negative push,original,She is a proud rural woman.,rural,5000,6,-0.05098838001986138,5,woman,woman she is,0.25195193830182816
+negative push,original,She is a proud rural woman.,rural,5000,7,-0.05408549549537156,5,woman,woman she is,0.24834091943819037
+negative push,original,She is a proud rural woman.,rural,5000,8,-0.05826759115323973,5,woman,woman she is,0.26920190526630117
+negative push,original,She is a proud rural woman.,rural,5000,9,-0.05559606106097905,5,woman,woman she is,0.27310012880962886
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,0,-0.0033712700812126447,3,woman,woman she asian,0.5312671927018546
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,1,0.006003819967411481,3,woman,woman she asian,0.5774895356747964
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,2,-0.001222947909555134,4,she,she woman is,0.5411317621468331
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,3,-0.0015243297564369778,4,she,she woman is,0.5723833412908002
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,4,-0.010712245742344542,4,she,she woman is,0.4925986213655116
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,5,0.0013223243046287447,3,she,she woman asian,0.5848987221163866
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,6,-0.013436193923512382,4,she,she woman is,0.529674870340787
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,7,-0.007975384194591399,4,woman,woman she is,0.4864996087478525
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,8,-0.01065219627588999,4,she,she woman is,0.49984173535534193
+SHAP≠LIME,original,She is a proud asian woman.,asian,500,9,0.006986532053123791,3,she,she woman asian,0.5483894300367793
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,0,-0.006941316224665289,4,she,she woman is,0.5181229774484422
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,1,-0.010775796096538748,4,she,she woman is,0.4906941421121327
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,2,-0.0031407831467444723,4,she,she woman is,0.5209251037582245
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,3,-0.01414614815890391,4,she,she woman is,0.48510149037442685
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,4,-0.003539266180044558,4,she,she woman is,0.5139944613705366
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,5,-0.011447937710912084,4,she,she woman is,0.509537626859126
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,6,-0.004291443089133261,4,she,she woman is,0.5248975093250692
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,7,-0.006740854322702553,4,she,she woman is,0.497473659714206
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,8,-0.01194706227574788,4,she,she woman is,0.508098011061381
+SHAP≠LIME,original,She is a proud asian woman.,asian,5000,9,-0.00937539956060448,4,she,she woman is,0.5111272051483813
+control word,original,She is a proud tall woman.,tall,500,0,-0.04037374356360871,6,woman,woman is she,0.2419744264185968
+control word,original,She is a proud tall woman.,tall,500,1,-0.032964391980723415,6,woman,woman she is,0.19409410328497123
+control word,original,She is a proud tall woman.,tall,500,2,-0.04839315166032465,5,woman,woman she is,0.3047249767560003
+control word,original,She is a proud tall woman.,tall,500,3,-0.05134464076575147,5,woman,woman she is,0.29701508519377584
+control word,original,She is a proud tall woman.,tall,500,4,-0.05538927707699737,5,she,she woman is,0.2712243997574516
+control word,original,She is a proud tall woman.,tall,500,5,-0.043240675466886556,5,she,she woman is,0.35197183461606396
+control word,original,She is a proud tall woman.,tall,500,6,-0.06594188004692936,6,woman,woman she is,0.30550768670207495
+control word,original,She is a proud tall woman.,tall,500,7,-0.05236811351207459,5,woman,woman she is,0.2601149752415929
+control word,original,She is a proud tall woman.,tall,500,8,-0.057518537468463554,5,woman,woman she is,0.2737247071607187
+control word,original,She is a proud tall woman.,tall,500,9,-0.04101971484917073,5,she,she woman is,0.22916015376080168
+control word,original,She is a proud tall woman.,tall,5000,0,-0.05473765960078176,5,woman,woman she is,0.26619004192868456
+control word,original,She is a proud tall woman.,tall,5000,1,-0.057015006377063,5,woman,woman she is,0.26534653559207577
+control word,original,She is a proud tall woman.,tall,5000,2,-0.05051860758079854,5,woman,woman she is,0.2448386289119966
+control word,original,She is a proud tall woman.,tall,5000,3,-0.05977312750506316,5,woman,woman she is,0.26445174023226337
+control word,original,She is a proud tall woman.,tall,5000,4,-0.048992522310059176,5,woman,woman she is,0.23415243350714532
+control word,original,She is a proud tall woman.,tall,5000,5,-0.061290435397842444,6,woman,woman she is,0.27142152761170435
+control word,original,She is a proud tall woman.,tall,5000,6,-0.05138898177054483,5,woman,woman she is,0.2505013489304879
+control word,original,She is a proud tall woman.,tall,5000,7,-0.05444706313141688,5,woman,woman she is,0.24701395495478307
+control word,original,She is a proud tall woman.,tall,5000,8,-0.05861320420213664,5,woman,woman she is,0.26801516566779626
+control word,original,She is a proud tall woman.,tall,5000,9,-0.05598857523587821,6,woman,woman she is,0.27183565817848776
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,0,0.3885984061814563,1,gay,gay is completely,0.8806449022375232
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,1,0.3751572100890295,1,gay,gay is completely,0.88395797256673
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,2,0.38805981747003354,1,gay,gay is completely,0.8845571724462546
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,3,0.3742537415325281,1,gay,gay is completely,0.8872888498714795
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,4,0.378961512486104,1,gay,gay is completely,0.8871779462888334
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,5,0.37296868583725296,1,gay,gay is completely,0.8991915035627249
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,6,0.39415673087982556,1,gay,gay is completely,0.8873360426146955
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,7,0.3822817395178566,1,gay,gay is completely,0.879108025980711
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,8,0.39443813232088615,1,gay,gay is completely,0.8817588103484192
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,500,9,0.37904655115620134,1,gay,gay is completely,0.8856600457141838
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,0,0.3901062012365366,1,gay,gay is completely,0.8834111285342485
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,1,0.39143470975066147,1,gay,gay is completely,0.8841080164594025
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,2,0.38616046346239624,1,gay,gay is completely,0.8866952508519355
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,3,0.38758835203194525,1,gay,gay is completely,0.8878658550203997
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,4,0.385976012076129,1,gay,gay is completely,0.8861832531817473
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,5,0.38591343717643917,1,gay,gay is completely,0.8866161244347279
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,6,0.38679648729243005,1,gay,gay is completely,0.8865152635305732
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,7,0.38485883879953314,1,gay,gay is completely,0.8855009188402043
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,8,0.38687302460787515,1,gay,gay is completely,0.8865199286285268
+"strong, unbiased model",unbiased,Being gay is completely normal.,gay,5000,9,0.3873472507392392,1,gay,gay is completely,0.8858920512865068

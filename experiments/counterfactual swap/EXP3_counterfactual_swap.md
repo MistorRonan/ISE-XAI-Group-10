@@ -207,9 +207,13 @@ per_term.round(3).to_csv(f"{OUT}/exp3_debias_retest_per_term.csv")
 Markdown cell after it: *"If the share went up but the absolute SHAP value and the counterfactual effect went down, the presentation's '46% → 60%' was a side-effect of the share measure, not a sign that the unbiased model leans on the word more. Record which it is in the journal."*
 
 ### Cell 9: baseline check (how much does the removal baseline matter?)
-Three ways of "removing" a word: `"..."` (the default, already done in Cell 4), deletion `""`, and each model's own mask token (`[MASK]` for original, `<mask>` for unbiased).
+Three ways of "removing" a word: `"..."` (the default, already done in Cell 4), deletion, and each model's own mask token (`[MASK]` for original, `<mask>` for unbiased).
+
+Two shap quirks (tested on shap 0.52):
+- `mask_token=""` crashes the text masker, so deletion uses a single space `" "`.
+- Mask tokens get a trailing space (`"[MASK] "`) so they don't glue onto the next word.
 ```python
-BASELINES = {m: {"dots": "...", "delete": "", "model_mask": MODELS[m].tokenizer.mask_token} for m in MODELS}
+BASELINES = {m: {"dots": "...", "delete": " ", "model_mask": MODELS[m].tokenizer.mask_token + " "} for m in MODELS}
 print(BASELINES)
 bl_rows, term_rank = [], {}
 for m in MODELS:

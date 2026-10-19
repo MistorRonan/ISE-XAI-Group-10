@@ -98,6 +98,22 @@ def faith(ref, est):
                 mae=float(np.mean(np.abs(ref - est))))
 ```
 
+### Colour scheme (append to the end of Cell 1)
+All figures use the **same pink-and-black theme as the Exp 1 and Exp 2 figures**: white background, black text and axes, pink bars and points, grey for controls and baselines. The EXP1 spec's Cell 1 still lists the old blue/orange colours, so **paste this block after it so the new colours override them**. The values are copied from `02_identity_swap.ipynb`.
+```python
+BG, FG = "#FFFFFF", "#000000"                     # pink theme (same as Exp 1 and 2): white background, black text, pink marks
+plt.rcParams.update({"font.size": 14, "axes.titlesize": 16, "axes.labelsize": 14,
+                     "figure.facecolor": BG, "axes.facecolor": BG, "savefig.facecolor": BG,
+                     "axes.edgecolor": FG, "axes.labelcolor": FG, "text.color": FG,
+                     "xtick.color": FG, "ytick.color": FG, "legend.labelcolor": FG})
+COLORS = {"original": "#D6006F", "unbiased": "#FF8FC4", "control": "#9A8590",
+          "n500": "#A3134F", "n5000": "#FF7AB8", "err": "#333333",
+          "SHAP": "#D6006F", "LIME": "#FF8FC4", "random": "#9A8590",
+          "SHAP partition": "#D6006F", "SHAP permutation": "#7A0A3E"}
+PINK_CMAP = matplotlib.colors.LinearSegmentedColormap.from_list("pink_black", ["#FFF0F6", "#FF4FA3", "#7A0A3E"])
+```
+(`import matplotlib` first if Cell 1 doesn't already import it.) Never use matplotlib's default colours: every `plot`, `bar` and `scatter` call passes `color=COLORS[...]`, and heatmaps use `PINK_CMAP`.
+
 ### Cell 2: the Exp 2 grid (do not edit)
 Copy **EXP2 Cell 2 exactly** (same `TEMPLATES`, `TERMS`, `CONTROLS`), but save to `f"{OUT}/exp3_sentences.csv"`. Expect 190 sentences.
 

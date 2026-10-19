@@ -83,6 +83,9 @@ def drop(toks, keep_idx):
     return "".join(t for j, t in enumerate(toks) if j in keep_idx).strip()
 ```
 
+### Colour scheme (append to the end of Cell 1)
+All figures use the **same pink-and-black theme as the Exp 1 and Exp 2 figures**. Paste the colour-scheme block from [EXP3 Part 5](../counterfactual%20swap/EXP3_counterfactual_swap.md) ("Colour scheme") at the end of Cell 1. It overrides the old blue/orange colours in EXP1's Cell 1. SHAP = `COLORS["SHAP"]` (dark pink), LIME = `COLORS["LIME"]` (light pink), random = `COLORS["random"]` (grey).
+
 ### Cell 2: the sentences
 The 48 Exp 1 sentences (upload `experiments/report vs promote/data/exp1_sentences.csv`) and the 190 Exp 2 sentences (rebuild with EXP2 Cell 2's code).
 ```python
@@ -169,7 +172,7 @@ Comprehensiveness by k for SHAP, LIME and random (original model), one line each
 ```python
 fig, ax = plt.subplots(figsize=(6, 4))
 for name, g in D[D.model == "original"].groupby("explainer"):
-    s = g.groupby("k").comp.mean(); ax.plot(s.index, s.values, marker="o", label=name)
+    s = g.groupby("k").comp.mean(); ax.plot(s.index, s.values, marker="o", label=name, color=COLORS[name])
 ax.set_xlabel("k (words removed)"); ax.set_ylabel("Comprehensiveness (log-odds drop)")
 ax.set_xticks(KS); ax.legend(frameon=False); ax.spines[["top","right"]].set_visible(False)
 fig.tight_layout(); fig.savefig(f"{OUT}/fig_exp5_comprehensiveness.png", dpi=300)

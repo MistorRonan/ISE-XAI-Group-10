@@ -86,6 +86,9 @@ from math import factorial
 DELETE_MASKER = shap.maskers.Text(word_tokenizer, mask_token="")   # 'removed' = deleted, matching the exact game below
 ```
 
+### Colour scheme (append to the end of Cell 1)
+Any figure from this experiment (including backup charts for the journal) uses the **same pink-and-black theme as the Exp 1 and Exp 2 figures**. Paste the colour-scheme block from [EXP3 Part 5](../counterfactual%20swap/EXP3_counterfactual_swap.md) ("Colour scheme") at the end of Cell 1. It overrides the old blue/orange colours in EXP1's Cell 1. Every `plot`, `bar` and `scatter` call passes `color=COLORS[...]` (e.g. `COLORS["SHAP partition"]`, `COLORS["SHAP permutation"]`, `COLORS["LIME"]`), and heatmaps use `PINK_CMAP`.
+
 ### Cell 2: data (Civil Comments)
 100,000 training comments and 5,000 test comments, sampled with the fixed seed. "Toxic" = toxicity ≥ 0.5.
 ```python

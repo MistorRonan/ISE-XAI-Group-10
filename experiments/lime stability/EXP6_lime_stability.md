@@ -76,6 +76,9 @@ SEEDS = list(range(10)); SAMPLE_SIZES = [500, 5000]
 CKPT = f"{OUT}/exp6_lime_runs.csv"     # one row per (sentence, n, seed); reused if the notebook is restarted
 ```
 
+### Colour scheme (append to the end of Cell 1)
+All figures use the **same pink-and-black theme as the Exp 1 and Exp 2 figures**. Paste the colour-scheme block from [EXP3 Part 5](../counterfactual%20swap/EXP3_counterfactual_swap.md) ("Colour scheme") at the end of Cell 1. It overrides the old blue/orange colours in EXP1's Cell 1. 500 samples = `COLORS["n500"]` (dark pink) and 5000 samples = `COLORS["n5000"]` (light pink), the same as the slide 8 and slide 13 charts.
+
 ### Cell 2: the sentences
 Same as EXP5 Cell 2: the 48 Exp 1 sentences (upload `exp1_sentences.csv`) + the 190 Exp 2 sentences, with `source` and `group` columns. Keep the Exp 2 `term` column so Cell 6 can join with Exp 3.
 ```python
@@ -175,7 +178,7 @@ Markdown note after it: *"AUC 0.5 = no better than guessing; above about 0.7 = a
 x = signal strength, y = instability (1 − rank stability), one dot per sentence, two colours (500 and 5000 samples), log scale on x if the values spread over orders of magnitude. Size it for one IEEE column.
 ```python
 fig, ax = plt.subplots(figsize=(3.5, 2.8))
-for n, c in [(500, COLORS.get("n500", "#D55E00")), (5000, COLORS.get("n5000", "#009E73"))]:
+for n, c in [(500, COLORS["n500"]), (5000, COLORS["n5000"])]:
     d = ST[ST.n == n]
     ax.scatter(d.signal, 1 - d.rank_stability, s=8, alpha=0.6, color=c, label=f"{n} samples")
 ax.set_xscale("symlog"); ax.set_xlabel("Signal strength |logit − base| (log-odds)", fontsize=8)

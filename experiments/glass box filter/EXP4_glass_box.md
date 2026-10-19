@@ -83,7 +83,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 from math import factorial
-DELETE_MASKER = shap.maskers.Text(word_tokenizer, mask_token="")   # 'removed' = deleted, matching the exact game below
+DELETE_MASKER = shap.maskers.Text(word_tokenizer, mask_token=" ")  # 'removed' = deleted, matching the exact game below
+                                                                    # (a space, because mask_token="" crashes shap 0.52)
 ```
 
 ### Colour scheme (append to the end of Cell 1)

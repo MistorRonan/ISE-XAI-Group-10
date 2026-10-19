@@ -1,0 +1,5 @@
+,original,unbiased
+share_of_|SHAP| (presentation measure),0.45648910958780364,0.5998229764481077
+mean phi_term (log-odds),3.5265642755606237,3.99895703209348
+mean SHAP estimate (log-odds),4.160989370499535,3.8383740181131727
+mean counterfactual effect (log-odds),3.3642048977862324,3.5959971142892044

@@ -139,6 +139,8 @@ print(coefs.round(3)); coefs.to_csv(f"{OUT}/exp4_identity_coefs.csv", index=Fals
 
 ### Cell 6: the sentences to explain
 The 238 template sentences (Exp 1's 48 from `experiments/report vs promote/data/exp1_sentences.csv` + Exp 2's 190, rebuilt with EXP2 Cell 2's code), plus 200 real test comments with 5–14 words (100 toxic, 100 non-toxic).
+
+> **Changed after the first Colab run:** the 200 real comments are drawn from the **full** test split (`ds["test"]`, about 97k comments), not the 5,000-comment `test` sample. That sample has only 73 toxic comments of 5–14 words (779 non-toxic), so `.sample(100)` crashed. The seed, the word-count filter and the 100/100 balance are unchanged, and Cell 4's AUC still uses the 5k sample.
 ```python
 exp1 = pd.read_csv("exp1_sentences.csv")             # upload from experiments/report vs promote/data/
 TEMPLATES = ["I am a {} person.", "My neighbour is {} and she is lovely.",
@@ -147,8 +149,9 @@ TEMPLATES = ["I am a {} person.", "My neighbour is {} and she is lovely.",
              "We hired a {} engineer last week.", "She is a proud {} woman.",
              "He is {} and works as a teacher.", "Our new {} classmate joined the team."]
 exp2 = [t.format(w) for t in TEMPLATES for w in TERMS + CONTROLS]
-nw = test.text.str.findall(r"\w+").str.len()
-real = pd.concat([test[(nw.between(5, 14)) & (test.label == y)].sample(100, random_state=SEED) for y in (0, 1)])
+full = ds["test"].to_pandas(); full["label"] = (full.toxicity >= 0.5).astype(int)   # full test split: the 5k sample has only 73 short toxic comments
+nw = full.text.str.findall(r"\w+").str.len()
+real = pd.concat([full[(nw.between(5, 14)) & (full.label == y)].sample(100, random_state=SEED) for y in (0, 1)])
 S = pd.DataFrame({"text": list(exp1.text) + exp2 + list(real.text),
                   "source": ["exp1"] * len(exp1) + ["exp2"] * len(exp2) + ["real"] * len(real)})
 S["n_tokens"] = [len(word_tokenizer(t)["input_ids"]) for t in S.text]
@@ -269,9 +272,24 @@ Print a short checklist reminding the user to:
 - **IV-B text:** *"On a transparent filter, SHAP's Partition approximation recovers exact Shapley values with median ρ = [X] (MAE [Y] log-odds), but agreement falls on high-interaction sentences ([Z]). LIME's top word matches the exact one in [W]% of runs."*
 - **V (Rudin):** *"The transparent filter reaches AUC [A] vs Detoxify's [B] on the same comments, and its coefficients show identity-term bias directly ([N]/15 identity words have positive weights)."*
 
+### Filled in with the results (2026-10-20 run)
+The sentences above, with the numbers from the Colab run in `results/outputs_exp4/`. The IV-B sentence is reworded, because agreement barely falls on high-interaction sentences.
+- **III-A:** *"The transparent filter, a logistic regression on binary word and word-pair counts trained on 100,000 Civil Comments, reaches AUC 0.892 on 5,000 held-out comments (0.897 with single words only), against 0.928 for Detoxify `original` and 0.971 for `unbiased`."*
+- **Table I, column "vs exact Shapley":** SHAP Partition ρ 0.993 / MAE 0.022; SHAP Permutation ρ 0.991 / MAE 0.023; LIME ρ 0.991 (no MAE, because LIME works in probability).
+- **IV-B text:** *"On a transparent filter, SHAP's Partition approximation recovers exact Shapley values with median ρ = 0.993 (MAE 0.022 log-odds). Agreement drops only slightly on high-interaction sentences (ρ 0.986, MAE 0.026, vs 1.000 and 0.019 on low-interaction ones). LIME's top word matches the exact one in 96% of runs, and that match changes across seeds for only 4% of sentences."*
+- **V (Rudin):** *"The transparent filter reaches AUC 0.892 vs Detoxify's 0.928 (0.971 for `unbiased`, which was trained on this dataset) on the same comments, and its coefficients show identity-term bias directly: 14/15 identity words have positive weights, while all four control words are negative."*
+
+Points to keep in mind when reporting:
+- **Sanity checks passed:** the single-word filter's SHAP vs exact MAE is 6.81e-17, which is zero to floating-point precision. All 22 null-player words get exactly 0 from SHAP Partition.
+- **Top-1 agreement isn't 100% even though ρ is about 1** (SHAP Partition 96.1%). The likely cause is near-ties between words. This is unverified, because per-word values aren't saved.
+- **High-interaction top-1 is higher than low-interaction** (0.973 vs 0.950). Don't give a cause for this; the data doesn't show one.
+- **LIME is stable on this filter** (4% seed flips). This suggests Exp 6's instability comes more from Detoxify than from LIME itself.
+- **Word pairs slightly lower the AUC** (0.892 vs 0.897), so they add interactions but not accuracy.
+
 ## Part 8: Limitations to state
 - It's our own filter, not one used in a real pipeline (though Gururangan's quality filter is also linear).
 - Exact Shapley depends on the removal choice (we delete words). With a different baseline, the "exact" answer would be different. That's the same point Exp 3's baseline check makes.
 - Detoxify `unbiased` was trained on Civil Comments, so the AUC comparison favours it.
+- The 200 real comments come from the full test split, while the AUC uses a 5,000-comment sample of it. Short toxic comments are rare (73 in the 5k sample), so the 100/100 balance over-represents toxic comments compared with real data.
 - Sentences are capped at 16 tokens, because exact enumeration doubles in cost with every extra word.
 - SHAP's Partition explainer computes Owen values (a grouped version of Shapley), so a small mismatch with exact Shapley under interactions is expected by design. Say this when reporting the numbers.

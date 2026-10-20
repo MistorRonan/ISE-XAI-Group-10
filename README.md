@@ -12,18 +12,33 @@ We test whether SHAP and LIME can fill that gap. They can show which words drive
 
 **Team:** Julia Hooper · Blaithin Kavanagh · Rory Linnane · April Gilhool
 
+---
 
+## Paper
+
+**Do Attributions Tell the Truth About Data Filters? Measuring the Faithfulness of SHAP and LIME in Identity-Term Bias Audits**
+
+**Thesis:** feature attribution is faithful enough to flag identity-term bias in a pretraining filter, but not reliable enough to certify the filter is fair.
+
+- **Latest draft:** none yet. Snapshots go in [paper/drafts/](paper/drafts/).
+- **Live build:** every push to `paper/` builds the PDF. Go to the Actions tab → *Build paper* → latest run → *paper-pdf*.
+- **LaTeX source and how to contribute:** [paper/](paper/). Read [paper/README.md](paper/README.md) first.
+- **Plan (what goes in each section):** [team meetings/2026-10-18-paper-plan.md](team%20meetings/2026-10-18-paper-plan.md)
 
 ---
 
 ## Experiments
 
-Both notebooks run on **Google Colab with a T4 GPU** (Runtime → Change runtime type → T4 GPU). Each folder has the spec, the notebook and the saved results.
+All notebooks run on **Google Colab with a T4 GPU** (Runtime → Change runtime type → T4 GPU). Each folder has the spec, the notebook and the saved results. Exp 1 and 2 were for the presentation; Exp 3–6 are for the paper.
 
 | Experiment | Question | Spec | Notebook | Results |
 |---|---|---|---|---|
 | **1. Report vs promote** | Does the filter react to the insult words or to the intent? Same insult in sentences that promote, report, or argue against abuse. | [EXP1 spec](experiments/report%20vs%20promote/EXP1_report_vs_promote.md) | [01_report_vs_promote.ipynb](experiments/report%20vs%20promote/01_report_vs_promote.ipynb) | [results/](experiments/report%20vs%20promote/results/) |
 | **2. Identity-term swap** | Does the group word alone push a harmless sentence toward removal? E.g. "My best friend is gay" vs "…is tall". | [EXP2 spec](experiments/identity%20term%20swap/EXP2_identity_swap.md) | [02_identity_swap.ipynb](experiments/identity%20term%20swap/02_identity_swap.ipynb) | [results/](experiments/identity%20term%20swap/results/) |
+| **3. Counterfactual swap** | Does SHAP's number for the identity word match what swapping that word actually does to the score? Plus: does the choice of removal baseline matter? | [EXP3 spec](experiments/counterfactual%20swap/EXP3_counterfactual_swap.md) | [03_counterfactual_swap.ipynb](experiments/counterfactual%20swap/03_counterfactual_swap.ipynb) | [results/](experiments/counterfactual%20swap/results/) |
+| **4. Glass-box filter** | On a transparent filter whose exact Shapley values we can compute, do SHAP and LIME recover them? | [EXP4 spec](experiments/glass%20box%20filter/EXP4_glass_box.md) | to do | to do |
+| **5. Deletion test** | If we delete the words SHAP/LIME blame, does the score drop more than when deleting random words? | [EXP5 spec](experiments/deletion%20test/EXP5_deletion.md) | to do | to do |
+| **6. LIME stability** | Is LIME least stable on weak signals, and can its R² or SHAP–LIME disagreement warn an auditor? | [EXP6 spec](experiments/lime%20stability/EXP6_lime_stability.md) | [06_lime_stability.ipynb](experiments/lime%20stability/06_lime_stability.ipynb) | running |
 
 
 ---
@@ -34,8 +49,9 @@ Both notebooks run on **Google Colab with a T4 GPU** (Runtime → Change runtime
 |---|---|
 | [journal/daily notes/](journal/daily%20notes/) | Source reviews (one per paper) and daily notes |
 | [journal/weekly recaps/](journal/weekly%20recaps/) | Weekly summaries of decisions and sources |
-| [team meetings/](team%20meetings/) | Meeting minutes and the [presentation slide plan](team%20meetings/2026-10-06-slide-plan.md) |
+| [team meetings/](team%20meetings/) | Meeting minutes, the [presentation slide plan](team%20meetings/2026-10-06-slide-plan.md) and the [paper plan](team%20meetings/2026-10-18-paper-plan.md) |
 | [experiments/](experiments/) | Experiment specs, notebooks and results (see above) |
+| [paper/](paper/) | LaTeX source of the paper (one file per section), references, figures and dated draft PDFs |
 | [presentation/](presentation/) | Figures used in the slides |
 
 ### Templates

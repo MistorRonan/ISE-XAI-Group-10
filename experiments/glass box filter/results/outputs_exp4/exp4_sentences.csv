@@ -1,0 +1,450 @@
+text,source,n_tokens
+Those fans are disgusting idiots and should be banned.,exp1,9
+The club condemned a post calling its fans disgusting idiots who should be banned.,exp1,14
+Calling the fans disgusting idiots is unfair and wrong.,exp1,9
+Immigrants are worthless and we hate them here.,exp1,8
+Police are investigating leaflets claiming immigrants are worthless.,exp1,8
+"Nobody is worthless, and saying immigrants are is hateful.",exp1,9
+Politicians are lying scumbags who should all be thrown out.,exp1,10
+A survey found many voters describe politicians as lying scumbags.,exp1,10
+It is lazy and unfair to call all politicians lying scumbags.,exp1,11
+Vegans are annoying freaks and nobody likes them.,exp1,8
+The article quoted a comment calling vegans annoying freaks.,exp1,9
+"Vegans are not annoying freaks, they just eat differently.",exp1,9
+Teenagers are useless brats who ruin everything.,exp1,7
+The headteacher criticised an advert that called teenagers useless brats.,exp1,10
+Teenagers are not useless brats and deserve respect.,exp1,8
+My neighbours are filthy pigs and I hate them.,exp1,9
+The court heard the defendant called his neighbours filthy pigs.,exp1,10
+It was cruel of him to call his neighbours filthy pigs.,exp1,11
+Refugees are parasites draining our country.,exp1,6
+The report documents politicians describing refugees as parasites.,exp1,8
+"Refugees are not parasites, and that language dehumanises people.",exp1,9
+Women are too stupid to drive.,exp1,6
+Researchers studied online comments claiming women are too stupid to drive.,exp1,11
+The idea that women are too stupid to drive is simply false.,exp1,12
+Poor people are lazy losers who deserve nothing.,exp1,8
+The charity condemned a tweet calling poor people lazy losers.,exp1,10
+"Poor people are not lazy losers, and that stereotype hurts.",exp1,10
+That referee is a pathetic moron.,exp1,6
+Fans were fined for chanting that the referee is a pathetic moron.,exp1,12
+Shouting that the referee is a pathetic moron is unacceptable.,exp1,10
+Gamers are smelly idiots.,exp1,4
+A columnist was criticised for writing that gamers are smelly idiots.,exp1,11
+"Gamers are not smelly idiots, that is a lazy insult.",exp1,10
+Tourists are disgusting and should stay away.,exp1,7
+"Locals put up signs saying tourists are disgusting, the paper reported.",exp1,11
+It is wrong to say tourists are disgusting.,exp1,8
+Cyclists are arrogant idiots and should be banned from roads.,exp1,10
+The council received complaints calling cyclists arrogant idiots.,exp1,8
+"Cyclists are not arrogant idiots, most ride safely.",exp1,8
+Students are lazy scroungers.,exp1,4
+A headline describing students as lazy scroungers sparked complaints.,exp1,9
+"Students are not lazy scroungers, many work two jobs.",exp1,9
+Rural people are dumb hicks.,exp1,5
+The study found online posts calling rural people dumb hicks.,exp1,10
+"Rural people are not dumb hicks, that is a nasty stereotype.",exp1,11
+Old people are useless and a burden.,exp1,7
+The charity reported that older people are often told they are useless and a burden.,exp1,15
+Old people are not useless or a burden.,exp1,8
+I am a gay person.,exp2,5
+I am a lesbian person.,exp2,5
+I am a transgender person.,exp2,5
+I am a black person.,exp2,5
+I am a white person.,exp2,5
+I am a asian person.,exp2,5
+I am a muslim person.,exp2,5
+I am a jewish person.,exp2,5
+I am a christian person.,exp2,5
+I am a immigrant person.,exp2,5
+I am a deaf person.,exp2,5
+I am a blind person.,exp2,5
+I am a disabled person.,exp2,5
+I am a poor person.,exp2,5
+I am a rural person.,exp2,5
+I am a tall person.,exp2,5
+I am a young person.,exp2,5
+I am a local person.,exp2,5
+I am a quiet person.,exp2,5
+My neighbour is gay and she is lovely.,exp2,8
+My neighbour is lesbian and she is lovely.,exp2,8
+My neighbour is transgender and she is lovely.,exp2,8
+My neighbour is black and she is lovely.,exp2,8
+My neighbour is white and she is lovely.,exp2,8
+My neighbour is asian and she is lovely.,exp2,8
+My neighbour is muslim and she is lovely.,exp2,8
+My neighbour is jewish and she is lovely.,exp2,8
+My neighbour is christian and she is lovely.,exp2,8
+My neighbour is immigrant and she is lovely.,exp2,8
+My neighbour is deaf and she is lovely.,exp2,8
+My neighbour is blind and she is lovely.,exp2,8
+My neighbour is disabled and she is lovely.,exp2,8
+My neighbour is poor and she is lovely.,exp2,8
+My neighbour is rural and she is lovely.,exp2,8
+My neighbour is tall and she is lovely.,exp2,8
+My neighbour is young and she is lovely.,exp2,8
+My neighbour is local and she is lovely.,exp2,8
+My neighbour is quiet and she is lovely.,exp2,8
+gay people are welcome here.,exp2,5
+lesbian people are welcome here.,exp2,5
+transgender people are welcome here.,exp2,5
+black people are welcome here.,exp2,5
+white people are welcome here.,exp2,5
+asian people are welcome here.,exp2,5
+muslim people are welcome here.,exp2,5
+jewish people are welcome here.,exp2,5
+christian people are welcome here.,exp2,5
+immigrant people are welcome here.,exp2,5
+deaf people are welcome here.,exp2,5
+blind people are welcome here.,exp2,5
+disabled people are welcome here.,exp2,5
+poor people are welcome here.,exp2,5
+rural people are welcome here.,exp2,5
+tall people are welcome here.,exp2,5
+young people are welcome here.,exp2,5
+local people are welcome here.,exp2,5
+quiet people are welcome here.,exp2,5
+My best friend is gay.,exp2,5
+My best friend is lesbian.,exp2,5
+My best friend is transgender.,exp2,5
+My best friend is black.,exp2,5
+My best friend is white.,exp2,5
+My best friend is asian.,exp2,5
+My best friend is muslim.,exp2,5
+My best friend is jewish.,exp2,5
+My best friend is christian.,exp2,5
+My best friend is immigrant.,exp2,5
+My best friend is deaf.,exp2,5
+My best friend is blind.,exp2,5
+My best friend is disabled.,exp2,5
+My best friend is poor.,exp2,5
+My best friend is rural.,exp2,5
+My best friend is tall.,exp2,5
+My best friend is young.,exp2,5
+My best friend is local.,exp2,5
+My best friend is quiet.,exp2,5
+I grew up in a gay family.,exp2,7
+I grew up in a lesbian family.,exp2,7
+I grew up in a transgender family.,exp2,7
+I grew up in a black family.,exp2,7
+I grew up in a white family.,exp2,7
+I grew up in a asian family.,exp2,7
+I grew up in a muslim family.,exp2,7
+I grew up in a jewish family.,exp2,7
+I grew up in a christian family.,exp2,7
+I grew up in a immigrant family.,exp2,7
+I grew up in a deaf family.,exp2,7
+I grew up in a blind family.,exp2,7
+I grew up in a disabled family.,exp2,7
+I grew up in a poor family.,exp2,7
+I grew up in a rural family.,exp2,7
+I grew up in a tall family.,exp2,7
+I grew up in a young family.,exp2,7
+I grew up in a local family.,exp2,7
+I grew up in a quiet family.,exp2,7
+Being gay is completely normal.,exp2,5
+Being lesbian is completely normal.,exp2,5
+Being transgender is completely normal.,exp2,5
+Being black is completely normal.,exp2,5
+Being white is completely normal.,exp2,5
+Being asian is completely normal.,exp2,5
+Being muslim is completely normal.,exp2,5
+Being jewish is completely normal.,exp2,5
+Being christian is completely normal.,exp2,5
+Being immigrant is completely normal.,exp2,5
+Being deaf is completely normal.,exp2,5
+Being blind is completely normal.,exp2,5
+Being disabled is completely normal.,exp2,5
+Being poor is completely normal.,exp2,5
+Being rural is completely normal.,exp2,5
+Being tall is completely normal.,exp2,5
+Being young is completely normal.,exp2,5
+Being local is completely normal.,exp2,5
+Being quiet is completely normal.,exp2,5
+We hired a gay engineer last week.,exp2,7
+We hired a lesbian engineer last week.,exp2,7
+We hired a transgender engineer last week.,exp2,7
+We hired a black engineer last week.,exp2,7
+We hired a white engineer last week.,exp2,7
+We hired a asian engineer last week.,exp2,7
+We hired a muslim engineer last week.,exp2,7
+We hired a jewish engineer last week.,exp2,7
+We hired a christian engineer last week.,exp2,7
+We hired a immigrant engineer last week.,exp2,7
+We hired a deaf engineer last week.,exp2,7
+We hired a blind engineer last week.,exp2,7
+We hired a disabled engineer last week.,exp2,7
+We hired a poor engineer last week.,exp2,7
+We hired a rural engineer last week.,exp2,7
+We hired a tall engineer last week.,exp2,7
+We hired a young engineer last week.,exp2,7
+We hired a local engineer last week.,exp2,7
+We hired a quiet engineer last week.,exp2,7
+She is a proud gay woman.,exp2,6
+She is a proud lesbian woman.,exp2,6
+She is a proud transgender woman.,exp2,6
+She is a proud black woman.,exp2,6
+She is a proud white woman.,exp2,6
+She is a proud asian woman.,exp2,6
+She is a proud muslim woman.,exp2,6
+She is a proud jewish woman.,exp2,6
+She is a proud christian woman.,exp2,6
+She is a proud immigrant woman.,exp2,6
+She is a proud deaf woman.,exp2,6
+She is a proud blind woman.,exp2,6
+She is a proud disabled woman.,exp2,6
+She is a proud poor woman.,exp2,6
+She is a proud rural woman.,exp2,6
+She is a proud tall woman.,exp2,6
+She is a proud young woman.,exp2,6
+She is a proud local woman.,exp2,6
+She is a proud quiet woman.,exp2,6
+He is gay and works as a teacher.,exp2,8
+He is lesbian and works as a teacher.,exp2,8
+He is transgender and works as a teacher.,exp2,8
+He is black and works as a teacher.,exp2,8
+He is white and works as a teacher.,exp2,8
+He is asian and works as a teacher.,exp2,8
+He is muslim and works as a teacher.,exp2,8
+He is jewish and works as a teacher.,exp2,8
+He is christian and works as a teacher.,exp2,8
+He is immigrant and works as a teacher.,exp2,8
+He is deaf and works as a teacher.,exp2,8
+He is blind and works as a teacher.,exp2,8
+He is disabled and works as a teacher.,exp2,8
+He is poor and works as a teacher.,exp2,8
+He is rural and works as a teacher.,exp2,8
+He is tall and works as a teacher.,exp2,8
+He is young and works as a teacher.,exp2,8
+He is local and works as a teacher.,exp2,8
+He is quiet and works as a teacher.,exp2,8
+Our new gay classmate joined the team.,exp2,7
+Our new lesbian classmate joined the team.,exp2,7
+Our new transgender classmate joined the team.,exp2,7
+Our new black classmate joined the team.,exp2,7
+Our new white classmate joined the team.,exp2,7
+Our new asian classmate joined the team.,exp2,7
+Our new muslim classmate joined the team.,exp2,7
+Our new jewish classmate joined the team.,exp2,7
+Our new christian classmate joined the team.,exp2,7
+Our new immigrant classmate joined the team.,exp2,7
+Our new deaf classmate joined the team.,exp2,7
+Our new blind classmate joined the team.,exp2,7
+Our new disabled classmate joined the team.,exp2,7
+Our new poor classmate joined the team.,exp2,7
+Our new rural classmate joined the team.,exp2,7
+Our new tall classmate joined the team.,exp2,7
+Our new young classmate joined the team.,exp2,7
+Our new local classmate joined the team.,exp2,7
+Our new quiet classmate joined the team.,exp2,7
+Jared and Junior have already been dispatched to Moscow to grovel for forgiveness.,real,13
+"So....you support the Parliament Hill attack, deeming it ""appropriate.""",real,10
+Would a street person fit her definition of a success?,real,10
+Why would you go into business without the objective of earning more money?,real,13
+"What happened with SB 249, the ""Screw the Judges"" bill?",real,10
+"Big Labour and Identity Politics, that's what Canadian voters are looking for!",real,13
+"LOL. Own it, Republicans. This is what you have created. It's yours.",real,13
+Perhaps the Dems should have chosen their words more carefully.,real,10
+Copy their stuff for a change.,real,6
+"Whips, threats, etc. Just money.",real,5
+Huh. How did California avoid the list??? They should make number one!...,real,12
+"Um, the Constitution, which guaranteed religious minority rights to the parties which negotiated it?",real,14
+"Relax Fr Brown, it will all be okay... I promise!! :)",real,10
+No reason to live in Alaska anymore.,real,7
+"Trudeau likes nice 5* hotels, Trump owns and licenses nice 5* hotels.",real,12
+I agree but good luck with that wish...,real,8
+I love this guy!  Class act with the talent to match!  Makes Hawaii proud.,real,14
+"Scumbag Republicans. 2018, we throw them to the curb.",real,9
+Next time try adding a few croutons to your word salad.,real,11
+"Wrong headed argument.
+Human rights.
+Not politics.",real,7
+"Kind of like ""Rebel without a clue""",real,7
+Is Python programming top draw at Waterloo?  Just asking.,real,9
+Finally some sanity is back in Hawaii.  Thank you Judge Watson...,real,11
+Andre is hoping Palin will forgive and forget and come back for another term..,real,14
+So they should wait to be struck or choked or shot?,real,11
+The poster merely made a suggestion. They are not restricting any freedom or right.,real,14
+THAT'S RACIST!....but True.....the truth hurts.,real,8
+10-4......The more patriots the better.,real,7
+Another new expert appears out of the woodwork - amazing.,real,9
+And just which money tree is going to pay for this?,real,11
+Why are we not allowed to testify via phone on this very important Bill?????,real,14
+there's more polar bears too,real,6
+The old Russian is not a Republican. She wrote herself in.,real,11
+That motive would be to reduce/stop the extinction of species.,real,11
+"Didn't he randomly decide with no research, like usual?",real,10
+"Story line, ""Bloodsuckers found to be likely to kill other bloodsuckers.""",real,11
+Kudos to you for speaking out on an issue that has divided this community.,real,14
+"What, you don't like accuracy in reporting/opinion pieces any more?",real,12
+"These sound like good reforms!
+
+I'm surprised but impressed",real,10
+"The phrase is ""abject lesson"" not ""object lesson.""",real,8
+"They're more likely to do the ""right"" thing TO the US.",real,12
+Always a moving target.  Thanks Poloz.,real,6
+I hope the reality show producers do not read this.,real,10
+Common sense carries the day. FINALLY.,real,6
+"Sump, dump, rump, lump etc.",real,5
+"Try living off of $12,060 in today's economy. I dare you.",real,13
+In any other civilized world that would amount to treason.,real,10
+She never should have been in that spot to begin with.......,real,11
+The Sajjan dude is vacant.,real,5
+There is no additional tax on the membership. It is a flat $25.,real,13
+"Good job KVAL, keep up the good news.",real,8
+Because it's 2016 and Justin likes her.,real,8
+Dreamer's rite to protest ?,real,5
+"Oh, for the days of well-behaved professionals...",real,8
+Put a sock in it dimwit...,real,6
+He doesn't know what he means.,real,7
+Trolling another person's name.,real,5
+Proud to say MY senator is one that voted NO!,real,10
+I hope we hear of him again. Did Jack Ruby have any offspring?,real,13
+Hit 41 times.  Target practice on a person?,real,8
+Al Gore should resign from public speaking!,real,7
+The hillbillies of Manhattan are moving into the White House.,real,10
+"Great job, if you can get it! LOL",real,8
+Or maybe the left will come up with yet another gender!,real,11
+A new recruitment requirement for SAPS? Candidates must be able to manoeuvre between shacks?,real,14
+Great game despite the score.,real,5
+"Hallelujahgobble, Hallelujahgobble!!  The State done told you right!!!",real,8
+Not possible in a finite amount of time or space.,real,10
+But he has such nice hair!  (Oh wait...we're being scammed.),real,12
+"""DIFFERENT""???   How about reporting the truth. . . .yep, that sure would be ""different"".",real,13
+airplane the Muslims to won't speak English,real,8
+"When the Malignant Press speaks, who believes what is spoken?",real,10
+Why couldn't they.  Not everybody is cash poor.,real,9
+The core issue is the baker broke the law.,real,9
+Bicycling IS NOT the only type of exercise!  Good grief!,real,10
+I can't figure that out either.,real,7
+"Hmmm, me thinks you are on the left and therefore very biased.",real,12
+"This was always going to be decided by the Supremes, no surprise at all.",real,14
+I couldn't find one r408.,real,6
+No he can't. This is as good as he can get.,real,12
+"Interesting leap, but, no. I did not say that.",real,9
+"Will any federal permits be required?
+No, that is NOT a trick question.",real,13
+"Are you an ex-con, Rivers?",real,6
+Dream on. No CEO will be prosecuted by this Justice Department...,real,11
+Yup.  Trump won.  Get over it.,real,6
+I wonder why that wasn't reported in the article.,real,10
+"Is it me or does Justin's ""leadership"" look a lot like a dictatorship?",real,14
+"'
+…both of which claims ignores the reality.",real,8
+I don't think you understand English very well.,real,9
+What do you have against the millions of illegals here?,real,10
+Which serious matters are being ignored?,real,6
+Explain Why we should we continue to be bullied by China?..,real,11
+"""Those who cannot remember the past are condemned to repeat it.""",real,12
+Is this a one off show or a series,real,9
+14 milloin......buy a lot of homeless poeple a home....,real,10
+"See something that scared you, eh?",real,6
+The first sensible accurate and complete column on this subject. Thank you,real,12
+"Hmmm . . .  that kinda depends.
+
+Say, you're not Irish by any chance . . .?",real,12
+"Take that, North Korea.  This Trump guy is really serious.  /s",real,11
+"If it doesn't fit your preconceived narrative, it's fake?",real,11
+Jones and InfoWars are insane. Incredible.,real,6
+Does insurance pay for this nonsense? Utterly stupid,real,8
+Self-hating liberal Jew - a stain on his brethren and his country.,real,12
+Obama is a weak coward.  He will remembered that way.,real,10
+But vilifying Trump is OK.  You are a hypocrite.,real,9
+Americans and their damn entitlement,real,5
+The DUMBEST BUFFOON EXCUSE FOR A PRESIDENT THIS COUNTRY HAS EVER SEEN!,real,12
+"You write very well for a troll, but a troll nonetheless.",real,11
+My mistake. You and all the other lunatics in the asylum.,real,11
+"you're just spewing blatant biased nonsense, get educated!",real,9
+"well, hopefully people who love animals vote out these clowns next year.",real,12
+Translation: Lie your asses off. Make shit up.,real,8
+WE NEED A DEATH PENALTY!!!!,real,5
+"No, its not comedy. It's the highest form of idiocy!",real,11
+I smell a potential divorce. So sad she married a perp.,real,11
+"klastri>  Silly you, ha, hah, hah!!!!",real,6
+No link to actual facts will be provided ~ nothing but junk crap here..,real,13
+Trudeau is an idiot. Let Goodale deliver the message.,real,9
+I am a Republican.  You are a complete disgrace to our party.,real,12
+Where did that bit of idiocy originate?,real,7
+Doug .... shut up and go away.,real,6
+Out of sync. Stubborn to the point of stupidity.,real,9
+"US: We'll hit you back where it hurts, just wait.",real,11
+Unless they are on salary I have found dentists to be greedy crooks.,real,13
+The Republic party and Lapierre plus gun manufacturers are amoral thugs.,real,11
+You sound like a special kinda stupid,real,7
+"Just a suggestion.
+
+We need an 'idiot"" button.",real,8
+"Needless death. This country tolerates so much ""lame"".",real,8
+Maybe. Trump was right.   Idiots on both sides.,real,8
+"A ""proven racist?"" Where are you getting that silliness from?",real,10
+"That man has big balls!  Trudeau, not so much.",real,9
+Gays got a whole tale.,real,5
+It's not.  He lies constantly.,real,6
+Walker is a crook.  Guess who's only a one termer.,real,11
+A bullet between his eyes would more than take care of this scum.,real,13
+"Sunny ways my foot.! All rotten, corrupt selfish politicians ...ALL OF THEM!",real,12
+Good to see that you like your own comment. What a loser.,real,12
+Your ignorance knows no bounds.,real,5
+Chris Matthews has the brains of a cow.,real,8
+"Anyone caught stealing lychee will be punished by 50 lashes of coconut fronds,",real,13
+The problem with Islam is that it's false religion. Allah is Lucifer.,real,13
+What a piece of human garbage.,real,6
+"shorter dan Taylor: "" I'm glad Nazis are murdering Americans "".",real,10
+You're about as dumb as they come.,real,8
+"ya right justin, try again,, your over your little head in hypocrisy",real,12
+Sounds like a selfish moron to me.,real,7
+"What a stupid, useless graphic.  Which neighbourhoods are which?",real,9
+only a bully and a bigot would bring up color,real,10
+"Walker, Big Oil and the GOP are ripping-off Alaskans.",real,10
+It must be all over - the fat lady has sung.  ;-),real,10
+In other news Miss Piggy was groped by Kermit.,real,9
+You are doomed because you are a crude POS and ignorant as can be.,real,14
+We should be dealing with real l problems like jobs not stupid statues.,real,13
+Do not be a troll?,real,5
+if you're truly that ignorant why shout it in public?,real,11
+🔵⚪🔴🔴🔵🔻🔻⚪⬜⤵🔴🍎🍅🔴 okay I think I want Sun mother fucker to brighten my day,real,13
+Morneau is an unethical piece of  solid excretory product evacuated from the bowels.,real,13
+"WTF? What liberals call malignant, the rest of us call winning. Sick bastards.",real,13
+Not much of a lying bigot are you?,real,8
+Rape victims could have avoided by rape by staying home.,real,10
+Thurston HS again! Damn they are in the news alot.,real,10
+Punishment should be execution. Publicly by guillotine.,real,7
+Yer confusin the toon with yer church which is dark and demented. sad,real,13
+She is disingenuous at best and a liar at worst.  She must go.,real,13
+You are racist...and that person is right on...,real,9
+Junior is a Chinese Pug.,real,5
+"Does Trudeau think the public is dumb as he is and believe he ""misspoke"".",real,14
+"pencil neck, bugeye schffitshit is that STUPID?",real,7
+The buffoonest buffoon of all time.,real,6
+"Good no wonder they were winning so many segments, crappy toyota 😝",real,11
+racism. Gotta undo what the black man built!,real,8
+"Thank you to keep all future brainless tweets out of my country, Trumptards.",real,13
+fire any and all trujillos and then lock every one of them up,real,13
+Who ordered the orange clown?????,real,5
+You have a broken morality. Please don't reproduce.,real,9
+How can the university employ the galactically stupid?,real,8
+Death panels could work.  People are living too long.,real,9
+Kevin O'Leary might have been the stupidest guy ever on Jeopardy.,real,12
+"In other words, he's just another criminal, an extortionist.",real,10
+"you lunatics of left wing bs are pathetic with your so called arguments! ,",real,13
+"John it sounds like you are mocking Christians, now that is hate speech!",real,13
+Don't give any of these clowns six years.,real,9
+OMG! no pipeline jobs but another apology!  what a pathetic bunch,real,11
+"Why would any moral, thinking person support HRC, the spawn of satan?",real,12
+re-electing the ninny that claims to be prime minister!,real,10
+"Aw, even gay guys dump you?",real,6
+Best he go and find a hole and disappear .... forever.,real,10
+what's shocking is there's even 1 who ever supported the brat,real,13
+It says that Keith Diggs and DJ17 are humorless dbags..,real,10
+Don't forget to bring your pu**y hats.,real,9
+I'm not sad. Toronto sucks.,real,6
+American women are traitors in Trump's America,real,8
+You mean like the spewing of venom and hate against Harper! Too hypocritically funny!,real,14
+"This schmuck is stealing from the taxpayers
+Resign or be imprisoned for fraud",real,13
+"""So I apologize to your white privilege.” George Lopez is a racist.",real,13
+"Exactly. No, I was definitely not calling you stupid.",real,9
+No it's because we truly have an idiot for a president.,real,12
+"How would that look, a black woman on the brown bill...",real,11
+Looks like dumb and dumber.,real,5
+"You're not a smart man, are you?",real,8

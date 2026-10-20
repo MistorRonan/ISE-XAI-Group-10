@@ -1,0 +1,7 @@
+explainer,high_interaction,rho,top1,mae
+LIME,False,1.0,0.968,
+LIME,True,0.976,0.946,
+SHAP partition,False,1.0,0.95,0.019
+SHAP partition,True,0.986,0.973,0.026
+SHAP permutation,False,1.0,0.941,0.019
+SHAP permutation,True,0.983,0.973,0.027

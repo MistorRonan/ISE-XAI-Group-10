@@ -1,0 +1,69 @@
+% =====================================================================
+%  ISE XAI Group 10 — Short paper (IEEE two-column conference format)
+%  Plan: team meetings/2026-10-18-paper-plan.md
+%  Each section lives in its own file in sections/. 
+% =====================================================================
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{url}
+\graphicspath{{figures/}}
+
+\DeclareRobustCommand{\todo}[1]{\textcolor{magenta}{[TODO: #1]}}   % robust so it also works inside captions
+
+\begin{document}
+
+\title{Do Attributions Tell the Truth About Data Filters?\\
+Measuring the Faithfulness of SHAP and LIME in Identity-Term Bias Audits}
+
+\author{
+\IEEEauthorblockN{Julia Hooper}
+\IEEEauthorblockA{\textit{University of Limerick}\\
+24430706}
+\and
+\IEEEauthorblockN{Bl\'aith\'in Kavanagh}
+\IEEEauthorblockA{\textit{University of Limerick}\\
+24408743}
+\and
+\IEEEauthorblockN{Rory Linnane}
+\IEEEauthorblockA{\textit{University of Limerick}\\
+24402508}
+\and
+\IEEEauthorblockN{April Gilhool}
+\IEEEauthorblockA{\textit{University of Limerick}\\
+24402702}
+}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+explainable AI, feature attribution, SHAP, LIME, faithfulness, pretraining data filters, social bias
+\end{IEEEkeywords}
+
+\input{sections/introduction}
+\input{sections/background}
+\input{sections/method}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+% Spec: references go on their own page.
+\clearpage
+
+% TEMPORARY: \nocite{*} prints every entry in refs.bib so the bibliography
+% builds before anything is cited. DELETE THIS LINE before submitting:
+% the rubric checks that every reference is actually cited in the text.
+\nocite{*}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

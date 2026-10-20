@@ -1,0 +1,61 @@
+% ---------------------------------------------------------------------
+% IV. RESULTS (about 1 page, the biggest section)
+% Owners: one sub-section per experiment owner: ___
+%
+% ---------------------------------------------------------------------
+\section{Results}\label{sec:results}
+
+\subsection{What the Explainers Say}
+\todo{3--4 sentences recapping Exp 1 and Exp 2.}
+
+\subsection{Faithfulness to the References}
+\todo{Exp 3 (Fig.~\ref{fig:cf}) and Exp 4 (Table~\ref{tab:faith}); the 46\% $\rightarrow$ 60\% re-test.}
+
+\begin{figure}[t]
+\centering
+\IfFileExists{figures/fig_exp3_cf_vs_shap.pdf}{%
+  \includegraphics[width=\columnwidth]{fig_exp3_cf_vs_shap.pdf}%
+}{%
+  \fbox{\parbox{0.9\columnwidth}{\centering\vspace{1.5cm}Fig.~1 placeholder: copy fig\_exp3\_cf\_vs\_shap.pdf into paper/figures/\vspace{1.5cm}}}%
+}
+\caption{SHAP's estimate of each identity word's effect vs.\ its counterfactual effect (log-odds), one point per identity sentence ($n=150$). Dashed line: $y=x$. \todo{finalise caption}}
+\label{fig:cf}
+\end{figure}
+
+\begin{table}[t]
+\caption{Faithfulness summary \todo{fill from results CSVs}}
+\label{tab:faith}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & $\rho$ vs.\ CF & MAE vs.\ exact & Comp.\ $\uparrow$ / Suff.\ $\downarrow$ & Top word flips \\
+ & (Exp 3) & (Exp 4) & (Exp 5) & (Exp 6) \\
+\midrule
+SHAP   & -- & -- & -- / -- & -- \\
+LIME   & -- & -- & -- / -- & -- \\
+Random & n/a & n/a & -- / -- & n/a \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Deletion Test}
+\todo{Exp 5.}
+
+\subsection{Where the Explainers Break}
+\todo{Exp 6 (Fig.~\ref{fig:stability}).}
+
+\begin{figure}[t]
+\centering
+\IfFileExists{figures/fig_exp6_instability_vs_signal.pdf}{%
+  \includegraphics[width=\columnwidth]{fig_exp6_instability_vs_signal.pdf}%
+}{%
+  \fbox{\parbox{0.9\columnwidth}{\centering\vspace{1.5cm}Fig.~2 placeholder: copy fig\_exp6\_instability\_vs\_signal.pdf into paper/figures/\vspace{1.5cm}}}%
+}
+\caption{LIME instability across 10 seeds vs.\ signal strength, at 500 and 5000 samples ($n=238$ sentences). \todo{finalise caption}}
+\label{fig:stability}
+\end{figure}
+
+\subsection{Sensitivity to the Removal Baseline}
+\todo{Exp 3 baseline check, 2--3 sentences with numbers.}

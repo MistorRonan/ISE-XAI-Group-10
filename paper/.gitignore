@@ -1,0 +1,11 @@
+# LaTeX build files (the PDF is built by GitHub Actions; snapshots go in drafts/)
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+/main.pdf

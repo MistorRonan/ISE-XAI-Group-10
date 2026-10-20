@@ -1,0 +1,33 @@
+# Builds paper/main.tex into a PDF on every push that touches paper/.
+# Download the PDF from: GitHub -> Actions tab -> "Build paper" -> latest run -> Artifacts -> paper-pdf.
+name: Build paper
+
+on:
+  push:
+    paths:
+      - "paper/**"
+      - ".github/workflows/build-paper.yml"
+  pull_request:
+    paths:
+      - "paper/**"
+  workflow_dispatch:   # lets you click "Run workflow" by hand in the Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX (pdflatex + bibtex via latexmk)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: paper
+
+      - name: Upload the PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-pdf
+          path: paper/main.pdf
+          if-no-files-found: error

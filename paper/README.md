@@ -89,5 +89,6 @@ At each milestone (first full draft, after feedback, final), save the built PDF 
 - [ ] `\nocite{*}` removed from `main.tex`; every reference in the list is cited in the text.
 - [ ] Within the page limit: 3 pages of body + references on their own page (confirm the limit with the lecturer).
 - [ ] Every entry in `refs.bib` checked against the real paper (search for `VERIFY`).
+- [ ] Every entry in `refs.bib` in the journal section of the repo.
 - [ ] Every number in the paper traces to a results CSV in `experiments/*/results/`.
 - [ ] Final PDF saved in `drafts/` and linked from the main README.

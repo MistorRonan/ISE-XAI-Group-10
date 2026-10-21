@@ -6,16 +6,61 @@
 \section{Method}\label{sec:method}
 
 \subsection{Filters}
+% PLAN: which filters did we test?
+% - Detoxify "original" and Detoxify "unbiased".
+% - Note: they are different model types (BERT vs RoBERTa), not just
+%   debiased vs not debiased.
+% - Our own simple, transparent filter built for Exp 4 (a logistic
+%   regression on words and word pairs), and how accurate it is compared
+%   with Detoxify (numbers in Exp 4's exp4_auc.csv).
+
 \todo{Detoxify original and unbiased, plus the transparent filter (Exp 4).}
 
 \subsection{Sentence Sets}
+% PLAN: what sentences did we feed the filters?
+% - Exp 1: 48 sentences that use the same insult in three ways
+%   (promoting, reporting, arguing against).
+% - Exp 2: 190 harmless sentences where only one word changes
+%   (an identity word like "gay", or a neutral word like "tall").
+%   Based on Dixon 2018.
+% - Exp 4 also uses 200 real comments from Civil Comments.
+% - The other experiments reuse these same sentences.
+
 \todo{Exp 1, Exp 2, and the Exp 4 real comments.}
 
 \subsection{Explainers}
+% PLAN: how did we set up SHAP and LIME?
+% - SHAP: which version we used and its main setting.
+% - LIME: how many samples and that we fixed the random seed.
+% - Both explain each word's effect on the "toxic" score.
+% - When an explainer "removes" a word, something has to replace it.
+%   Say what we used, and that Exp 3 tests other options.
+% - Careful: the settings are not the same in every experiment
+%   (Exps 1-2 used fewer samples than Exps 3-6). Check the notebooks.
+
 \todo{SHAP and LIME configuration, log-odds, removal baseline.}
 
 \subsection{References}
+% PLAN: what "right answers" did we compare the explainers against?
+% - Counterfactual effect (Exp 3): swap the identity word for a neutral
+%   word and see how much the score changes. Only one word differs, so
+%   that change is the word's real effect.
+% - Exact Shapley values (Exp 4): on our transparent filter we can work
+%   out the exact correct answer, then see if SHAP and LIME match it.
+% - Why we need these: two explainers agreeing doesn't prove they are
+%   right (Krishna 2022).
+
 \todo{Counterfactual effect (Exp 3) and exact Shapley values (Exp 4).}
 
 \subsection{Metrics}
+% PLAN: what did we measure?
+% - Faithfulness (Exps 3-4): how closely the explainers match the
+%   right answers.
+% - Deletion test (Exp 5): delete the words the explainer blames and see
+%   if the score drops more than when deleting random words.
+% - Stability (Exp 6): run LIME several times and see if the answer
+%   changes.
+% - Signal strength (Exp 6): how strong the toxic signal is in each
+%   sentence, to see if weak signals give worse explanations.
+
 \todo{Faithfulness, deletion, stability, signal strength.}

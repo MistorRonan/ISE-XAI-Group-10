@@ -1,15 +1,34 @@
 % ---------------------------------------------------------------------
-% IV. RESULTS (about 1 page, the biggest section)
-% Owners: one sub-section per experiment owner: ___
+% IV. RESULTS (about 1 page)
+% Owners: Julia and Bláithín
 %
+% FIRST DRAFT (2026-10-21): what goes where + numbers and
+% source CSVs. Report results only; interpretation
+% goes in Section V. 
 % ---------------------------------------------------------------------
 \section{Results}\label{sec:results}
 
+\todo{Rough first draft: plan bullets with numbers, to be turned into prose.}
+
 \subsection{What the Explainers Say}
-\todo{3--4 sentences recapping Exp 1 and Exp 2.}
+\begin{itemize}
+  \item 3--4 sentences recapping Exp 1 and Exp 2. No figure.
+  \item Exp 1: reports still flagged 7/16; SHAP puts about 87\% of the toxic push on the insult words. Mean p (original): promote 0.88, report 0.43, counter 0.57 (\texttt{exp1\_summary.csv}).
+  \item Exp 2: harmless identity sentences score far above control sentences; SHAP puts the decision on the identity word (\texttt{exp2\_results.csv}).
+  \item SHAP and LIME agree on the top word in 78/88 sentences.
+  \item ``But are these explanations faithful?''
+\end{itemize}
 
 \subsection{Faithfulness to the References}
-\todo{Exp 3 (Fig.~\ref{fig:cf}) and Exp 4 (Table~\ref{tab:faith}); the 46\% $\rightarrow$ 60\% re-test.}
+\begin{itemize}
+  \item Fig.~\ref{fig:cf} and Table~\ref{tab:faith} go here.
+  \item Exp 3, SHAP vs.\ counterfactual (\texttt{exp3\_faithfulness\_shap.csv}): sentence level ($n=150$) $\rho = 0.96$ (original) / 0.92 (unbiased), sign agreement 0.98 / 0.93, MAE 0.94 / 0.72 log-odds. Term level ($n=15$) $\rho = 0.98$ / 0.95.
+  \item Exp 3, LIME vs.\ counterfactual (\texttt{exp3\_faithfulness\_lime.csv}): $\rho = 0.97$ / 0.97, sign agreement 0.99. LIME's MAE (0.07 / 0.04) is on the \textbf{probability} scale (\texttt{cf\_p\_*}, \texttt{est\_lime\_*} columns), so don't compare it with SHAP's log-odds MAE.
+  \item The 46\% $\rightarrow$ 60\% re-test (\texttt{exp3\_debias\_retest.csv}): share of $|$SHAP$|$ 46\% $\rightarrow$ 60\%; counterfactual effect 3.36 $\rightarrow$ 3.60 log-odds; SHAP estimate 4.16 $\rightarrow$ 3.84. Say plainly how much of the claim survives.
+  \item Exp 4, glass box (\texttt{exp4\_auc.csv}): AUC LR words 0.897, LR words+pairs 0.892, Detoxify original 0.928, unbiased 0.971.
+  \item Exp 4 vs.\ exact Shapley (\texttt{exp4\_summary.csv}): $\rho = 1.0$ on low-interaction sentences, 0.976--0.986 on high-interaction; top-1 0.94--0.97; SHAP MAE 0.019 (low) / 0.026--0.027 (high).
+  \item Exp 4 identity coefficients (\texttt{exp4\_identity\_coefs.csv}): gay $+2.83$, muslim $+1.90$, black $+1.87$ vs.\ controls $-0.26$ to $-0.39$ (needed for the Rudin point in Section V).
+\end{itemize}
 
 \begin{figure}[t]
 \centering
@@ -22,29 +41,44 @@
 \label{fig:cf}
 \end{figure}
 
+% Exp 4 column changed from "MAE vs exact" to "rho vs exact": Exp 4 has no
+% LIME MAE, but has rho for both explainers (exp4_summary.csv).
 \begin{table}[t]
-\caption{Faithfulness summary \todo{fill from results CSVs}}
+\caption{Faithfulness summary \todo{check values and finalise caption}}
 \label{tab:faith}
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
- & $\rho$ vs.\ CF & MAE vs.\ exact & Comp.\ $\uparrow$ / Suff.\ $\downarrow$ & Top word flips \\
- & (Exp 3) & (Exp 4) & (Exp 5) & (Exp 6) \\
+ & $\rho$ vs.\ CF & $\rho$ vs.\ exact & Comp.\ $\uparrow$ / Suff.\ $\downarrow$ & Top word changes \\
+ & (Exp 3, orig/unb) & (Exp 4, low/high) & (Exp 5, orig) & (Exp 6, 5000) \\
 \midrule
-SHAP   & -- & -- & -- / -- & -- \\
-LIME   & -- & -- & -- / -- & -- \\
-Random & n/a & n/a & -- / -- & n/a \\
+SHAP   & 0.96 / 0.92 & 1.00 / 0.99 & 3.09 / $-2.43$ & n/a \\
+LIME   & 0.97 / 0.97 & 1.00 / 0.98 & 3.05 / $-2.65$ & 4\% \\
+Random & n/a & n/a & 0.35 / 1.30 & n/a \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Deletion Test}
-\todo{Exp 5.}
+\begin{itemize}
+  \item 3--4 sentences; numbers also in Table~\ref{tab:faith}. Sources: \texttt{exp5\_aopc.csv}, \texttt{exp5\_aopc\_by\_group.csv}.
+  \item Comprehensiveness (original / unbiased): SHAP 3.09 / 4.02, LIME 3.05 / 4.06, random 0.35 / 0.95.
+  \item Sufficiency (original / unbiased): SHAP $-2.43$ / $-0.97$, LIME $-2.65$ / $-0.85$, random $+1.30$ / $+2.63$.
+  \item Control sentences: comprehensiveness $\approx 0$ for every explainer (SHAP $-0.02$, LIME 0.01, original).
+  \item Sufficiency is \textbf{negative}: keeping only the top words scores higher than the full sentence (report sentences $-3.4$). Report it here; explain it in Section V.
+\end{itemize}
 
 \subsection{Where the Explainers Break}
-\todo{Exp 6 (Fig.~\ref{fig:stability}).}
+\begin{itemize}
+  \item Fig.~\ref{fig:stability} goes here. $n = 238$ sentences $\times$ 10 seeds. Sources: \texttt{exp6\_summary.csv}, \texttt{exp6\_stability\_by\_sentence.csv}, \texttt{exp6\_warning\_signs.csv}.
+  \item Top word changed between seeds in 12\% of sentences at 500 samples, 4\% at 5000; mean rank stability 0.96 / 0.99.
+  \item Instability vs.\ signal strength: $\rho = 0.04$ / 0.03, i.e.\ no relationship (Fig.~\ref{fig:stability} is a flat cloud, and that is the result).
+  \item But fit drops on weak signals: $\rho(\text{signal}, R^2) = 0.73$; mean $R^2 \approx 0.45$ on the weakest quarter vs.\ 0.87 on the strongest; top-word agreement with SHAP 0.86 vs.\ 0.94.
+  \item Warning signs for the worst 25\% of SHAP errors ($n=150$ identity sentences), AUC: SHAP--LIME disagreement 0.46, low $R^2$ 0.64, weak signal 0.80.
+  \item Decide: keep Fig.~\ref{fig:stability} as is, or replot as $R^2$ vs.\ signal (EXP6 Cell 7). Caption must match either way.
+\end{itemize}
 
 \begin{figure}[t]
 \centering
@@ -58,4 +92,8 @@ Random & n/a & n/a & -- / -- & n/a \\
 \end{figure}
 
 \subsection{Sensitivity to the Removal Baseline}
-\todo{Exp 3 baseline check, 2--3 sentences with numbers.}
+\begin{itemize}
+  \item 2--3 sentences with numbers. Sources: \texttt{exp3\_baselines.csv}, \texttt{exp3\_baseline\_rankings.csv}.
+  \item Term ranking barely changes across dots / delete / mask: $\rho \geq 0.97$ for every pair, both models.
+  \item Magnitudes do change: MAE 0.94 $\rightarrow$ 0.84 $\rightarrow$ 0.70 (original), 0.72 $\rightarrow$ 0.58 $\rightarrow$ 0.44 (unbiased); control-word $|\phi|$ (original) 0.64 $\rightarrow$ 0.43 $\rightarrow$ 0.39.
+\end{itemize}

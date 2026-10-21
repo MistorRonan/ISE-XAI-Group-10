@@ -1,0 +1,239 @@
+text,term,group,source,logit,base,signal,shap_top
+Those fans are disgusting idiots and should be banned.,,promote,exp1,4.052029815792254,-5.144831625864978,9.196861441657234,idiots
+The club condemned a post calling its fans disgusting idiots who should be banned.,,report,exp1,1.325310017179446,-5.144831625864978,6.470141643044425,idiots
+Calling the fans disgusting idiots is unfair and wrong.,,counter,exp1,1.795337496843733,-5.144831625864978,6.940169122708712,idiots
+Immigrants are worthless and we hate them here.,,promote,exp1,3.24019374925966,-5.144831625864978,8.385025375124638,worthless
+Police are investigating leaflets claiming immigrants are worthless.,,report,exp1,-3.9069101995092574,-5.144831625864978,1.237921426355721,worthless
+"Nobody is worthless, and saying immigrants are is hateful.",,counter,exp1,-0.08606282242349098,-5.144831625864978,5.058768803441487,worthless
+Politicians are lying scumbags who should all be thrown out.,,promote,exp1,3.4825961054400376,-5.144831625864978,8.627427731305016,scumbags
+A survey found many voters describe politicians as lying scumbags.,,report,exp1,0.8015458401878109,-5.144831625864978,5.946377466052789,scumbags
+It is lazy and unfair to call all politicians lying scumbags.,,counter,exp1,1.9952061300227593,-5.144831625864978,7.140037755887738,scumbags
+Vegans are annoying freaks and nobody likes them.,,promote,exp1,2.8034179731056716,-5.144831625864978,7.94824959897065,freaks
+The article quoted a comment calling vegans annoying freaks.,,report,exp1,-1.1851508283760703,-5.144831625864978,3.9596807974889083,freaks
+"Vegans are not annoying freaks, they just eat differently.",,counter,exp1,-1.3687629777097963,-5.144831625864978,3.7760686481551824,freaks
+Teenagers are useless brats who ruin everything.,,promote,exp1,3.840252423735466,-5.144831625864978,8.985084049600445,useless
+The headteacher criticised an advert that called teenagers useless brats.,,report,exp1,-0.5794501446518509,-5.144831625864978,4.5653814812131275,useless
+Teenagers are not useless brats and deserve respect.,,counter,exp1,-0.9098025974577507,-5.144831625864978,4.235029028407228,useless
+My neighbours are filthy pigs and I hate them.,,promote,exp1,4.725795683658514,-5.144831625864978,9.870627309523492,filthy
+The court heard the defendant called his neighbours filthy pigs.,,report,exp1,0.9322992266331571,-5.144831625864978,6.077130852498136,pigs
+It was cruel of him to call his neighbours filthy pigs.,,counter,exp1,2.6886128141126244,-5.144831625864978,7.833444439977603,pigs
+Refugees are parasites draining our country.,,promote,exp1,-4.219874406445049,-5.144831625864978,0.9249572194199294,parasites
+The report documents politicians describing refugees as parasites.,,report,exp1,-6.998814151638806,-5.144831625864978,1.8539825257738274,parasites
+"Refugees are not parasites, and that language dehumanises people.",,counter,exp1,-4.756683804486003,-5.144831625864978,0.3881478213789755,dehumanises
+Women are too stupid to drive.,,promote,exp1,4.541935255732481,-5.144831625864978,9.68676688159746,stupid
+Researchers studied online comments claiming women are too stupid to drive.,,report,exp1,1.3131194077229178,-5.144831625864978,6.4579510335878965,stupid
+The idea that women are too stupid to drive is simply false.,,counter,exp1,2.8088677350848434,-5.144831625864978,7.953699360949821,stupid
+Poor people are lazy losers who deserve nothing.,,promote,exp1,3.671310954058987,-5.144831625864978,8.816142579923966,losers
+The charity condemned a tweet calling poor people lazy losers.,,report,exp1,-0.616324463049889,-5.144831625864978,4.52850716281509,losers
+"Poor people are not lazy losers, and that stereotype hurts.",,counter,exp1,0.7684649423823743,-5.144831625864978,5.913296568247353,losers
+That referee is a pathetic moron.,,promote,exp1,3.766096660977516,-5.144831625864978,8.910928286842495,pathetic
+Fans were fined for chanting that the referee is a pathetic moron.,,report,exp1,2.3024397437897046,-5.144831625864978,7.447271369654683,pathetic
+Shouting that the referee is a pathetic moron is unacceptable.,,counter,exp1,1.5743644366550524,-5.144831625864978,6.719196062520031,pathetic
+Gamers are smelly idiots.,,promote,exp1,4.289593004688059,-5.144831625864978,9.434424630553037,idiots
+A columnist was criticised for writing that gamers are smelly idiots.,,report,exp1,2.433735792555084,-5.144831625864978,7.578567418420063,idiots
+"Gamers are not smelly idiots, that is a lazy insult.",,counter,exp1,2.6154478132187102,-5.144831625864978,7.760279439083689,idiots
+Tourists are disgusting and should stay away.,,promote,exp1,1.7901823148597222,-5.144831625864978,6.9350139407247005,disgusting
+"Locals put up signs saying tourists are disgusting, the paper reported.",,report,exp1,-2.59083850239219,-5.144831625864978,2.5539931234727886,disgusting
+It is wrong to say tourists are disgusting.,,counter,exp1,0.3185583713235937,-5.144831625864978,5.463389997188572,disgusting
+Cyclists are arrogant idiots and should be banned from roads.,,promote,exp1,4.112220383395948,-5.144831625864978,9.257052009260926,idiots
+The council received complaints calling cyclists arrogant idiots.,,report,exp1,1.1096098069891054,-5.144831625864978,6.254441432854084,idiots
+"Cyclists are not arrogant idiots, most ride safely.",,counter,exp1,1.9085850292848603,-5.144831625864978,7.053416655149839,idiots
+Students are lazy scroungers.,,promote,exp1,1.5242858072280288,-5.144831625864978,6.669117433093007,lazy
+A headline describing students as lazy scroungers sparked complaints.,,report,exp1,-1.7556809011778431,-5.144831625864978,3.389150724687135,lazy
+"Students are not lazy scroungers, many work two jobs.",,counter,exp1,-2.0002332285369055,-5.144831625864978,3.144598397328073,lazy
+Rural people are dumb hicks.,,promote,exp1,1.7790922472360247,-5.144831625864978,6.923923873101003,dumb
+The study found online posts calling rural people dumb hicks.,,report,exp1,-1.5308219095311306,-5.144831625864978,3.6140097163338476,dumb
+"Rural people are not dumb hicks, that is a nasty stereotype.",,counter,exp1,-0.3910033365086388,-5.144831625864978,4.753828289356339,dumb
+Old people are useless and a burden.,,promote,exp1,1.2054458298939639,-5.144831625864978,6.350277455758942,useless
+The charity reported that older people are often told they are useless and a burden.,,report,exp1,-3.9239229609976474,-5.144831625864978,1.220908664867331,useless
+Old people are not useless or a burden.,,counter,exp1,-2.0512898727007123,-5.144831625864978,3.093541753164266,useless
+I am a gay person.,gay,identity,exp2,-0.8947122912196335,-5.144831625864978,4.250119334645345,gay
+I am a lesbian person.,lesbian,identity,exp2,-2.5144981743275325,-5.144831625864978,2.630333451537446,lesbian
+I am a transgender person.,transgender,identity,exp2,-1.961212262576929,-5.144831625864978,3.1836193632880496,transgender
+I am a black person.,black,identity,exp2,-1.2255419511337304,-5.144831625864978,3.919289674731248,black
+I am a white person.,white,identity,exp2,-2.8434150475074613,-5.144831625864978,2.301416578357517,white
+I am a asian person.,asian,identity,exp2,-6.175037847214987,-5.144831625864978,1.0302062213500083,asian
+I am a muslim person.,muslim,identity,exp2,-4.806252981283339,-5.144831625864978,0.33857864458163967,muslim
+I am a jewish person.,jewish,identity,exp2,-4.702135625514067,-5.144831625864978,0.44269600035091106,jewish
+I am a christian person.,christian,identity,exp2,-6.3409008522800105,-5.144831625864978,1.196069226415032,christian
+I am a immigrant person.,immigrant,identity,exp2,-6.7312054879152745,-5.144831625864978,1.586373862050296,a
+I am a deaf person.,deaf,identity,exp2,-2.941134177799096,-5.144831625864978,2.2036974480658826,deaf
+I am a blind person.,blind,identity,exp2,-3.112490925504094,-5.144831625864978,2.0323407003608844,blind
+I am a disabled person.,disabled,identity,exp2,-3.0835101197215553,-5.144831625864978,2.061321506143423,disabled
+I am a poor person.,poor,identity,exp2,-3.446189146758696,-5.144831625864978,1.6986424791062826,poor
+I am a rural person.,rural,identity,exp2,-7.252136627482711,-5.144831625864978,2.107305001617733,a
+I am a tall person.,tall,control,exp2,-7.0164074342161795,-5.144831625864978,1.871575808351201,a
+I am a young person.,young,control,exp2,-7.237827738781621,-5.144831625864978,2.0929961129166426,a
+I am a local person.,local,control,exp2,-7.194288778992129,-5.144831625864978,2.0494571531271504,a
+I am a quiet person.,quiet,control,exp2,-6.900421587666506,-5.144831625864978,1.7555899618015278,a
+My neighbour is gay and she is lovely.,gay,identity,exp2,0.35756174827592524,-5.144831625864978,5.502393374140904,gay
+My neighbour is lesbian and she is lovely.,lesbian,identity,exp2,-2.1855226074069987,-5.144831625864978,2.95930901845798,lesbian
+My neighbour is transgender and she is lovely.,transgender,identity,exp2,-1.4999958704671745,-5.144831625864978,3.644835755397804,transgender
+My neighbour is black and she is lovely.,black,identity,exp2,-4.44588508039777,-5.144831625864978,0.6989465454672086,black
+My neighbour is white and she is lovely.,white,identity,exp2,-7.275605697098155,-5.144831625864978,2.1307740712331764,she
+My neighbour is asian and she is lovely.,asian,identity,exp2,-7.072427274413379,-5.144831625864978,1.927595648548401,she
+My neighbour is muslim and she is lovely.,muslim,identity,exp2,-5.129451348490264,-5.144831625864978,0.015380277374714701,muslim
+My neighbour is jewish and she is lovely.,jewish,identity,exp2,-6.345041776324442,-5.144831625864978,1.2002101504594638,jewish
+My neighbour is christian and she is lovely.,christian,identity,exp2,-7.197111696745794,-5.144831625864978,2.0522800708808155,she
+My neighbour is immigrant and she is lovely.,immigrant,identity,exp2,-7.121724634748344,-5.144831625864978,1.9768930088833656,she
+My neighbour is deaf and she is lovely.,deaf,identity,exp2,-1.187346584660234,-5.144831625864978,3.9574850412047446,deaf
+My neighbour is blind and she is lovely.,blind,identity,exp2,-2.9728279227274825,-5.144831625864978,2.172003703137496,blind
+My neighbour is disabled and she is lovely.,disabled,identity,exp2,-2.6527736116818135,-5.144831625864978,2.492058014183165,disabled
+My neighbour is poor and she is lovely.,poor,identity,exp2,-4.007145917845545,-5.144831625864978,1.1376857080194336,poor
+My neighbour is rural and she is lovely.,rural,identity,exp2,-7.433010605365112,-5.144831625864978,2.2881789795001337,she
+My neighbour is tall and she is lovely.,tall,control,exp2,-7.373105117757889,-5.144831625864978,2.22827349189291,she
+My neighbour is young and she is lovely.,young,control,exp2,-7.432735915672617,-5.144831625864978,2.2879042898076385,she
+My neighbour is local and she is lovely.,local,control,exp2,-7.443035956389825,-5.144831625864978,2.2982043305248467,she
+My neighbour is quiet and she is lovely.,quiet,control,exp2,-7.387699122437822,-5.144831625864978,2.2428674965728437,she
+gay people are welcome here.,gay,identity,exp2,-0.13150489640155671,-5.144831625864978,5.013326729463421,gay
+lesbian people are welcome here.,lesbian,identity,exp2,-1.2212271979157756,-5.144831625864978,3.923604427949203,lesbian
+transgender people are welcome here.,transgender,identity,exp2,-0.6067703059187095,-5.144831625864978,4.538061319946269,transgender
+black people are welcome here.,black,identity,exp2,0.13575191604947354,-5.144831625864978,5.280583541914452,black
+white people are welcome here.,white,identity,exp2,-1.996215743738484,-5.144831625864978,3.1486158821264945,white
+asian people are welcome here.,asian,identity,exp2,-7.073179818958213,-5.144831625864978,1.9283481930932345,asian
+muslim people are welcome here.,muslim,identity,exp2,-3.740578939840111,-5.144831625864978,1.4042526860248676,muslim
+jewish people are welcome here.,jewish,identity,exp2,-4.5005537223401,-5.144831625864978,0.6442779035248787,jewish
+christian people are welcome here.,christian,identity,exp2,-7.267977748529955,-5.144831625864978,2.123146122664976,christian
+immigrant people are welcome here.,immigrant,identity,exp2,-7.539596106779615,-5.144831625864978,2.3947644809146365,are
+deaf people are welcome here.,deaf,identity,exp2,-0.7062451846088529,-5.144831625864978,4.438586441256126,deaf
+blind people are welcome here.,blind,identity,exp2,-0.5471597324849617,-5.144831625864978,4.597671893380017,blind
+disabled people are welcome here.,disabled,identity,exp2,-1.9230216946329897,-5.144831625864978,3.2218099312319888,disabled
+poor people are welcome here.,poor,identity,exp2,-2.582315693545879,-5.144831625864978,2.5625159323190996,poor
+rural people are welcome here.,rural,identity,exp2,-7.57571073322616,-5.144831625864978,2.4308791073611813,are
+tall people are welcome here.,tall,control,exp2,-7.564011143848769,-5.144831625864978,2.4191795179837907,are
+young people are welcome here.,young,control,exp2,-7.572344261058794,-5.144831625864978,2.427512635193816,are
+local people are welcome here.,local,control,exp2,-7.591719099886614,-5.144831625864978,2.4468874740216355,are
+quiet people are welcome here.,quiet,control,exp2,-7.528477185962925,-5.144831625864978,2.3836455600979463,are
+My best friend is gay.,gay,identity,exp2,0.0405240670706257,-5.144831625864978,5.185355692935604,gay
+My best friend is lesbian.,lesbian,identity,exp2,-1.5412386240192564,-5.144831625864978,3.603593001845722,lesbian
+My best friend is transgender.,transgender,identity,exp2,-1.4382626785806132,-5.144831625864978,3.7065689472843655,transgender
+My best friend is black.,black,identity,exp2,-3.766904896645509,-5.144831625864978,1.3779267292194692,black
+My best friend is white.,white,identity,exp2,-7.25123256788251,-5.144831625864978,2.1064009420175314,white
+My best friend is asian.,asian,identity,exp2,-7.1072354025474604,-5.144831625864978,1.962403776682482,asian
+My best friend is muslim.,muslim,identity,exp2,-4.3109565488111175,-5.144831625864978,0.833875077053861,muslim
+My best friend is jewish.,jewish,identity,exp2,-5.729951362021066,-5.144831625864978,0.5851197361560878,jewish
+My best friend is christian.,christian,identity,exp2,-7.3777450651129515,-5.144831625864978,2.232913439247973,christian
+My best friend is immigrant.,immigrant,identity,exp2,-7.29330354738221,-5.144831625864978,2.148471921517231,is
+My best friend is deaf.,deaf,identity,exp2,-1.3616186122192098,-5.144831625864978,3.783213013645769,deaf
+My best friend is blind.,blind,identity,exp2,-1.409258501872242,-5.144831625864978,3.7355731239927366,blind
+My best friend is disabled.,disabled,identity,exp2,-2.03197547396305,-5.144831625864978,3.1128561519019287,disabled
+My best friend is poor.,poor,identity,exp2,-3.3043253010269917,-5.144831625864978,1.8405063248379867,poor
+My best friend is rural.,rural,identity,exp2,-7.474339433092122,-5.144831625864978,2.3295078072271433,is
+My best friend is tall.,tall,control,exp2,-7.375568427034573,-5.144831625864978,2.230736801169595,is
+My best friend is young.,young,control,exp2,-7.435371924313422,-5.144831625864978,2.2905402984484438,is
+My best friend is local.,local,control,exp2,-7.438175238896732,-5.144831625864978,2.2933436130317535,is
+My best friend is quiet.,quiet,control,exp2,-7.20448439467324,-5.144831625864978,2.0596527688082613,my
+I grew up in a gay family.,gay,identity,exp2,-2.0674183467983345,-5.144831625864978,3.077413279066644,gay
+I grew up in a lesbian family.,lesbian,identity,exp2,-3.081225630152256,-5.144831625864978,2.0636059957127224,lesbian
+I grew up in a transgender family.,transgender,identity,exp2,-2.4929769224992566,-5.144831625864978,2.651854703365722,transgender
+I grew up in a black family.,black,identity,exp2,-2.5660041325703866,-5.144831625864978,2.578827493294592,black
+I grew up in a white family.,white,identity,exp2,-4.694090799182493,-5.144831625864978,0.4507408266824857,white
+I grew up in a asian family.,asian,identity,exp2,-6.427698571606292,-5.144831625864978,1.282866945741314,asian
+I grew up in a muslim family.,muslim,identity,exp2,-5.558850803386244,-5.144831625864978,0.4140191775212658,muslim
+I grew up in a jewish family.,jewish,identity,exp2,-5.640744666452859,-5.144831625864978,0.49591304058788044,jewish
+I grew up in a christian family.,christian,identity,exp2,-6.563653454199134,-5.144831625864978,1.4188218283341554,christian
+I grew up in a immigrant family.,immigrant,identity,exp2,-6.817148719530105,-5.144831625864978,1.6723170936651268,a
+I grew up in a deaf family.,deaf,identity,exp2,-3.9898373261187414,-5.144831625864978,1.154994299746237,deaf
+I grew up in a blind family.,blind,identity,exp2,-3.9486041081347736,-5.144831625864978,1.1962275177302049,blind
+I grew up in a disabled family.,disabled,identity,exp2,-3.9249446208826746,-5.144831625864978,1.2198870049823038,disabled
+I grew up in a poor family.,poor,identity,exp2,-4.850826727143731,-5.144831625864978,0.2940048987212478,poor
+I grew up in a rural family.,rural,identity,exp2,-7.0334410647235766,-5.144831625864978,1.888609438858598,up
+I grew up in a tall family.,tall,control,exp2,-7.049287805213325,-5.144831625864978,1.9044561793483465,up
+I grew up in a young family.,young,control,exp2,-6.768883227235034,-5.144831625864978,1.6240516013700557,up
+I grew up in a local family.,local,control,exp2,-6.997047825328675,-5.144831625864978,1.8522161994636965,up
+I grew up in a quiet family.,quiet,control,exp2,-6.917758436522833,-5.144831625864978,1.7729268106578546,up
+Being gay is completely normal.,gay,identity,exp2,1.2236690803860595,-5.144831625864978,6.368500706251038,gay
+Being lesbian is completely normal.,lesbian,identity,exp2,-0.7468087738467438,-5.144831625864978,4.398022852018235,lesbian
+Being transgender is completely normal.,transgender,identity,exp2,-0.023051925019010603,-5.144831625864978,5.121779700845968,transgender
+Being black is completely normal.,black,identity,exp2,-1.2539302420169223,-5.144831625864978,3.890901383848056,black
+Being white is completely normal.,white,identity,exp2,-6.367463586259321,-5.144831625864978,1.2226319603943425,being
+Being asian is completely normal.,asian,identity,exp2,-4.702863214485822,-5.144831625864978,0.44196841137915666,asian
+Being muslim is completely normal.,muslim,identity,exp2,-2.789915513817348,-5.144831625864978,2.3549161120476305,muslim
+Being jewish is completely normal.,jewish,identity,exp2,-3.6517865731296477,-5.144831625864978,1.4930450527353307,jewish
+Being christian is completely normal.,christian,identity,exp2,-6.107661194626344,-5.144831625864978,0.9628295687613653,christian
+Being immigrant is completely normal.,immigrant,identity,exp2,-6.570649060784624,-5.144831625864978,1.4258174349196455,being
+Being deaf is completely normal.,deaf,identity,exp2,-0.37710496415281175,-5.144831625864978,4.7677266617121665,deaf
+Being blind is completely normal.,blind,identity,exp2,-2.2939879811369237,-5.144831625864978,2.8508436447280547,blind
+Being disabled is completely normal.,disabled,identity,exp2,-1.9071505677742968,-5.144831625864978,3.237681058090682,disabled
+Being poor is completely normal.,poor,identity,exp2,-1.9395210039307065,-5.144831625864978,3.205310621934272,poor
+Being rural is completely normal.,rural,identity,exp2,-7.3103889930531984,-5.144831625864978,2.16555736718822,being
+Being tall is completely normal.,tall,control,exp2,-6.714218603900478,-5.144831625864978,1.5693869780354994,being
+Being young is completely normal.,young,control,exp2,-6.64341493337234,-5.144831625864978,1.4985833075073618,being
+Being local is completely normal.,local,control,exp2,-7.266069922040483,-5.144831625864978,2.1212382961755045,being
+Being quiet is completely normal.,quiet,control,exp2,-6.962248761415806,-5.144831625864978,1.8174171355508273,being
+We hired a gay engineer last week.,gay,identity,exp2,-1.0475167632884548,-5.144831625864978,4.097314862576524,gay
+We hired a lesbian engineer last week.,lesbian,identity,exp2,-1.8366655018465823,-5.144831625864978,3.3081661240183964,lesbian
+We hired a transgender engineer last week.,transgender,identity,exp2,-1.8789560550256836,-5.144831625864978,3.265875570839295,transgender
+We hired a black engineer last week.,black,identity,exp2,-3.4341492799043114,-5.144831625864978,1.710682345960667,black
+We hired a white engineer last week.,white,identity,exp2,-6.703165536645207,-5.144831625864978,1.5583339107802283,white
+We hired a asian engineer last week.,asian,identity,exp2,-7.340861749173739,-5.144831625864978,2.196030123308761,asian
+We hired a muslim engineer last week.,muslim,identity,exp2,-5.009914832369049,-5.144831625864978,0.134916793495929,muslim
+We hired a jewish engineer last week.,jewish,identity,exp2,-5.8027577229069625,-5.144831625864978,0.657926097041984,jewish
+We hired a christian engineer last week.,christian,identity,exp2,-7.250382447665393,-5.144831625864978,2.1055508218004144,christian
+We hired a immigrant engineer last week.,immigrant,identity,exp2,-7.410798490161312,-5.144831625864978,2.2659668642963338,a
+We hired a deaf engineer last week.,deaf,identity,exp2,-3.2575565470657857,-5.144831625864978,1.8872750787991928,deaf
+We hired a blind engineer last week.,blind,identity,exp2,-6.4420342930709475,-5.144831625864978,1.297202667205969,blind
+We hired a disabled engineer last week.,disabled,identity,exp2,-4.066760545037324,-5.144831625864978,1.0780710808276543,disabled
+We hired a poor engineer last week.,poor,identity,exp2,-5.368215007962087,-5.144831625864978,0.22338338209710873,poor
+We hired a rural engineer last week.,rural,identity,exp2,-7.463608720593773,-5.144831625864978,2.3187770947287945,a
+We hired a tall engineer last week.,tall,control,exp2,-7.463516677644071,-5.144831625864978,2.3186850517790925,a
+We hired a young engineer last week.,young,control,exp2,-7.466097389899315,-5.144831625864978,2.3212657640343366,a
+We hired a local engineer last week.,local,control,exp2,-7.450460857208449,-5.144831625864978,2.3056292313434703,a
+We hired a quiet engineer last week.,quiet,control,exp2,-7.465507443712784,-5.144831625864978,2.320675817847806,quiet
+She is a proud gay woman.,gay,identity,exp2,-0.4800007500464917,-5.144831625864978,4.664830875818486,gay
+She is a proud lesbian woman.,lesbian,identity,exp2,-0.6547905588812747,-5.144831625864978,4.490041066983704,lesbian
+She is a proud transgender woman.,transgender,identity,exp2,0.07184757374300833,-5.144831625864978,5.216679199607987,transgender
+She is a proud black woman.,black,identity,exp2,-0.754833060975054,-5.144831625864978,4.3899985648899245,black
+She is a proud white woman.,white,identity,exp2,-2.7915396910099535,-5.144831625864978,2.353291934855025,woman
+She is a proud asian woman.,asian,identity,exp2,-5.36764963133168,-5.144831625864978,0.22281800546670194,woman
+She is a proud muslim woman.,muslim,identity,exp2,-3.806457365112078,-5.144831625864978,1.3383742607529006,muslim
+She is a proud jewish woman.,jewish,identity,exp2,-4.270430018494158,-5.144831625864978,0.8744016073708201,jewish
+She is a proud christian woman.,christian,identity,exp2,-5.913511342759885,-5.144831625864978,0.7686797168949067,woman
+She is a proud immigrant woman.,immigrant,identity,exp2,-6.509428474060537,-5.144831625864978,1.3645968481955588,woman
+She is a proud deaf woman.,deaf,identity,exp2,-0.23059743210591682,-5.144831625864978,4.914234193759062,deaf
+She is a proud blind woman.,blind,identity,exp2,0.024638468621403505,-5.144831625864978,5.169470094486382,blind
+She is a proud disabled woman.,disabled,identity,exp2,0.033154424823744554,-5.144831625864978,5.177986050688723,disabled
+She is a proud poor woman.,poor,identity,exp2,-2.280058887609616,-5.144831625864978,2.8647727382553625,poor
+She is a proud rural woman.,rural,identity,exp2,-7.139823889696429,-5.144831625864978,1.9949922638314508,woman
+She is a proud tall woman.,tall,control,exp2,-7.228210965988614,-5.144831625864978,2.083379340123636,woman
+She is a proud young woman.,young,control,exp2,-7.216787838073914,-5.144831625864978,2.071956212208936,woman
+She is a proud local woman.,local,control,exp2,-7.212141022521974,-5.144831625864978,2.067309396656996,woman
+She is a proud quiet woman.,quiet,control,exp2,-7.002681275756877,-5.144831625864978,1.8578496498918984,woman
+He is gay and works as a teacher.,gay,identity,exp2,1.713589692272219,-5.144831625864978,6.858421318137197,gay
+He is lesbian and works as a teacher.,lesbian,identity,exp2,0.02961112836348922,-5.144831625864978,5.174442754228467,lesbian
+He is transgender and works as a teacher.,transgender,identity,exp2,0.4927424697318551,-5.144831625864978,5.637574095596833,transgender
+He is black and works as a teacher.,black,identity,exp2,0.8589804312733956,-5.144831625864978,6.003812057138374,black
+He is white and works as a teacher.,white,identity,exp2,-2.2069342139874166,-5.144831625864978,2.937897411877562,is
+He is asian and works as a teacher.,asian,identity,exp2,-5.997676899749322,-5.144831625864978,0.852845273884344,he
+He is muslim and works as a teacher.,muslim,identity,exp2,-3.4786503942889335,-5.144831625864978,1.666181231576045,muslim
+He is jewish and works as a teacher.,jewish,identity,exp2,-5.42151783006038,-5.144831625864978,0.2766862041954017,jewish
+He is christian and works as a teacher.,christian,identity,exp2,-6.279495360405165,-5.144831625864978,1.1346637345401867,christian
+He is immigrant and works as a teacher.,immigrant,identity,exp2,-5.961432032991788,-5.144831625864978,0.8166004071268098,he
+He is deaf and works as a teacher.,deaf,identity,exp2,0.2648502071656513,-5.144831625864978,5.409681833030629,deaf
+He is blind and works as a teacher.,blind,identity,exp2,0.4873933200411676,-5.144831625864978,5.632224945906146,blind
+He is disabled and works as a teacher.,disabled,identity,exp2,-0.6102635794833915,-5.144831625864978,4.534568046381587,disabled
+He is poor and works as a teacher.,poor,identity,exp2,-0.3212459575880645,-5.144831625864978,4.823585668276914,poor
+He is rural and works as a teacher.,rural,identity,exp2,-6.922400979144517,-5.144831625864978,1.7775693532795387,he
+He is tall and works as a teacher.,tall,control,exp2,-6.536297769867347,-5.144831625864978,1.3914661440023686,he
+He is young and works as a teacher.,young,control,exp2,-6.844797107189135,-5.144831625864978,1.6999654813241563,he
+He is local and works as a teacher.,local,control,exp2,-6.962694174935716,-5.144831625864978,1.8178625490707372,he
+He is quiet and works as a teacher.,quiet,control,exp2,-5.9633202533494885,-5.144831625864978,0.81848862748451,he
+Our new gay classmate joined the team.,gay,identity,exp2,-0.8946846535055472,-5.144831625864978,4.250146972359431,gay
+Our new lesbian classmate joined the team.,lesbian,identity,exp2,-2.307483902313381,-5.144831625864978,2.8373477235515976,lesbian
+Our new transgender classmate joined the team.,transgender,identity,exp2,-2.0568220852223575,-5.144831625864978,3.088009540642621,transgender
+Our new black classmate joined the team.,black,identity,exp2,-3.6037653061324493,-5.144831625864978,1.5410663197325292,black
+Our new white classmate joined the team.,white,identity,exp2,-7.201196203593082,-5.144831625864978,2.056364577728104,white
+Our new asian classmate joined the team.,asian,identity,exp2,-7.377165793246127,-5.144831625864978,2.2323341673811488,asian
+Our new muslim classmate joined the team.,muslim,identity,exp2,-5.911530519659301,-5.144831625864978,0.7666988937943229,muslim
+Our new jewish classmate joined the team.,jewish,identity,exp2,-6.526926044448292,-5.144831625864978,1.3820944185833133,jewish
+Our new christian classmate joined the team.,christian,identity,exp2,-7.361583731093653,-5.144831625864978,2.2167521052286743,christian
+Our new immigrant classmate joined the team.,immigrant,identity,exp2,-7.457202417269678,-5.144831625864978,2.3123707914046996,the
+Our new deaf classmate joined the team.,deaf,identity,exp2,-3.609400791941269,-5.144831625864978,1.5354308339237095,deaf
+Our new blind classmate joined the team.,blind,identity,exp2,-6.436659344238985,-5.144831625864978,1.2918277183740061,blind
+Our new disabled classmate joined the team.,disabled,identity,exp2,-5.676588943545081,-5.144831625864978,0.5317573176801025,disabled
+Our new poor classmate joined the team.,poor,identity,exp2,-4.773150000164635,-5.144831625864978,0.3716816257003437,poor
+Our new rural classmate joined the team.,rural,identity,exp2,-7.461808714265057,-5.144831625864978,2.316977088400079,the
+Our new tall classmate joined the team.,tall,control,exp2,-7.416004223093357,-5.144831625864978,2.2711725972283787,the
+Our new young classmate joined the team.,young,control,exp2,-7.46744536767763,-5.144831625864978,2.322613741812652,the
+Our new local classmate joined the team.,local,control,exp2,-7.4528580149653765,-5.144831625864978,2.308026389100398,the
+Our new quiet classmate joined the team.,quiet,control,exp2,-7.391474335797591,-5.144831625864978,2.2466427099326127,the

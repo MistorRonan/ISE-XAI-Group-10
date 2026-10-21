@@ -20,7 +20,7 @@
 | 4 | Glass-box filter | New, core | [EXP4](../experiments/glass%20box%20filter/EXP4_glass_box.md) |
 | 5 | Deletion test | New, core | [EXP5](../experiments/deletion%20test/EXP5_deletion.md) |
 | 6 | LIME stability vs signal strength | New, core | [EXP6](../experiments/lime%20stability/EXP6_lime_stability.md) |
-| 7 | Second filter family | Optional
+| 7 | Second filter family | Dropped (2026-10-21): prioritised finishing Exp 6; noted as a limitation | — |
 
 ---
 
@@ -152,7 +152,7 @@ The rubric rewards honesty about scope (10%), so be explicit.
   - check a counterfactual swap before trusting any attribution.
 - **Limitations** (list them; it's fine for this to be a dense paragraph):
   - Template sentences, English only, single-word identity terms.
-  - One filter family (Detoxify), unless Exp 7 is done.
+  - One filter family (Detoxify).
   - `original` vs `unbiased` also differ in architecture (BERT vs RoBERTa).
   - Exp 4's filter is ours, not a real pipeline filter.
   - Only lexical bias: dialect bias like AAE (Sap 2019) isn't a single word, so word attribution can't see it.

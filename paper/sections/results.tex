@@ -11,9 +11,15 @@
 \todo{Rough first draft: plan bullets with numbers, to be turned into prose.}
 
 \subsection{What the Explainers Say}
+% Exp 1 (Bláithín). Sources: exp1_summary.csv, exp1_results.csv.
+In Experiment~1, the original model still scored 7 of the 16 report sentences above 0.5,
+along with 9 of the 16 counter-speech sentences and 15 of the 16 promoting ones.
+Mean toxicity was 0.88 for promote, 0.43 for report and 0.57 for counter sentences
+(0.96, 0.84 and 0.74 for the unbiased model). SHAP put on average 87\% of the toward-toxic 
+attribution in report sentences on the insult words, compared with 75\% for promote and 69\% for counter sentences.
+
 \begin{itemize}
   \item 3--4 sentences recapping Exp 1 and Exp 2. No figure.
-  \item Exp 1: reports still flagged 7/16; SHAP puts about 87\% of the toxic push on the insult words. Mean p (original): promote 0.88, report 0.43, counter 0.57 (\texttt{exp1\_summary.csv}).
   \item Exp 2: harmless identity sentences score far above control sentences; SHAP puts the decision on the identity word (\texttt{exp2\_results.csv}).
   \item SHAP and LIME agree on the top word in 78/88 sentences.
   \item ``But are these explanations faithful?''
@@ -25,10 +31,11 @@
   \item Exp 3, SHAP vs.\ counterfactual (\texttt{exp3\_faithfulness\_shap.csv}): sentence level ($n=150$) $\rho = 0.96$ (original) / 0.92 (unbiased), sign agreement 0.98 / 0.93, MAE 0.94 / 0.72 log-odds. Term level ($n=15$) $\rho = 0.98$ / 0.95.
   \item Exp 3, LIME vs.\ counterfactual (\texttt{exp3\_faithfulness\_lime.csv}): $\rho = 0.97$ / 0.97, sign agreement 0.99. LIME's MAE (0.07 / 0.04) is on the \textbf{probability} scale (\texttt{cf\_p\_*}, \texttt{est\_lime\_*} columns), so don't compare it with SHAP's log-odds MAE.
   \item The 46\% $\rightarrow$ 60\% re-test (\texttt{exp3\_debias\_retest.csv}): share of $|$SHAP$|$ 46\% $\rightarrow$ 60\%; counterfactual effect 3.36 $\rightarrow$ 3.60 log-odds; SHAP estimate 4.16 $\rightarrow$ 3.84. Say plainly how much of the claim survives.
-  \item Exp 4, glass box (\texttt{exp4\_auc.csv}): AUC LR words 0.897, LR words+pairs 0.892, Detoxify original 0.928, unbiased 0.971.
-  \item Exp 4 vs.\ exact Shapley (\texttt{exp4\_summary.csv}): $\rho = 1.0$ on low-interaction sentences, 0.976--0.986 on high-interaction; top-1 0.94--0.97; SHAP MAE 0.019 (low) / 0.026--0.027 (high).
-  \item Exp 4 identity coefficients (\texttt{exp4\_identity\_coefs.csv}): gay $+2.83$, muslim $+1.90$, black $+1.87$ vs.\ controls $-0.26$ to $-0.39$ (needed for the Rudin point in Section V).
 \end{itemize}
+
+% Exp 4 (Bláithín). Sources: exp4_auc.csv, exp4_summary.csv,
+% exp4_identity_coefs.csv; median rho, 96% and 4% from the EXP4 run notes.
+On the transparent filter (Experiment~4), the logistic regression reached a held-out AUC of 0.897 with single words and 0.892 with word pairs added, compared with 0.928 for Detoxify \texttt{original} and 0.971 for \texttt{unbiased}. Against exact Shapley values, SHAP's Partition approximation reached a median $\rho = 0.993$ (mean MAE 0.022 log-odds). Agreement dropped only slightly on high-interaction sentences ($\rho = 0.986$, MAE 0.026, vs.\ 1.000 and 0.019 on low-interaction ones). LIME reached $\rho = 1.000$ on low-interaction and 0.976 on high-interaction sentences. Its top word matched the exact one in 96\% of runs, and that match changed across seeds for only 4\% of sentences. The filter's coefficients also show identity-term bias directly: 14 of the 15 identity words have positive weights (gay $+2.83$, muslim $+1.90$, black $+1.87$ log-odds), while all four control words are negative ($-0.26$ to $-0.39$).
 
 \begin{figure}[t]
 \centering
@@ -62,13 +69,9 @@ Random & n/a & n/a & 0.35 / 1.30 & n/a \\
 \end{table}
 
 \subsection{Deletion Test}
-\begin{itemize}
-  \item 3--4 sentences; numbers also in Table~\ref{tab:faith}. Sources: \texttt{exp5\_aopc.csv}, \texttt{exp5\_aopc\_by\_group.csv}.
-  \item Comprehensiveness (original / unbiased): SHAP 3.09 / 4.02, LIME 3.05 / 4.06, random 0.35 / 0.95.
-  \item Sufficiency (original / unbiased): SHAP $-2.43$ / $-0.97$, LIME $-2.65$ / $-0.85$, random $+1.30$ / $+2.63$.
-  \item Control sentences: comprehensiveness $\approx 0$ for every explainer (SHAP $-0.02$, LIME 0.01, original).
-  \item Sufficiency is \textbf{negative}: keeping only the top words scores higher than the full sentence (report sentences $-3.4$). Report it here; explain it in Section V.
-\end{itemize}
+% Exp 5 (Bláithín). Sources: exp5_aopc.csv, exp5_aopc_by_group.csv.
+% Negative sufficiency is only reported here; it is explained in Section V.
+Deleting the top-ranked words lowered the toxic log-odds far more than deleting random words (Table~\ref{tab:faith}). Comprehensiveness was 3.09 for SHAP and 3.05 for LIME vs.\ 0.35 for random words with the original model, and 4.02, 4.06 and 0.95 with the unbiased model. The gap over random was largest on the Experiment~1 counter and report sentences (4.58 and 4.52 log-odds for SHAP, original model) and smallest on the control sentences, where comprehensiveness was close to zero for every explainer (SHAP $-0.02$, LIME 0.01). Sufficiency was negative for both explainers: $-2.43$ for SHAP and $-2.65$ for LIME with the original model, and $-0.97$ and $-0.85$ with the unbiased model, against $+1.30$ and $+2.63$ for random words. So keeping only the top-ranked words gave a higher toxicity score than the full sentence. The effect was strongest on report sentences ($-3.4$ for both explainers, original model).
 
 \subsection{Where the Explainers Break}
 \begin{itemize}

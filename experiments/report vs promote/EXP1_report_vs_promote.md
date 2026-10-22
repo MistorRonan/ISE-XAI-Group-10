@@ -360,7 +360,7 @@ from google.colab import files; files.download("outputs_exp1.zip")
 Print a short checklist reminding the user to:
 1. Upload the notebook to Colab (File → Upload notebook) and select a T4 GPU.
 2. Run all cells.
-3. Unzip the outputs into `presentation/figures/exp1/` in the repo.
+3. Unzip the outputs into this experiment's `results/` folder.
 4. Commit the notebook and figures under their own GitHub account with the message `research: experiment 1 report vs promote results`.
 
 ---

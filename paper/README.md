@@ -2,7 +2,7 @@
 
 **Title:** Do Attributions Tell the Truth About Data Filters? Measuring the Faithfulness of SHAP and LIME in Identity-Term Bias Audits
 
-**What goes in each section:** [team meetings/2026-10-18-paper-plan.md](../team%20meetings/2026-10-18-paper-plan.md). The same bullet points are also at the top of each section file as comments.
+**What goes in each section:** [plans/2026-10-18-paper-plan.md](../plans/2026-10-18-paper-plan.md). The same bullet points are also at the top of each section file as comments.
 
 ---
 
@@ -63,7 +63,7 @@ If you want to see the PDF update as you type:
 - Cite with `\cite{key}`, e.g. `\cite{rudin2019stop}`. The keys are in `refs.bib`.
 - **Adding a new source:**
   1. Add its BibTeX entry to `refs.bib`. Google Scholar → "Cite" → BibTeX gives you one; check it against the paper.
-  2. Write a source review in `journal/daily notes/` using the template.
+  2. Write a source review in `journal/sources/` using the [template](../journal/templates/source-review.md).
 - IEEE numbered style ([1], [2], …) is generated automatically, in order of first citation. Don't type numbers by hand.
 - `main.tex` currently has `\nocite{*}` so the reference list builds before anything is cited. **Delete it before submitting**, because the rubric checks that every listed reference is actually cited.
 

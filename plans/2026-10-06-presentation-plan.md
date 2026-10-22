@@ -6,7 +6,7 @@
 
 **Description:** Data filters silently decide whose language LLMs learn from. SHAP and LIME can show which words drive a removal, and our experiments show they reveal real problems with our chosen filters. However, despite LIME and SHAP being useful for finding suspicious behaviour, they shouldn't be used as a verdict due to their instability and position as being descriptive, rather than normative (they describe what the model does but can't say what it should do).
 
-> **Note:** If you are using a reference in the PowerPoint, make a write-up of it using the template in daily notes and push it to Git.
+> **Note:** If you are using a reference in the PowerPoint, make a write-up of it using the template in `journal/templates/` and push it to Git.
 
 ---
 

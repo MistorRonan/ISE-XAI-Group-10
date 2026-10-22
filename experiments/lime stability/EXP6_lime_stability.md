@@ -177,14 +177,17 @@ Markdown note after it: *"AUC 0.5 = no better than guessing; above about 0.7 = a
 ### Cell 7: Figure 2 (paper Fig. 2)
 x = signal strength, y = instability (1 − rank stability), one dot per sentence, two colours (500 and 5000 samples), log scale on x if the values spread over orders of magnitude. Size it for one IEEE column.
 ```python
-fig, ax = plt.subplots(figsize=(3.5, 2.8))
+fig, ax = plt.subplots(figsize=(3.5, 1.6))   # one IEEE column, short (2026-10-22)
 for n, c in [(500, COLORS["n500"]), (5000, COLORS["n5000"])]:
     d = ST[ST.n == n]
-    ax.scatter(d.signal, 1 - d.rank_stability, s=8, alpha=0.6, color=c, label=f"{n} samples")
-ax.set_xscale("symlog"); ax.set_xlabel("Signal strength |logit − base| (log-odds)", fontsize=8)
-ax.set_ylabel("LIME instability (1 − ρ across seeds)", fontsize=8)
-ax.legend(frameon=False, fontsize=7); ax.tick_params(labelsize=7); ax.spines[["top","right"]].set_visible(False)
-fig.tight_layout(); fig.savefig(f"{OUT}/fig_exp6_instability_vs_signal.pdf"); fig.savefig(f"{OUT}/fig_exp6_instability_vs_signal.png", dpi=300)
+    ax.scatter(d.signal, 1 - d.rank_stability, s=4, alpha=0.6, color=c, linewidths=0, label=f"{n} samples")
+ax.set_xscale("symlog"); ax.set_xlabel("Signal strength |logit − base| (log-odds)", fontsize=6)
+ax.set_ylabel("LIME instability\n(1 − ρ across seeds)", fontsize=6)
+ax.legend(frameon=False, fontsize=5.5, markerscale=1.5)
+ax.tick_params(labelsize=5.5, width=0.5, length=2)
+for s in ax.spines.values(): s.set_linewidth(0.5)
+ax.spines[["top","right"]].set_visible(False)
+fig.tight_layout(pad=0.3); fig.savefig(f"{OUT}/fig_exp6_instability_vs_signal.pdf"); fig.savefig(f"{OUT}/fig_exp6_instability_vs_signal.png", dpi=300)
 ```
 
 ### Cell 8: results summary

@@ -14,16 +14,35 @@ We test whether SHAP and LIME can fill that gap. They can show which words drive
 
 ---
 
+## How the journal is organised
+
+Every entry is a dated Markdown file named `YYYY-MM-DD-….md`. Entries are grouped by type:
+
+| Folder | Entry type | What's in each entry |
+|---|---|---|
+| [journal/weekly/](journal/weekly/) | **Weekly recap** | What we decided that week and why, the sources we looked at with a verdict for each, what's still open, and who did what |
+| [journal/meetings/](journal/meetings/) | **Meeting minutes** | Agenda, discussion, decisions and action items |
+| [journal/sources/](journal/sources/) | **Source review**, one per paper | Full reference, TL;DR, key findings, why it matters to us, concerns, and the report sections it feeds |
+| [journal/notes/](journal/notes/) | **Ad-hoc note** | Early ideas that came before a weekly entry |
+| [journal/templates/](journal/templates/) | Templates | [Weekly recap](journal/templates/weekly-recap.md), [meeting](journal/templates/meeting.md) and [source review](journal/templates/source-review.md) |
+| [plans/](plans/) | **Plans agreed at meetings** | The [presentation plan](plans/2026-10-06-presentation-plan.md) (06/10) and the [paper plan](plans/2026-10-18-paper-plan.md) (18/10), updated as decisions change |
+
+---
+
+
+
+---
+
 ## Paper
 
 **Do Attributions Tell the Truth About Data Filters? Measuring the Faithfulness of SHAP and LIME in Identity-Term Bias Audits**
 
 **Thesis:** feature attribution is faithful enough to flag identity-term bias in a pretraining filter, but not reliable enough to certify the filter is fair.
 
-- **Latest draft:** none yet. Snapshots go in [paper/drafts/](paper/drafts/).
+- **Latest draft:** [paper/main.tex](paper/main.tex), with each section in [paper/sections/](paper/sections/). Dated PDF snapshots go in [paper/drafts/](paper/drafts/).
 - **Live build:** every push to `paper/` builds the PDF. Go to the Actions tab → *Build paper* → latest run → *paper-pdf*.
 - **LaTeX source and how to contribute:** [paper/](paper/). Read [paper/README.md](paper/README.md) first.
-- **Plan (what goes in each section):** [team meetings/2026-10-18-paper-plan.md](team%20meetings/2026-10-18-paper-plan.md)
+
 
 ---
 
@@ -40,23 +59,16 @@ All notebooks run on **Google Colab with a T4 GPU** (Runtime → Change runtime 
 | **5. Deletion test** | If we delete the words SHAP/LIME blame, does the score drop more than when deleting random words? | [EXP5 spec](experiments/deletion%20test/EXP5_deletion.md) | [05_deletion.ipynb](experiments/deletion%20test/05_deletion.ipynb) | [results/](experiments/deletion%20test/results/) |
 | **6. LIME stability** | Is LIME least stable on weak signals, and can its R² or SHAP–LIME disagreement warn an auditor? | [EXP6 spec](experiments/lime%20stability/EXP6_lime_stability.md) | [06_lime_stability.ipynb](experiments/lime%20stability/06_lime_stability.ipynb) | [results/](experiments/lime%20stability/results/) |
 
-
 ---
 
 ## Repo map
 
 | Folder | What's in it |
 |---|---|
-| [journal/daily notes/](journal/daily%20notes/) | Source reviews (one per paper) and daily notes |
-| [journal/weekly recaps/](journal/weekly%20recaps/) | Weekly summaries of decisions and sources |
-| [team meetings/](team%20meetings/) | Meeting minutes, the [presentation slide plan](team%20meetings/2026-10-06-slide-plan.md) and the [paper plan](team%20meetings/2026-10-18-paper-plan.md) |
-| [experiments/](experiments/) | Experiment specs, notebooks and results (see above) |
+| [journal/](journal/) | The research journal (see [How the journal is organised](#how-the-journal-is-organised)) |
+| [plans/](plans/) | Presentation and paper plans agreed at meetings |
+| [experiments/](experiments/) | Experiment specs, notebooks and results |
 | [paper/](paper/) | LaTeX source of the paper (one file per section), references, figures and dated draft PDFs |
-| [presentation/](presentation/) | Figures used in the slides |
-
-### Templates
-
-- **Source review:** [journal/daily notes/research_paper_template.md](journal/daily%20notes/research_paper_template.md). Use this for every paper we cite in the presentation or report.
 
 ---
 
@@ -70,3 +82,4 @@ Commit messages follow the format `type: short summary`:
 | `report:` | changes to the report draft | `report: draft background section from week 2 sources` |
 | `research:` | notes on sources or data outside the weekly entry | `research: add summary of counterfactual explanations paper` |
 | `docs:` | README, template and repo housekeeping | `docs: add journal template` |
+

@@ -2,55 +2,66 @@
 % V. DISCUSSION AND CRITICAL ANALYSIS (about 0.4 page)
 % Owner: Julia
 %
-% FIRST DRAFT (2026-10-21).
+% SECOND DRAFT OUTLINE (2026-10-22)
 % ---------------------------------------------------------------------
 \section{Discussion}\label{sec:discussion}
 
-\todo{}
+\todo{Second draft: needs to be cut to about 0.4 page.}
 
-\subsection{Gets order of identity terms right, not exactly how big their effects are:}
+\subsection{SHAP Gets the Order Right but Overstates the Size}
 \begin{itemize}
-  \item Counterfactual effect (true answer): Swap identity word (e.g. gay) for a neutral control word (e.g. tall) and measure how much the Detoxify score changes, in log-odds. Only one word changes, so that change is caused by that word.
-  \item SHAP's estimate: what SHAP says that word contributed
-  \item Evidence: Experiment 3
-  \item A high p (Spearman's rank correlation: measures how similar two rankings are, rank by true counterfactual effect, rank same terms by SHAP's number, p measures how closely they line up) can be inflated by the wide spread between strong identity terms and near-zero control terms.
-  \item An auditor needs magnitudes not just rankings, SHAP is good for flagging which terms to look at, but weaker for ``this filter's bias is X big''
+  \item Exp 3: $\rho = 0.96$ / 0.92 with the counterfactual effect, sign agreement 0.98 / 0.93.
+  \item But MAE is 0.94 / 0.72 log-odds and SHAP overestimates. An attribution-based audit would exaggerate the bias: the safer direction, but still wrong.
+  \item $\rho$ could be inflated by the gap between identity and control words. Answer: term-level $\rho = 0.98$ ($n=15$).
+  \item For an auditor: SHAP is good for deciding \emph{which} terms to look at, weak for saying \emph{how big} the bias is.
 \end{itemize}
 
-\subsection{SHAP overstates the identify/counterfactual effect}
+\subsection{The 46\% $\rightarrow$ 60\% Claim Mostly Doesn't Hold Up}
 \begin{itemize}
-  \item Based off experiment 3 results an attribution-based audit would overstate bias here. Safer than understating, but still wrong
+  \item Share of $|$SHAP$|$ on the identity word rose 46\% $\rightarrow$ 60\%, but the counterfactual effect only moved 3.36 $\rightarrow$ 3.60, and SHAP's own estimate \emph{fell} (4.16 $\rightarrow$ 3.84).
+  \item Lesson: share-of-attribution measures can rise while the absolute effect barely changes. Normalised attributions can mislead.
 \end{itemize}
 
-\subsection{``Debiased'' doesn't mean identity-insensitive}
+\subsection{``Removing'' a Word Isn't Neutral}
 \begin{itemize}
-  \item Gap between what the ``unbiased'' label on Detoxify promises and what our experiment actually tests
-  \item Detoxify unbiased was trained to be fair on average across many real comments (\textbf{Borkan 2019}), it wasn't trained to give the same score when you swap the group word in a single sentence (\textbf{Garg 2019}). That's why it can be called ``unbiased'' and still react strongly to ``gay'' in our tests (can be unbiased by one definition and biased by another).\newline
-  For example: A teacher takes 10 marks off every essay by one group. Within that group, good essays still beat bad ones, so ordering is fine and Test 1 is passed. Swap the name on any single essay and the mark jumps 10 points so Test 2 is failed. Detoxify unbiased was trained to pass Test 1, not Test 2.
-  \item Explains our weird looking result and shows that someone must choose what ``fair'' means.
+  \item Negative sufficiency: keeping only the top words scores higher than the full sentence (report sentences $-3.4$). A sentence cut down to a few words is out of distribution, and the filter sees bare insults with none of the softening context~\cite{hase2021ood}, \cite{deyoung2020eraser}.
+  \item Baseline sensitivity: ranking holds ($\rho \geq 0.97$ across dots / delete / mask) but magnitudes shift: MAE 0.94 $\rightarrow$ 0.70, control-word $|\phi|$ 0.64 $\rightarrow$ 0.39. ``Choosing a good baseline can be difficult''~\cite{munn2022xai}.
+  \item Ties back to the first subsection: ranks are robust, magnitudes depend on the baseline.
+  \item Sanity check that works: comprehensiveness on control sentences $\approx 0$ for every explainer.
+\end{itemize}
+
+\subsection{Agreeing and Repeating Is Not Being Right}
+\begin{itemize}
+  \item The presentation's 78/88 top-word agreement doesn't count as validation. Both explainers remove words, so they make correlated errors~\cite{krishna2022disagreement}.
+  \item SHAP--LIME disagreement predicts the worst SHAP errors with AUC 0.46, worse than chance.
+  \item LIME is stable across seeds (top word changes in only 4\% of sentences at 5000 samples) but on weak signals it is consistently a poor fit ($R^2 \approx 0.45$ vs.\ 0.87).
+\end{itemize}
+
+\subsection{Triage, Not Certify}
+\begin{itemize}
+  \item Reliable on strong signals, worse on weak ones. Weak signal strength \emph{does} predict errors (AUC 0.80); low $R^2$ only weakly (0.64).
+  \item In an audit a false ``no bias found'' is the costly mistake.
+  \item Explainers can be gamed adversarially~\cite{slack2020fooling}.
+  \item Our references only exist because we built the inputs ourselves. A real auditor facing a black box won't have them.
+  \item Practical takeaway (feeds the Conclusion): use signal strength, not disagreement, as the flag for human review.
+\end{itemize}
+
+\subsection{``Debiased'' Doesn't Mean Identity-Insensitive}
+\begin{itemize}
+  \item Detoxify \texttt{unbiased} was trained for aggregate fairness across many real comments~\cite{borkan2019nuanced}, not to give the same score when the identity word in a single sentence is swapped. So it can be ``unbiased'' by one definition and biased by another.
+  \item Analogy, one sentence max: a marker who docks every essay from one group by 10 marks keeps the ordering within the group fair, but swapping the name on one essay changes the mark.
+  \item Caveat: \texttt{original} and \texttt{unbiased} also differ in architecture (BERT vs.\ RoBERTa), which muddies the comparison.
 \end{itemize}
 
 \subsection{Rudin's Debate}
 \begin{itemize}
-  \item How much worse is our simple model in comparison to detoxify:\newline
-  -AUC measures how well a filter separates toxic from non-toxic comments (1.0 = perfect, 0.5 no better than random). Experiment 4 results: there's a small gap between but not enough than an auditor couldn't reasonably argue for the simple model
-  \item Simple model is biased too, since it's transparent we can read the score it gave each word, bias didn't come from the design but rather the training data. A simple model lets us see this directly. Rudin's approach makes bias easy to spot, but it doesn't fix it.
+  \item AUC: transparent filter 0.897 vs.\ Detoxify 0.928 / 0.971. Small-to-moderate gap, so an auditor could reasonably argue for the simple model~\cite{rudin2019stop}.
+  \item Its coefficients: gay $+2.83$, muslim $+1.90$, black $+1.87$ vs.\ controls $-0.26$ to $-0.39$. The bias comes from the training data, not the design. Transparency makes it visible but doesn't fix it.
+  \item Bonus: on this filter SHAP matched exact Shapley values ($\rho = 1.0$ / 0.98), so where explanations can be checked, they hold up.
 \end{itemize}
 
-\subsection{Triage vs Certify}
+\subsection{Explanations Can't Decide What ``Fair'' Means}
 \begin{itemize}
-  \item In an audit a false negative is much worse than a false positive. SHAP/LIME are reliable on strong signals, weak on weak signals (experiment 6) and can be gamed adversarially (Slack 2020).
-  \item Experiment 6: Which warning signs predict the worst 25\% of SHAP errors against the true answer? Weak signal strength etc
-\end{itemize}
-
-\subsection{Agreeing and Repeating is not equal to being right}
-\begin{itemize}
-  \item SHAP and LIME aren't independent witnesses. Both explain by removing words, so they share the same out-of-distribution bias and their errors are likely correlated. Agreement cant serve as validation (Krishna 2022).
-  \item LIME on weak signals is consistent but consistently a poor fit. Fit and agreement fall on weak signals. On weak signals LIME gives the same answer every run, but that answer comes from a surrogate that explains under half the variance.
-\end{itemize}
-
-\subsection{Explanations can't decide what ``fair'' means}
-\begin{itemize}
-  \item Faithful to the model doesn't mean right about the world. The glass-box coefficients show that ``gay'' is associated with toxicity in Civil Comments labels. SHAP describes that faithfully. Whether removing such text is a harm is a normative question about whos language counts (Gururangan, 2022)
-  \item Not causal in the world. The counterfactual swap is causal within the model. It says nothing about downstream harm, which communities vanish from the corpus or what the LLM then learns.
+  \item Faithful to the model doesn't mean right about the world. Whether removing such text is a harm is a normative question about whose language counts~\cite{gururangan2022whose}.
+  \item The counterfactual swap is causal within the model, not in the world: it says nothing about which communities vanish from the corpus or what the LLM then learns~\cite{munn2022xai} (textbook p53).
 \end{itemize}

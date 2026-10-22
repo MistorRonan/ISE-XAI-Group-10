@@ -69,7 +69,7 @@
   - Explainers disagree (Krishna 2022). Explainers can be fooled (Slack 2020). Deleted-word inputs are out-of-distribution (Hase 2021). "Accuracy ≠ explainability" (Ngueajio 2025).
   - **Gap:** nobody has checked attribution faithfulness *for filter auditing* specifically, against references with known answers.
 - Rudin's argument can go here or in the Discussion, but not both.
-- **Draws on:** slides 2, 3, 5, 9; all source reviews in `journal/daily notes/`.
+- **Draws on:** slides 2, 3, 5, 9; all source reviews in `journal/sources/`.
 
 ---
 

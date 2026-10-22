@@ -327,7 +327,7 @@ from google.colab import files; files.download("outputs_exp2.zip")
 Print a short checklist reminding the user to:
 1. Upload the notebook to Colab and select a T4 GPU.
 2. Run all cells. Expect about 30–45 minutes, mostly Cell 8.
-3. Unzip the outputs into `presentation/figures/exp2/` in the repo.
+3. Unzip the outputs into this experiment's `results/` folder.
 4. Commit under their own GitHub account with the message `research: experiment 2 identity swap results`.
 
 ---

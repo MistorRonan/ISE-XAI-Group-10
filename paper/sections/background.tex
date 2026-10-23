@@ -8,22 +8,27 @@
 \subsection{Bias in Pretraining Data Filters}
 Large language models are trained on web-scale corpora filtered through pipelines that silently encode value judgements.
 Dodge et al.\ showed that C4's word blocklist disproportionately removes text by and about LGBTQ+ people and in African American English (AAE)~\cite{dodge2021documenting}.
-Quality filters compound this: Gururangan et al.\ found that a replica of GPT-3's quality filter assigns higher scores to text from wealthier, urban, and more educated sources~\cite{gururangan2022whose}.
-Toxicity classifiers exhibit the same pattern --- Sap et al.\ showed hate-speech detectors flag AAE at significantly higher rates than equivalent white-aligned English~\cite{sap2019risk}, and Mendu et al.\ found that a transformer-based filter misclassifies news articles that \emph{report} on harmful content as harmful themselves~\cite{mendu2025safer}.
+Quality filters compound this: Gururangan et al.\ found that a replica of GPT-3's quality filter assigns higher scores to text from wealthier, urban and more educated sources~\cite{gururangan2022whose}.
+Toxicity classifiers exhibit the same pattern: Sap et al.\ showed hate-speech detectors flag AAE at significantly higher rates than equivalent white-aligned English~\cite{sap2019risk}, and Mendu et al.\ found that a transformer-based filter misclassifies news articles that \emph{report} on harmful content as harmful themselves~\cite{mendu2025safer}.
 Fairness-oriented filters are not immune: Udagawa et al.\ found a regard classifier removes sentences that report real-world events involving marginalised groups~\cite{udagawa2025bias}.
-Identity-term templates offer a controlled way to probe these failures: Dixon et al.\ introduced the minimal-pair method --- substituting one identity word for a neutral control (e.g.\ ``my neighbour is \emph{gay}'' vs.\ ``my neighbour is \emph{tall}'') --- to isolate unintended classifier bias~\cite{dixon2018measuring}; Borkan et al.\ built the Jigsaw unintended-bias dataset that Detoxify \texttt{unbiased} was trained on~\cite{borkan2019nuanced}.
-Across all filter types, however, these audits measure aggregate removal rates across groups; none explains why an individual sentence was removed.
+Identity-term templates offer a controlled way to probe these failures.
+Dixon et al.\ introduced the minimal-pair method, which substitutes one identity word for a neutral control (e.g.\ ``my neighbour is \emph{gay}'' vs.\ ``my neighbour is \emph{tall}'') to isolate unintended classifier bias~\cite{dixon2018measuring}.
+Borkan et al.\ extended this work to real comments, releasing the identity-labelled Civil Comments data on which Detoxify \texttt{unbiased} was later trained~\cite{borkan2019nuanced}.
+However, across all filter types, these audits measure only aggregate removal rates by group, and none explains why an individual sentence was removed.
 
 \subsection{Feature Attribution for Text}
 Post-hoc feature attribution assigns each input token a score reflecting its contribution to the model's prediction, without modifying the model itself.
-SHAP grounds attribution in cooperative game theory: Lundberg and Lee showed that the Shapley value --- the unique attribution satisfying efficiency, symmetry, and the null-player axiom --- can be computed for any model via a unified additive framework~\cite{lundberg2017unified}.
-For text, the SHAP library uses a partition approximation; exact Shapley enumeration is only feasible for short sequences, which is what Experiment~4 exploits as a reference.
-LIME takes a complementary approach: Ribeiro et al.\ fit a locally-weighted sparse linear surrogate to random perturbations of the input, measuring local fidelity through the surrogate's $R^2$~\cite{ribeiro2016why}.
-Both methods are post-hoc, local (one prediction at a time), and model-agnostic --- they treat the classifier as a black box and require only query access~\cite{munn2022xai}.
+SHAP grounds attribution in cooperative game theory: Lundberg and Lee showed that the Shapley value, the unique attribution satisfying efficiency, symmetry and the null-player axiom, can be computed for any model via a unified additive framework~\cite{lundberg2017unified}.
+For text, the SHAP library uses a partition approximation; exact Shapley enumeration is feasible only for short sequences, which allows it to serve as a reference (Sec.~\ref{sec:method}).
+LIME takes a complementary approach: Ribeiro et al.\ fit a locally weighted sparse linear surrogate to random perturbations of the input, measuring local fidelity through the surrogate's $R^2$~\cite{ribeiro2016why}.
+Both methods are post-hoc, local (one prediction at a time) and model-agnostic: they treat the classifier as a black box and require only query access~\cite{munn2022xai}.
 
 \subsection{Evaluating Explanations: Faithfulness vs.\ Agreement}
-An explanation is \emph{faithful} if it correctly describes the model's actual reasoning process, a property distinct from whether it looks plausible to a human --- a distinction formalised by Jacovi and Goldberg~\cite{jacovi2020faithfully}.
+Jacovi and Goldberg define an explanation as \emph{faithful} if it correctly describes the model's actual reasoning process, and distinguish this from whether it looks plausible to a human~\cite{jacovi2020faithfully}.
 Deletion-based metrics operationalise faithfulness: DeYoung et al.'s ERASER benchmark defines \emph{comprehensiveness} (the score drops when the top-$k$ attributed tokens are deleted) and \emph{sufficiency} (the score is preserved when only those tokens are kept)~\cite{deyoung2020eraser}.
 These metrics have a known limitation: deleting words produces inputs outside the model's training distribution, so score changes may partly reflect distributional shift rather than token importance~\cite{hase2021ood}.
-More broadly, post-hoc explainers are imperfect: Krishna et al.\ showed that SHAP and LIME frequently disagree on feature rankings for the same input, so mutual agreement does not imply either is correct~\cite{krishna2022disagreement}; Slack et al.\ demonstrated that explanations can be adversarially manipulated to conceal discriminatory model behaviour~\cite{slack2020fooling}; and Ngueajio et al.\ found that the highest-accuracy classifier is not necessarily the one whose explanations are most faithful~\cite{ngueajio2025decoding}.
-These evaluations were conducted on general NLP tasks; no prior work has checked attribution faithfulness specifically in pretraining filter auditing, against references whose correct answers are known independently.
+More broadly, post-hoc explainers are imperfect.
+Krishna et al.\ showed that SHAP and LIME frequently disagree on feature rankings for the same input, so agreement between them does not imply either is correct~\cite{krishna2022disagreement}.
+Slack et al.\ demonstrated that explanations can be adversarially manipulated to conceal discriminatory model behaviour~\cite{slack2020fooling}.
+Ngueajio et al.\ found that the highest-accuracy classifier is not necessarily the one whose explanations are most faithful~\cite{ngueajio2025decoding}.
+These evaluations were conducted on general classification tasks; to our knowledge, no prior work has evaluated attribution faithfulness in pretraining filter audits against references whose correct answers are known independently.

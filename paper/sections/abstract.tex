@@ -1,5 +1,8 @@
 % ---------------------------------------------------------------------
-% ABSTRACT (about 150 words).
-% Owner: ___
+% ABSTRACT (about 150 words)
+% main.tex already wraps this file in \begin{abstract}...\end{abstract},
+% so this file holds plain text only. No citations (IEEE style).
+% Every number is from Results (Sec. IV) / Table I.
+% Owner April Gilhool
 % ---------------------------------------------------------------------
-\todo{Abstract, about 150 words.}
+Pretraining data filters silently decide whose language large language models learn from, and have been shown to remove text from specific groups. They are audited only in aggregate, and nobody has checked whether the feature-attribution explanations an auditor would use to explain individual removals are faithful. We test SHAP and LIME on the Detoxify toxicity filter against two references whose answers can be computed independently, counterfactual identity-word swaps and exact Shapley values on a transparent filter, plus a deletion test and a stability test. Both explainers rank identity-word effects almost as the counterfactual does (Spearman $\rho = 0.96$ for SHAP, 0.97 for LIME) and recover exact Shapley values ($\rho \geq 0.98$), but SHAP overstates the size of the effect, and its error depends on how removed words are replaced. On weak signals LIME's surrogate fit falls ($R^2$ 0.77 to 0.41), and SHAP--LIME disagreement is no better than chance (AUC 0.46) at flagging wrong explanations. Attribution can therefore triage a filter for identity-term bias, but cannot certify it as fair.

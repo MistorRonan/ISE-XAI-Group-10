@@ -45,11 +45,11 @@
 
 We audit two Detoxify toxicity classifiers~\cite{detoxify}:
 \texttt{original}, a BERT model trained on the Jigsaw Toxic Comment Classification Challenge,
-and \texttt{unbiased}, a RoBERTa model trained on the Civil Comments data of the Jigsaw Unintended Bias challenge~\cite{borkan2019nuanced}.
-The two therefore differ in architecture and training data, not only in debiasing.
+and \texttt{unbiased}, a RoBERTa model trained on Civil Comments for the Jigsaw Unintended Bias challenge~\cite{borkan2019nuanced}.
+They differ in architecture and training data, not only in debiasing.
 For Exp~4 we also train a transparent filter:
 a logistic regression on binary word and word-pair features from 100,000 Civil Comments,
-where a comment is toxic if its toxicity score is at least 0.5.
+labelled toxic at a score of 0.5 or more.
 On 5,000 held-out comments its AUC is 0.892,
 against 0.928 for \texttt{original} and 0.971 for \texttt{unbiased}, which was trained on this data.
 
@@ -160,15 +160,13 @@ SHAP~\cite{lundberg2017unified} and LIME~\cite{ribeiro2016why} both treat each w
 Exp~2 split words at spaces; Exp~3 re-ran its sentences with the tokenizer used elsewhere.
 All Detoxify experiments explain both models,
 except Exp~6 and LIME in Exps~1--2, which use only \texttt{original}.
-SHAP uses the Partition explainer on the log-odds of the toxic class,
-with \texttt{max\_evals} set to 500 (300 in Exp~2).
+SHAP uses the Partition explainer on the toxic log-odds,
+with \texttt{max\_evals} = 500 (300 in Exp~2).
 Every SHAP run on Detoxify passed a check that its values sum to the model's output within 0.01.
 LIME explains the toxic probability instead,
 so its values are not compared with SHAP's in size.
 LIME used 5,000 samples in Exps~3--5 and 2,000 in the single runs of Exps~1--2
 (in Exp~2, on 40 random identity sentences).
-Exp~6 compares 500 and 5,000.
-Single runs use seed 42 and repeated runs use seeds 0--9.
 To score a word, an explainer must ``remove'' it; by default, SHAP replaces it with ``...''.
 Exp~3 also tests deleting the word and using the model's mask token,
 and Exps~4 and~5 delete words.
@@ -214,17 +212,16 @@ and Exps~4 and~5 delete words.
 Two explainers agreeing does not show that either is right~\cite{krishna2022disagreement},
 so we compare them against two references whose answers we know.
 The \emph{counterfactual effect} (Exp~3), following Garg et al.~\cite{garg2019counterfactual},
-is an identity sentence's log-odds minus the mean log-odds of the four control sentences from the same template.
+is an identity sentence's log-odds minus the mean log-odds of its template's four control sentences.
 Since only one word differs, that word causes the whole change.
 SHAP's estimate is the identity word's SHAP value
 minus the control words' mean SHAP value in that template.
-The counterfactual effect includes the word's interactions with the rest of the sentence,
-so an exact match is not expected.
+Because the counterfactual effect also includes the word's interactions,
+an exact match is not expected.
 The \emph{exact Shapley values} (Exp~4) are computed on the transparent filter
-by scoring every subset of a sentence's words, with the other words deleted,
-and applying the Shapley formula directly.
-SHAP (Partition and Permutation) and LIME are then run on this filter as a black box
-and compared with these values.
+by scoring every subset of a sentence's words (the rest deleted)
+and applying the Shapley formula.
+SHAP (Partition and Permutation) and LIME are then run on this filter as a black box.
 
 \subsection{Metrics}
 % PLAN: what did we measure?
@@ -281,18 +278,18 @@ Exp~1 reports the insult words' share of SHAP's toward-toxic attribution,
 and Exp~2 the identity word's share of all absolute SHAP attribution.
 Faithfulness to the counterfactual effect (Exp~3) is measured per sentence and per term
 with Spearman's $\rho$, sign agreement and mean absolute error (MAE) in log-odds.
-For LIME, which works in probability, we use $\rho$ and sign agreement.
+For LIME, we use only $\rho$ and sign agreement.
 Exp~3 also uses $\rho$ to compare the three baselines' rankings of the identity words.
-Against exact Shapley values (Exp~4), we use the median $\rho$ over sentences, top-word match and MAE.
-We also compare sentences with low and high word-pair interaction, split at the median.
-The deletion test (Exp~5) is adapted from ERASER~\cite{deyoung2020eraser}.
-For $k = 1, 2, 3$ we take the top $k$ words from SHAP, from LIME, or at random (averaged over 10 draws).
+Against exact Shapley values (Exp~4), we use the median $\rho$ over sentences, top-word match and MAE,
+for sentences with low and high word-pair interaction (split at the median).
+The deletion test (Exp~5), adapted from ERASER~\cite{deyoung2020eraser},
+takes the top $k = 1, 2, 3$ words from SHAP, LIME, or at random (averaged over 10 draws).
 \emph{Comprehensiveness} is the drop in log-odds when these words are deleted (higher is better).
 \emph{Sufficiency} is the drop when only these words are kept (lower is better).
 Both are averaged over $k$ (AOPC).
-For stability (Exp~6), LIME is run 10 times per sentence at each sample size (4,760 runs).
+For stability (Exp~6), LIME is run 10 times per sentence at 500 and 5,000 samples (4,760 runs).
 We record how often the top word changes, the mean Spearman $\rho$ between runs, LIME's $R^2$,
 and agreement with SHAP's top word.
-Signal strength is the absolute difference between a sentence's log-odds and SHAP's base value.
-Finally, we use AUC to test whether low $R^2$, SHAP--LIME disagreement or a weak signal
+Signal strength is the distance between a sentence's log-odds and SHAP's base value.
+We use AUC to test whether low $R^2$, SHAP--LIME disagreement or a weak signal
 can flag the 25\% of identity sentences with the largest Exp~3 error.

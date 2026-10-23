@@ -2,27 +2,27 @@
 % IV. RESULTS (about 1 page)
 % Owners: Julia (Exp 2, 3, 6 + baseline check) and Bláithín (Exp 1, 4, 5)
 %
-% THIRD DRAFT (2026-10-22): Julia's parts rewritten for readability.
+% FOURTH DRAFT (2026-10-22): all parts in prose, trimmed towards 1 page.
 % Every number checked against the results CSVs (source in the comment
-% above each paragraph). Bláithín's parts are \todo markers, with her
-% numbers kept in comments. Report results only; interpretation goes in
-% Section V.
+% above each paragraph; numbers cut for space are kept in comments).
+% Report results only; interpretation goes in Section V.
 %
-% Floats: each figure/table is placed just before the paragraph that first
-% refers to it, so [t] puts it at the top of that column (IEEE convention).
+% Floats: each figure/table sits just after (table) or before (figures) the
+% paragraph that first cites it; flafter in main.tex stops any of them
+% floating above the Sec. IV heading.
 % ---------------------------------------------------------------------
 \section{Results}\label{sec:results}
 
 \subsection{What SHAP/LIME Say}\label{sec:res-say}
 % Exp 1 (Bláithín). Sources: exp1_summary.csv, exp1_results.csv.
-In Experiment~1, the original model still scored 7 of the 16 report sentences above 0.5,
-along with 9 of the 16 counter-speech sentences and 15 of the 16 promoting ones.
-Mean toxicity was 0.88 for promote, 0.43 for report and 0.57 for counter sentences
-(0.96, 0.84 and 0.74 for the unbiased model). SHAP put on average 87\% of the toward-toxic
-attribution in report sentences on the insult words, compared with 75\% for promote and 69\% for counter sentences.
+% Cut for space: counter 9/16 and promote 15/16 above 0.5; unbiased means
+% 0.96 / 0.84 / 0.74 (promote / report / counter).
+In the report-vs-promote test (Exp~1), \texttt{original} still scored 7 of the 16 sentences that report abuse above 0.5 (mean toxicity 0.43, against 0.88 for promoting and 0.57 for counter-speech sentences), and SHAP placed 87\% of the toward-toxic attribution in report sentences on the insult words (75\% for promote, 69\% for counter).
 
-% Sources: exp2_results.csv (p, phi_share), exp1_results.csv + exp2_agreement.csv (top1_agree).
-In the identity-term swap (Exp~2), every sentence is harmless, yet those containing an identity term receive a mean toxicity probability of 0.124 from \texttt{original} and 0.106 from \texttt{unbiased}, compared with 0.001 and 0.002 when the same templates contain a control word ($n = 150$ and 40 sentences). Both explainers attribute this difference to the identity word. SHAP assigns it 46\% (\texttt{original}) and 60\% (\texttt{unbiased}) of the total absolute attribution, against about 20\% for a control word, and SHAP and LIME select the same top word in 78 of the 88 sentences explained by both (43/48 in Exp~1, 35/40 in Exp~2). Agreement of this kind does not show that either explanation is correct~\cite{krishna2022disagreement}.
+% Exp 2. Sources: exp2_results.csv (p, phi_share), exp1_results.csv + exp2_agreement.csv (top1_agree).
+In the identity-term swap (Exp~2), harmless sentences containing an identity term received a mean toxicity of 0.124 from \texttt{original} and 0.106 from \texttt{unbiased}, against 0.001 and 0.002 when the same templates contain a control word ($n = 150$ and 40). SHAP placed 46\% (\texttt{original}) and 60\% (\texttt{unbiased}) of its total absolute attribution on the identity word, against about 20\% on a control word, and SHAP and LIME chose the same top word in 78 of the 88 sentences explained by both.
+% Cut (interpretation, made in Section V-D): "Agreement of this kind does not
+% show that either explanation is correct~\cite{krishna2022disagreement}."
 
 \subsection{Faithfulness to the References}\label{sec:res-faith}
 
@@ -39,7 +39,7 @@ In the identity-term swap (Exp~2), every sentence is harmless, yet those contain
 
 % Sources: exp3_faithfulness_shap.csv, exp3_faithfulness_lime.csv,
 % exp3_results.csv (share of points above y = x: 83% original, 75% unbiased).
-Table~\ref{tab:faith} summarises every faithfulness result. In the counterfactual test (Exp~3), the true effect of identity term $t$ and SHAP's estimate of it are:
+Table~\ref{tab:faith} summarises every faithfulness result. In the counterfactual test (Exp~3), the true effect of identity term $t$ and SHAP's estimate of it are
 \begin{equation}
 \Delta_t = \ell(x_t) - \overline{\ell(x_c)}, \qquad
 \hat{\Delta}_t = \phi_t - \overline{\phi_c},
@@ -48,8 +48,6 @@ Table~\ref{tab:faith} summarises every faithfulness result. In the counterfactua
 where $\ell$ is the filter's log-odds, $\phi$ is a SHAP value and the bars denote the mean over the four control-word versions $x_c$ of the same template. Fig.~\ref{fig:cf} plots $\hat{\Delta}_t$ against $\Delta_t$. SHAP ranks the effects almost perfectly ($\rho = 0.96$ for \texttt{original}, 0.92 for \texttt{unbiased}; 0.98 and 0.95 per term) and gives the correct sign in 98\% and 93\% of sentences. Its magnitudes are less accurate: the mean absolute error is 0.94 and 0.72 log-odds, and 83\% and 75\% of points lie above $y = x$, so SHAP tends to overstate the effect. LIME reaches $\rho = 0.97$ for both models.
 % LIME MAE (0.07 / 0.04) is on the probability scale, so it is left out.
 
-% Table code sits after the paragraph that first cites it: placed before it,
-% [t] floats it to the top of the column where Method ends (above Sec. IV).
 \begin{table}[t]
 \caption{Faithfulness of SHAP and LIME to Each Reference}
 \label{tab:faith}
@@ -77,16 +75,27 @@ Top word changes across seeds                 & 6 & -- & 4\% & -- \\
 \end{table}
 
 % Source: exp3_debias_retest.csv.
-This also tests the 46\% to 60\% rise reported above, which suggests that \texttt{unbiased} relies more on the identity word. The word's mean SHAP value does rise, from 3.53 to 4.00 log-odds, but its counterfactual effect rises only from 3.36 to 3.60 and SHAP's estimate of it falls from 4.16 to 3.84. Measured directly, \texttt{unbiased} is only slightly more sensitive to the identity word ($+0.23$ log-odds).
+This also tests the 46\% to 60\% rise reported above, which suggests that \texttt{unbiased} relies more on the identity word. The word's mean SHAP value does rise, from 3.53 to 4.00 log-odds, but its counterfactual effect rises only from 3.36 to 3.60, and SHAP's estimate of it falls from 4.16 to 3.84. Measured directly, \texttt{unbiased} is only slightly more sensitive to the identity word ($+0.23$ log-odds).
 
-% Exp 4 (Bláithín). Sources: exp4_auc.csv, exp4_summary.csv,
-% exp4_identity_coefs.csv; median rho, 96% and 4% from the EXP4 run notes.
-On the transparent filter (Experiment~4), the logistic regression reached a held-out AUC of 0.897 with single words and 0.892 with word pairs added, compared with 0.928 for Detoxify \texttt{original} and 0.971 for \texttt{unbiased}. Against exact Shapley values, SHAP's Partition approximation reached a median $\rho = 0.993$ (mean MAE 0.022 log-odds). Agreement dropped only slightly on high-interaction sentences ($\rho = 0.986$, MAE 0.026, vs.\ 1.000 and 0.019 on low-interaction ones). LIME reached $\rho = 1.000$ on low-interaction and 0.976 on high-interaction sentences. Its top word matched the exact one in 96\% of runs, and that match changed across seeds for only 4\% of sentences. The filter's coefficients also show identity-term bias directly: 14 of the 15 identity words have positive weights (gay $+2.83$, muslim $+1.90$, black $+1.87$ log-odds), while all four control words are negative ($-0.26$ to $-0.39$).
+% Removal baseline (Exp 3). Sources: exp3_baselines.csv, exp3_baseline_rankings.csv.
+% Unbiased control-word |phi| rises slightly instead (0.43, 0.47, 0.49); cut for space.
+These results use SHAP's default baseline, which replaces a removed word with ``...''. Deleting the word instead, or using the model's mask token, barely changes the ranking of identity terms ($\rho \geq 0.97$ between every pair of baselines) but does change the magnitudes: SHAP's error against the counterfactual effect falls from 0.94 (dots) to 0.84 (delete) to 0.70 log-odds (mask) for \texttt{original}, and from 0.72 to 0.58 to 0.44 for \texttt{unbiased}.
+
+% Exp 4 (Bláithín). Sources: exp4_summary.csv, exp4_identity_coefs.csv;
+% median rho 0.993, MAE 0.022, LIME top-word match 96% (4,380 runs):
+% aggregates of exp4_faithfulness_by_sentence.csv (rechecked 2026-10-22).
+% Cut for space: MAE 0.026 high / 0.019 low interaction; LIME 1.000 / 0.976
+% (in Table I); LIME top-word match changed across seeds for 4% of
+% sentences; black +1.87; AUCs (already in Method III-A).
+On the transparent filter (Exp~4), SHAP's Partition approximation matched the exact Shapley values almost perfectly (median $\rho = 0.993$, MAE 0.022 log-odds), dropping only slightly on high-interaction sentences ($\rho = 0.986$ against 1.000), and LIME's top word matched the exact one in 96\% of runs. The filter's own coefficients are positive for 14 of the 15 identity words (e.g.\ gay $+2.83$, muslim $+1.90$ log-odds) and negative for all four control words ($-0.26$ to $-0.39$).
 
 \subsection{Deletion Test}\label{sec:res-del}
 % Exp 5 (Bláithín). Sources: exp5_aopc.csv, exp5_aopc_by_group.csv.
-% Negative sufficiency is only reported here; it is explained in Section V.
-Deleting the top-ranked words lowered the toxic log-odds far more than deleting random words (Table~\ref{tab:faith}). Comprehensiveness was 3.09 for SHAP and 3.05 for LIME vs.\ 0.35 for random words with the original model, and 4.02, 4.06 and 0.95 with the unbiased model. The gap over random was largest on the Experiment~1 counter and report sentences (4.58 and 4.52 log-odds for SHAP, original model) and smallest on the control sentences, where comprehensiveness was close to zero for every explainer (SHAP $-0.02$, LIME 0.01). Sufficiency was negative for both explainers: $-2.43$ for SHAP and $-2.65$ for LIME with the original model, and $-0.97$ and $-0.85$ with the unbiased model, against $+1.30$ and $+2.63$ for random words. So keeping only the top-ranked words gave a higher toxicity score than the full sentence. The effect was strongest on report sentences ($-3.4$ for both explainers, original model).
+% Cut for space: SHAP gap largest on Exp 1 counter / report sentences (4.58 /
+% 4.52); control comprehensiveness SHAP -0.02, LIME 0.01; unbiased
+% sufficiency SHAP -0.97, LIME -0.85, random +2.63. Negative sufficiency is
+% only reported here; it is explained in Section V.
+Deleting the top-ranked words lowered the toxic log-odds far more than deleting random words: comprehensiveness was 3.09 for SHAP and 3.05 for LIME against 0.35 for random words (\texttt{original}; 4.02, 4.06 and 0.95 for \texttt{unbiased}). The gap was largest on the Exp~1 counter and report sentences and close to zero on control sentences. Sufficiency was negative for both explainers ($-2.43$ and $-2.65$) but positive for random words (1.30), so the top-ranked words alone scored higher than the full sentence, most strongly in report sentences ($-3.4$).
 
 \subsection{Where the Explainers Break}\label{sec:res-break}
 
@@ -104,11 +113,6 @@ Deleting the top-ranked words lowered the toxic log-odds far more than deleting 
 % Sources: exp6_summary.csv (changed), exp6_stability_by_sentence.csv
 % (correlations; halves = median split on signal, 119 sentences each,
 % n = 5000; recomputed 2026-10-22), exp6_warning_signs.csv.
-The stability test (Exp~6) reruns LIME with 10 seeds at 500 and 5000 samples on all 238 sentences from Exp~1/2, explaining \texttt{original}. With 500 samples the top word changes between seeds in 12\% of sentences,with 5000 samples it changes in 4\%. Fig.~\ref{fig:stability} plots each sentence's instability, $1 - \bar{\rho}$ (where $\bar{\rho}$ is the mean Spearman correlation between the word rankings of every pair of runs), against its signal strength $s = |\ell(x) - \phi_0|$, the distance between its log-odds and SHAP's base value $\phi_0$. The two are unrelated ($|\rho| < 0.05$). However, signal strength does predict how well LIME's surrogate fits ($\rho = 0.73$ with $R^2$): at 5000 samples the mean $R^2$ is 0.41 for the weaker half of sentences against 0.77 for the stronger half, and LIME's top word matches SHAP's in 86\% against 95\%.
+The stability test (Exp~6) reruns LIME with 10 seeds at 500 and 5000 samples on all 238 sentences from Exps~1--2, explaining \texttt{original}. The top word changes between seeds in 12\% of sentences at 500 samples and in 4\% at 5000. Fig.~\ref{fig:stability} plots each sentence's instability (1 minus the mean Spearman $\rho$ between runs) against its signal strength $s = |\ell(x) - \phi_0|$, where $\phi_0$ is SHAP's base value: the two are unrelated ($|\rho| < 0.05$). Signal strength does, however, predict how well LIME's surrogate fits ($\rho = 0.73$ with $R^2$): at 5000 samples the mean $R^2$ is 0.41 for the weaker half of sentences against 0.77 for the stronger half, and LIME's top word matches SHAP's in 86\% against 95\%.
 
-Finally, we asked whether any readily available signal warns an auditor that SHAP is wrong. For the 25\% of identity sentences with the largest error $|\Delta_t - \hat{\Delta}_t|$, weak signal strength flags them with an AUC of 0.80 and low LIME $R^2$ with 0.64, whereas SHAP--LIME disagreement reaches only 0.46, no better than chance.
-
-\subsection{Sensitivity to the Removal Baseline}\label{sec:res-baseline}
-% Sources: exp3_baselines.csv, exp3_baseline_rankings.csv.
-% Unbiased control-word |phi| rises slightly instead (0.43, 0.47, 0.49); cut for space.
-By default, SHAP replaces a removed word with ``...''. Deleting the word instead or using the model's mask token, barely changes the ranking of identity terms ($\rho \geq 0.97$ between every pair of baselines) but does change the magnitudes: SHAP's error against the counterfactual effect falls from 0.94 (dots) to 0.84 (delete) to 0.70 log-odds (mask) for \texttt{original}, and from 0.72 to 0.58 to 0.44 for \texttt{unbiased}.
+Finally, we tested whether an auditor, who cannot compute the counterfactual effect, could tell which SHAP explanations are wrong. We marked the 25\% of identity sentences with the largest error $|\Delta_t - \hat{\Delta}_t|$ and measured how well three cues that need no reference identify them (AUC: 0.5 is chance, 1 is perfect). Weak signal strength identified them best (AUC 0.80), followed by low LIME $R^2$ (0.64), while SHAP--LIME disagreement did no better than chance (0.46).

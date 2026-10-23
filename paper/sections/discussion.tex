@@ -11,14 +11,17 @@
 % ---------------------------------------------------------------------
 \section{Discussion}\label{sec:discussion}
 
-\subsection{Ranks Are Trustworthy, Magnitudes Are Not}\label{sec:disc-rank}
-SHAP ordered the identity effects almost perfectly ($\rho = 0.96$ and 0.92), and the ordering holds across terms as well as across sentences (0.98 and 0.95). Its magnitudes were less reliable: it overstated the effects by 0.94 and 0.72, and this error shifted by up to 0.28 with the choice of removal baseline while the ranking did not ($\rho \geq 0.97$). SHAP can tell an auditor \emph{which} terms to examine, not \emph{how large} the bias is. Attribution summaries can mislead outright: the identity word's share of $|\phi|$ rose from 46\% to 60\% under \texttt{unbiased}, suggesting the ``debiased'' model leans more on identity, yet its counterfactual effect rose by only 0.23 log-odds and SHAP's estimate of that effect fell (Section~\ref{sec:res-faith}).
+\noindent\textbf{Ranks Are Trustworthy, Magnitudes Are Not.}
+SHAP ordered the identity effects almost perfectly ($\rho = 0.96$ and 0.92), and the ordering holds across terms as well as across sentences (0.98 and 0.95). Its magnitudes were less reliable: it overstated the effects by 0.94 and 0.72, and this error shifted by up to 0.28 with the choice of removal baseline while the ranking did not ($\rho \geq 0.97$). SHAP can tell an auditor \emph{which} terms to examine, not \emph{how large} the bias is. Attribution summaries can mislead outright: the identity word's share of $|\phi|$ rose from 46\% to 60\% under \texttt{unbiased}, suggesting the ``debiased'' model leans more on identity, yet its counterfactual effect rose by only 0.23 log-odds and SHAP's estimate of that effect fell (Sec.~\ref{sec:results}).
 
-\subsection{Removal Is Not Neutral}\label{sec:disc-removal}
+\smallskip
+\noindent\textbf{Removal Is Not Neutral.}
 Negative sufficiency means the top-ranked words alone scored as more toxic than the full sentence, most of all in report sentences ($-3.4$): stripped of its context, a sentence reporting abuse becomes a bare insult. Such fragments are out of distribution for the filter~\cite{hase2021ood}, so deletion metrics~\cite{deyoung2020eraser} partly measure the filter's reaction to fragments rather than explanation quality. Near-zero comprehensiveness on control sentences shows they still separate signal from no signal.
 
-\subsection{Agreement Is Not Validation}\label{sec:disc-agree}
+\smallskip
+\noindent\textbf{Agreement Is Not Validation.}
 SHAP and LIME chose the same top word in 78 of 88 sentences, but both explain by removing words and so share blind spots~\cite{krishna2022disagreement}: their disagreement found SHAP's worst errors no better than chance (AUC 0.46). LIME's seed stability is similarly reassuring in the wrong way, since it stays stable where its surrogate fits poorly (mean $R^2$ 0.41 on the weaker half of signals vs.\ 0.77). The cue that worked was signal strength (AUC 0.80). Attribution therefore suits \emph{triage}, flagging strong identity effects for human review, but not \emph{certifying} a filter as fair: its errors concentrate on weak signals, which is where a costly false ``no bias found'' would come from.
 
-\subsection{``Debiased'' Is Not Identity-Insensitive}\label{sec:disc-debias}
-\texttt{unbiased} was trained to reduce bias aggregated over real comments~\cite{borkan2019nuanced}, not to score a sentence identically when its identity word is swapped, so it can meet one fairness definition and fail ours. Transparency alone does not fix this either: our logistic filter, only modestly less accurate (AUC 0.897 vs.\ 0.928 and 0.971), learned the same bias from its data (gay $+2.83$) and simply makes it visible~\cite{rudin2019stop}.
+\smallskip
+\noindent\textbf{``Debiased'' Is Not Identity-Insensitive.}
+\texttt{unbiased} was trained to reduce bias aggregated over real comments~\cite{borkan2019nuanced}, not to score a sentence identically when its identity word is swapped, so it can meet one fairness definition and fail ours. Transparency alone does not fix this either: our logistic filter, only modestly less accurate (AUC 0.892 vs.\ 0.928 and 0.971), learned the same bias from its data (gay $+2.83$) and simply makes it visible~\cite{rudin2019stop}.

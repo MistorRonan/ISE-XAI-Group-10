@@ -20,8 +20,7 @@
 % promote, 69% counter). Also: counter 9/16 and promote 15/16 above 0.5;
 % unbiased means 0.96 / 0.84 / 0.74 (promote / report / counter).
 
-\subsection{Faithfulness to the References}\label{sec:res-faith}
-
+\noindent\textbf{Faithfulness to the References.}
 % Sources: exp3_faithfulness_shap.csv, exp3_faithfulness_lime.csv,
 % exp3_results.csv (share of points above y = x: 83% original, 75% unbiased).
 % Exp 2. Sources: exp2_results.csv (p, phi_share), exp1_results.csv + exp2_agreement.csv (top1_agree).
@@ -89,7 +88,8 @@ Deleting removed words or using the mask token instead of ``...'' barely changes
 % sentences; black +1.87; AUCs (already in Method III-A).
 On the transparent filter (Exp~4), SHAP's Partition approximation matched the exact Shapley values almost perfectly (median $\rho = 0.993$, MAE 0.022 log-odds), and LIME's top word matched the exact one in 96\% of runs. The filter's own coefficients are positive for 14 of the 15 identity words (e.g.\ gay $+2.83$, muslim $+1.90$ log-odds) and negative for all four control words ($-0.26$ to $-0.39$).
 
-\subsection{Deletion Test}\label{sec:res-del}
+\smallskip
+\noindent\textbf{Deletion Test.}
 % Exp 5 (Bláithín). Sources: exp5_aopc.csv, exp5_aopc_by_group.csv.
 % Cut for space: SHAP gap largest on Exp 1 counter / report sentences (4.58 /
 % 4.52); control comprehensiveness SHAP -0.02, LIME 0.01; unbiased
@@ -97,8 +97,8 @@ On the transparent filter (Exp~4), SHAP's Partition approximation matched the ex
 % only reported here; it is explained in Section V.
 Deleting the top-ranked words lowered the toxic log-odds far more than deleting random words (Table~\ref{tab:faith}; 4.02, 4.06 and 0.95 for \texttt{unbiased}). The gap was largest on the Exp~1 counter and report sentences and close to zero on control sentences. Sufficiency was negative for both explainers but positive for random words, so the top-ranked words alone scored higher than the full sentence, most strongly in report sentences ($-3.4$).
 
-\subsection{Where the Explainers Break}\label{sec:res-break}
-
+\smallskip
+\noindent\textbf{Where the Explainers Break.}
 % Sources: exp6_summary.csv (changed), exp6_stability_by_sentence.csv
 % (correlations; halves = median split on signal, 119 sentences each,
 % n = 5000; recomputed 2026-10-22), exp6_warning_signs.csv.

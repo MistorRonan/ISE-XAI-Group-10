@@ -1,6 +1,6 @@
 % ---------------------------------------------------------------------
 % III. METHOD (about 0.6 page)
-% Owners: one paragraph per experiment owner: Bláithín
+% Owners: Bláithín
 %
 % FACTS lists below were checked against the notebooks (*.ipynb), the
 % results CSVs and the journal. Source in [brackets] after each fact.
@@ -46,9 +46,9 @@
 We audit two Detoxify toxicity classifiers~\cite{detoxify}:
 \texttt{original}, a BERT model trained on the Jigsaw Toxic Comment Classification Challenge,
 and \texttt{unbiased}, a RoBERTa model trained on the Civil Comments data of the Jigsaw Unintended Bias challenge~\cite{borkan2019nuanced}.
-The two therefore differ in architecture, not only in debiasing.
+The two therefore differ in architecture and training data, not only in debiasing.
 For Exp~4 we also train a transparent filter:
-a logistic regression on binary word and word-pair counts from 100,000 Civil Comments,
+a logistic regression on binary word and word-pair features from 100,000 Civil Comments,
 where a comment is toxic if its toxicity score is at least 0.5.
 On 5,000 held-out comments its AUC is 0.892,
 against 0.928 for \texttt{original} and 0.971 for \texttt{unbiased}, which was trained on this data.
@@ -93,15 +93,15 @@ against 0.928 for \texttt{original} and 0.971 for \texttt{unbiased}, which was t
 %   - Exp 5 and Exp 6: all 238 Exp 1 + Exp 2 sentences
 
 Exp~1 uses 48 sentences:
-16 topics, each written to promote, report, or argue against abuse with the same insult
+16 topics, each written three ways (promoting, reporting or arguing against abuse) with mostly the same insult
 (e.g.\ ``Those fans are disgusting idiots and should be banned.'').
 Exp~2 follows the template design of Dixon et al.~\cite{dixon2018measuring}:
 10 harmless templates (e.g.\ ``My best friend is \_\_.'')
 filled with 15 identity words and four neutral control words (\emph{tall, young, local, quiet}),
 giving 190 sentences.
-Exp~3 uses the Exp~2 sentences, and Exps~5 and~6 use all 238.
+Exp~3 uses the Exp~2 sentences, and Exps~5 and~6 use all 238 Exp~1--2 sentences.
 Exp~4 adds 200 real Civil Comments test comments of 5--14 words (100 toxic, 100 non-toxic),
-giving 438 sentences of at most 16 words.
+giving 438 sentences of at most 16 tokens.
 
 \subsection{Explainers}
 % PLAN: how did we set up SHAP and LIME?
@@ -157,16 +157,19 @@ giving 438 sentences of at most 16 words.
 %   - transparent filter only: Exp 4
 
 SHAP~\cite{lundberg2017unified} and LIME~\cite{ribeiro2016why} both treat each word as a feature.
+Exp~2 split words at spaces; Exp~3 re-ran its sentences with the tokenizer used elsewhere.
+All Detoxify experiments explain both models,
+except Exp~6 and LIME in Exps~1--2, which use only \texttt{original}.
 SHAP uses the Partition explainer on the log-odds of the toxic class,
 with \texttt{max\_evals} set to 500 (300 in Exp~2).
 Every SHAP run on Detoxify passed a check that its values sum to the model's output within 0.01.
-LIME explains the probability of the toxic class rather than the log-odds,
+LIME explains the toxic probability instead,
 so its values are not compared with SHAP's in size.
-LIME used 5,000 samples in Exps~3--5 and 2,000 in the single runs of Exps~1--2,
-and Exp~6 compares 500 and 5,000.
+LIME used 5,000 samples in Exps~3--5 and 2,000 in the single runs of Exps~1--2
+(in Exp~2, on 40 random identity sentences).
+Exp~6 compares 500 and 5,000.
 Single runs use seed 42 and repeated runs use seeds 0--9.
-To score a word, an explainer has to ``remove'' it.
-SHAP replaces a removed word with ``...'' by default.
+To score a word, an explainer must ``remove'' it; by default, SHAP replaces it with ``...''.
 Exp~3 also tests deleting the word and using the model's mask token,
 and Exps~4 and~5 delete words.
 
@@ -214,13 +217,13 @@ The \emph{counterfactual effect} (Exp~3), following Garg et al.~\cite{garg2019co
 is an identity sentence's log-odds minus the mean log-odds of the four control sentences from the same template.
 Since only one word differs, that word causes the whole change.
 SHAP's estimate is the identity word's SHAP value
-minus the mean SHAP value of the control words in the same template.
+minus the control words' mean SHAP value in that template.
 The counterfactual effect includes the word's interactions with the rest of the sentence,
 so an exact match is not expected.
 The \emph{exact Shapley values} (Exp~4) are computed on the transparent filter
 by scoring every subset of a sentence's words, with the other words deleted,
 and applying the Shapley formula directly.
-SHAP (Partition and Permutation) and LIME are then run on this filter as if it were a black box
+SHAP (Partition and Permutation) and LIME are then run on this filter as a black box
 and compared with these values.
 
 \subsection{Metrics}
@@ -274,18 +277,22 @@ and compared with these values.
 %   - measured by Spearman rho with the error and by AUC for flagging the
 %     worst 25% of errors
 
-Faithfulness to a reference is measured with Spearman's $\rho$, sign agreement
-and mean absolute error (MAE) in log-odds.
+Exp~1 reports the insult words' share of SHAP's toward-toxic attribution,
+and Exp~2 the identity word's share of all absolute SHAP attribution.
+Faithfulness to the counterfactual effect (Exp~3) is measured per sentence and per term
+with Spearman's $\rho$, sign agreement and mean absolute error (MAE) in log-odds.
 For LIME, which works in probability, we use $\rho$ and sign agreement.
-Exp~4 also checks whether the top word matches,
-and compares sentences with low and high word-pair interaction, split at the median.
-The deletion test (Exp~5) follows ERASER~\cite{deyoung2020eraser}.
+Exp~3 also uses $\rho$ to compare the three baselines' rankings of the identity words.
+Against exact Shapley values (Exp~4), we use the median $\rho$ over sentences, top-word match and MAE.
+We also compare sentences with low and high word-pair interaction, split at the median.
+The deletion test (Exp~5) is adapted from ERASER~\cite{deyoung2020eraser}.
 For $k = 1, 2, 3$ we take the top $k$ words from SHAP, from LIME, or at random (averaged over 10 draws).
 \emph{Comprehensiveness} is the drop in log-odds when these words are deleted (higher is better).
 \emph{Sufficiency} is the drop when only these words are kept (lower is better).
 Both are averaged over $k$ (AOPC).
 For stability (Exp~6), LIME is run 10 times per sentence at each sample size (4,760 runs).
-We record how often the top word changes, the mean Spearman $\rho$ between runs, and LIME's $R^2$.
+We record how often the top word changes, the mean Spearman $\rho$ between runs, LIME's $R^2$,
+and agreement with SHAP's top word.
 Signal strength is the absolute difference between a sentence's log-odds and SHAP's base value.
 Finally, we use AUC to test whether low $R^2$, SHAP--LIME disagreement or a weak signal
 can flag the 25\% of identity sentences with the largest Exp~3 error.

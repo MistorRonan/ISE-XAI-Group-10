@@ -4,20 +4,16 @@
 % ---------------------------------------------------------------------
 \section{Conclusion and Limitations}\label{sec:conclusion}
 
-We tested whether SHAP and LIME can support a social-bias audit of a pretraining data filter.
-Our experiments show that both explainers are faithful enough to be useful: they identify words that genuinely drive removal decisions, with deletion of SHAP's top-3 tokens causing a mean log-odds drop of 3.09 versus 0.35 for random tokens, and their attributions align with counterfactual identity-swap effects and with exact Shapley values on a transparent filter.
-However, faithfulness is not uniform: stability degrades on weak-signal sentences, attributions shift with the choice of removal baseline, and the two explainers disagree more often than their overall agreement rate implies~\cite{krishna2022disagreement}.
-We therefore recommend that auditors use attribution as a triage tool --- to flag suspicious filter behaviour for further review --- rather than as a certification of fairness.
-In practice: (1)~report LIME's surrogate $R^2$ and re-run with multiple seeds to check stability; (2)~treat high SHAP--LIME disagreement as a signal for human review; (3)~confirm any attribution finding with a counterfactual swap before drawing conclusions.
+We tested whether SHAP and LIME can support identity-term bias audits of a pretraining data filter.
+Both rank identity effects faithfully against counterfactual swaps ($\rho \geq 0.92$) and exact Shapley values ($\rho \geq 0.98$), and their top-ranked words matter far more than random ones (comprehensiveness 3.09 vs.\ 0.35).
+However, faithfulness is not uniform: SHAP overstates effect sizes, its magnitudes shift with the removal baseline, and LIME's surrogate fits poorly on weak signals.
+We therefore recommend that auditors use attribution as a triage tool, to flag suspicious filter behaviour for further review, rather than as a certification of fairness.
+In practice: (1)~treat weak signal strength or low LIME $R^2$ as a warning that an explanation may be wrong; (2)~do not treat SHAP--LIME agreement or seed stability as validation; (3)~confirm any attribution finding with a counterfactual swap before drawing conclusions.
 
 \smallskip
 \noindent\textbf{Limitations.}
-Our scope is purposely narrow: we use short English template sentences with single word identity substitutions, which do not capture dialect-level bias (e.g.\ AAE~\cite{sap2019risk}) where no single word carries the signal.
+Our scope is purposely narrow: we use short English template sentences with single-word identity substitutions, which do not capture dialect-level bias (e.g.\ AAE~\cite{sap2019risk}) where no single word carries the signal.
 We test one filter family (Detoxify \texttt{original} and \texttt{unbiased}), and the two models differ in architecture (BERT vs.\ RoBERTa) as well as debiasing objective, so architectural effects cannot be fully separated.
-The transparent filter in Experiment~4 is our own construction, not a real pipeline filter.
-Our ground-truth references --- counterfactual effects and exact Shapley values --- exist only because we controlled the inputs; a real auditor facing an opaque commercial filter would not have them.
-We did not evaluate quality filters, blocklists, or non-English data.
-
-\smallskip
-\noindent\textbf{Future work.}
-Extending attribution audits to real web text from C4 or Common Crawl, to the quality filter of~\cite{gururangan2022whose}, and to human rationale benchmarks such as HateXplain~\cite{ngueajio2025decoding} would address the most significant scope limitations.
+The transparent filter in Exp~4 is our own construction, not a real pipeline filter.
+Our ground-truth references, counterfactual effects and exact Shapley values, exist only because we controlled the inputs; a real auditor facing an opaque commercial filter would not have these.
+Future audits should extend to real web text (C4, Common Crawl), the quality filter of~\cite{gururangan2022whose} and human rationale benchmarks such as HateXplain (surveyed in~\cite{ngueajio2025decoding}).

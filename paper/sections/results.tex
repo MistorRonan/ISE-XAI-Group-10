@@ -64,8 +64,8 @@ $\rho$ with counterfactual, \texttt{unbiased} & 3 & 0.92 & 0.97 & -- \\
 $\rho$ with exact Shapley, low interaction    & 4 & 1.00 & 1.00 & -- \\
 $\rho$ with exact Shapley, high interaction   & 4 & 0.99 & 0.98 & -- \\
 \midrule
-Comprehensiveness $\uparrow$ (log-odds)       & 5 & 3.09 & 3.05 & 0.35 \\
-Sufficiency $\downarrow$ (log-odds)           & 5 & $-2.43$ & $-2.65$ & 1.30 \\
+Comprehensiveness $\uparrow$, \texttt{original} & 5 & 3.09 & 3.05 & 0.35 \\
+Sufficiency $\downarrow$, \texttt{original}     & 5 & $-2.43$ & $-2.65$ & 1.30 \\
 \midrule
 Top word changes across seeds                 & 6 & -- & 4\% & -- \\
 \bottomrule
@@ -102,6 +102,6 @@ Deleting the top-ranked words lowered the toxic log-odds far more than deleting 
 % Sources: exp6_summary.csv (changed), exp6_stability_by_sentence.csv
 % (correlations; halves = median split on signal, 119 sentences each,
 % n = 5000; recomputed 2026-10-22), exp6_warning_signs.csv.
-In the stability test (Exp~6), LIME's top word changes between seeds in 12\% of sentences at 500 samples and in 4\% at 5000. Each sentence's instability (1 minus the mean Spearman $\rho$ between runs) is unrelated to its signal strength $s = |\ell(x) - \phi_0|$, where $\phi_0$ is SHAP's base value ($|\rho| < 0.05$). However, signal strength does predict how well LIME's surrogate fits ($\rho = 0.73$ with $R^2$): at 5000 samples the mean $R^2$ is 0.41 for the weaker half of sentences against 0.77 for the stronger half, and LIME's top word matches SHAP's in 86\% against 95\%.
+In the stability test (Exp~6), LIME's top word changes between seeds in 12\% of sentences at 500 samples and in 4\% at 5,000. Each sentence's instability (1 minus the mean Spearman $\rho$ between runs) is unrelated to its signal strength $s = |\ell(x) - \phi_0|$, where $\phi_0$ is SHAP's base value ($|\rho| < 0.05$). However, signal strength does predict how well LIME's surrogate fits ($\rho = 0.73$ with $R^2$): at 5,000 samples the mean $R^2$ is 0.41 for the weaker half of sentences against 0.77 for the stronger half, and LIME's top word matches SHAP's in 86\% against 95\%.
 
 Among cues that need no reference, weak signal strength best identified the 25\% of identity sentences with the largest SHAP error $|\Delta_t - \hat{\Delta}_t|$ (AUC 0.80; 0.5 is chance), followed by low LIME $R^2$ (0.64), while SHAP--LIME disagreement did no better than chance (0.46).

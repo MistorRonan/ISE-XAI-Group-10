@@ -30,7 +30,7 @@ Exp~4 adds 200 short Civil Comments test comments, half of them toxic, giving 43
 \noindent\textbf{Explainers.}
 SHAP~\cite{lundberg2017unified} and LIME~\cite{ribeiro2016why} both treat each word as a feature,
 using a tokenizer that keeps punctuation attached to its word so that both score the same units.
-Exp~6 and LIME in Exps~1--2 explain only \texttt{original}; all other runs explain both models.
+Exp~6 and LIME in Exps~1--2 explain only \texttt{original}; all other Detoxify runs explain both models.
 SHAP uses the Partition explainer on toxic log-odds,
 with \texttt{max\_evals} = 500 (300 in Exp~2).
 Every SHAP run on Detoxify passed a check that its values sum to the model's output within 0.01.
@@ -47,7 +47,7 @@ is an identity sentence's log-odds minus the mean log-odds of its template's fou
 because only the identity word differs, the whole change is attributable to it.
 The \emph{exact Shapley values} (Exp~4) are computed on the transparent filter
 from every subset of a sentence's words.
-SHAP (Partition and Permutation) and LIME are run on this filter as a black box.
+SHAP (Partition) and LIME are run on this filter as a black box.
 
 \smallskip
 \noindent\textbf{Metrics.}
@@ -58,10 +58,10 @@ For LIME, we use only $\rho$ and sign agreement.
 Against exact Shapley values (Exp~4), we report the median $\rho$ over sentences, top-word match and MAE,
 separately for sentences with low and high word-pair interaction (split at the median).
 The deletion test (Exp~5), adapted from ERASER~\cite{deyoung2020eraser},
-takes the top $k = 1, 2, 3$ words from SHAP, LIME, or at random (averaged over 10 draws).
+takes the top $k = 1, 2, 3$ words from SHAP, LIME or at random (averaged over 10 draws).
 \emph{Comprehensiveness} is the drop in log-odds when these words are deleted (higher is better), and \emph{sufficiency} is the drop when only they are kept (lower is better), both averaged over $k$ (AOPC).
 For stability (Exp~6), LIME is run 10 times per sentence at 500 and 5,000 samples.
-We record how often the top word changes, the mean Spearman $\rho$ between runs, and LIME's $R^2$.
+We record how often the top word changes, the mean Spearman $\rho$ between runs and LIME's $R^2$.
 \emph{Signal strength} is the distance between a sentence's log-odds and SHAP's base value.
 We use AUC to test whether low $R^2$, SHAP--LIME disagreement or a weak signal
 can flag the 25\% of identity sentences with the largest Exp~3 error.

@@ -5,7 +5,7 @@
 \section{Conclusion and Limitations}\label{sec:conclusion}
 
 We tested whether SHAP and LIME can support identity-term bias audits of a pretraining data filter.
-Both rank identity effects faithfully against counterfactual swaps ($\rho \geq 0.92$) and exact Shapley values ($\rho \geq 0.98$), and their top-ranked words matter far more than random ones (comprehensiveness 3.09 vs.\ 0.35).
+Both rank identity effects faithfully against counterfactual swaps ($\rho \geq 0.92$) and exact Shapley values ($\rho \geq 0.97$), and their top-ranked words matter far more than random ones (comprehensiveness 3.09 vs.\ 0.35).
 However, faithfulness is not uniform: SHAP overstates effect sizes, its magnitudes shift with the removal baseline, and LIME's surrogate fits poorly on weak signals.
 We therefore recommend that auditors use attribution as a triage tool, to flag suspicious filter behaviour for further review, rather than as a certification of fairness.
 In practice: (1)~treat weak signal strength or low LIME $R^2$ as a warning that an explanation may be wrong; (2)~do not treat SHAP--LIME agreement or seed stability as validation; (3)~confirm any attribution finding with a counterfactual swap before drawing conclusions.

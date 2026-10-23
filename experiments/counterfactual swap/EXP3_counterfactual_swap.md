@@ -178,19 +178,21 @@ grid.to_csv(f"{OUT}/exp3_results.csv", index=False)      # Exp 6 needs this file
 ### Cell 7: Figure 1 (paper Fig. 1)
 Two panels side by side (original, unbiased). x = counterfactual effect, y = SHAP estimate, one dot per identity sentence, dashed y = x line, a short label at each term's mean point. Size it for one IEEE column.
 ```python
-fig, axes = plt.subplots(1, 2, figsize=(7, 3.4), sharex=True, sharey=True)
+fig, axes = plt.subplots(1, 2, figsize=(3.5, 2.2), sharex=True, sharey=True)   # one IEEE column (2026-10-22)
 for ax, m in zip(axes, MODELS):
-    ax.scatter(ids[f"cf_{m}"], ids[f"est_{m}"], s=12, alpha=0.6, color=COLORS[m])
+    ax.scatter(ids[f"cf_{m}"], ids[f"est_{m}"], s=4, alpha=0.6, color=COLORS[m], linewidths=0)
     lim = [min(ids[f"cf_{m}"].min(), ids[f"est_{m}"].min()) - 0.5, max(ids[f"cf_{m}"].max(), ids[f"est_{m}"].max()) + 0.5]
-    ax.plot(lim, lim, "k--", lw=0.8)
+    ax.plot(lim, lim, "k--", lw=0.6)
     for term, g in ids.groupby("term"):
-        ax.annotate(term, (g[f"cf_{m}"].mean(), g[f"est_{m}"].mean()), fontsize=7)
+        ax.annotate(term, (g[f"cf_{m}"].mean(), g[f"est_{m}"].mean()), fontsize=4.5)
     r = faith(ids[f"cf_{m}"], ids[f"est_{m}"])
-    ax.set_title(f"Detoxify {m}  (ρ = {r['spearman']:.2f})", fontsize=10)
-    ax.set_xlabel("Counterfactual effect (log-odds)", fontsize=9)
+    ax.set_title(f"Detoxify {m} (ρ = {r['spearman']:.2f})", fontsize=7)
+    ax.set_xlabel("Counterfactual effect (log-odds)", fontsize=6)
+    ax.tick_params(labelsize=5.5, width=0.5, length=2)
+    for s in ax.spines.values(): s.set_linewidth(0.5)
     ax.spines[["top","right"]].set_visible(False)
-axes[0].set_ylabel("SHAP estimate (log-odds)", fontsize=9)
-fig.tight_layout(); fig.savefig(f"{OUT}/fig_exp3_cf_vs_shap.pdf"); fig.savefig(f"{OUT}/fig_exp3_cf_vs_shap.png", dpi=300)
+axes[0].set_ylabel("SHAP estimate (log-odds)", fontsize=6)
+fig.tight_layout(pad=0.3, w_pad=0.6); fig.savefig(f"{OUT}/fig_exp3_cf_vs_shap.pdf"); fig.savefig(f"{OUT}/fig_exp3_cf_vs_shap.png", dpi=300)
 ```
 
 ### Cell 8: re-test the "46% → 60%" claim

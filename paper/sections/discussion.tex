@@ -2,66 +2,23 @@
 % V. DISCUSSION AND CRITICAL ANALYSIS (about 0.4 page)
 % Owner: Julia
 %
-% SECOND DRAFT OUTLINE (2026-10-22)
+% THIRD DRAFT (2026-10-23): cut to four short subsections in prose.
+% Moved to Sec. VI (Limitations): explainers can be gamed~\cite{slack2020fooling};
+% our references exist only because we built the inputs; original vs unbiased
+% also differ in architecture (BERT vs RoBERTa); faithful to the model is not
+% right about the world -- whose language counts is normative~\cite{gururangan2022whose},
+% and the swap is causal in the model, not in the corpus~\cite{munn2022xai}.
 % ---------------------------------------------------------------------
 \section{Discussion}\label{sec:discussion}
 
-\todo{Second draft: needs to be cut to about 0.4 page.}
+\subsection{Ranks Are Trustworthy, Magnitudes Are Not}\label{sec:disc-rank}
+SHAP ordered the identity effects almost perfectly ($\rho = 0.96$ and 0.92), and the ordering holds across terms as well as across sentences (0.98 and 0.95). Its magnitudes were less reliable: it overstated the effects by 0.94 and 0.72, and this error shifted by up to 0.28 with the choice of removal baseline while the ranking did not ($\rho \geq 0.97$). SHAP can tell an auditor \emph{which} terms to examine, not \emph{how large} the bias is. Attribution summaries can mislead outright: the identity word's share of $|\phi|$ rose from 46\% to 60\% under \texttt{unbiased}, suggesting the ``debiased'' model leans more on identity, yet its counterfactual effect rose by only 0.23 log-odds and SHAP's estimate of that effect fell (Section~\ref{sec:res-faith}).
 
-\subsection{SHAP Gets the Order Right but Overstates the Size}
-\begin{itemize}
-  \item Exp 3: $\rho = 0.96$ / 0.92 with the counterfactual effect, sign agreement 0.98 / 0.93.
-  \item But MAE is 0.94 / 0.72 log-odds and SHAP overestimates. An attribution-based audit would exaggerate the bias: the safer direction, but still wrong.
-  \item $\rho$ could be inflated by the gap between identity and control words. Answer: term-level $\rho = 0.98$ ($n=15$).
-  \item For an auditor: SHAP is good for deciding \emph{which} terms to look at, weak for saying \emph{how big} the bias is.
-\end{itemize}
+\subsection{Removal Is Not Neutral}\label{sec:disc-removal}
+Negative sufficiency means the top-ranked words alone scored as more toxic than the full sentence, most of all in report sentences ($-3.4$): stripped of its context, a sentence reporting abuse becomes a bare insult. Such fragments are out of distribution for the filter~\cite{hase2021ood}, so deletion metrics~\cite{deyoung2020eraser} partly measure the filter's reaction to fragments rather than explanation quality. Near-zero comprehensiveness on control sentences shows they still separate signal from no signal.
 
-\subsection{The 46\% $\rightarrow$ 60\% Claim Mostly Doesn't Hold Up}
-\begin{itemize}
-  \item Share of $|$SHAP$|$ on the identity word rose 46\% $\rightarrow$ 60\%, but the counterfactual effect only moved 3.36 $\rightarrow$ 3.60, and SHAP's own estimate \emph{fell} (4.16 $\rightarrow$ 3.84).
-  \item Lesson: share-of-attribution measures can rise while the absolute effect barely changes. Normalised attributions can mislead.
-\end{itemize}
+\subsection{Agreement Is Not Validation}\label{sec:disc-agree}
+SHAP and LIME chose the same top word in 78 of 88 sentences, but both explain by removing words and so share blind spots~\cite{krishna2022disagreement}: their disagreement found SHAP's worst errors no better than chance (AUC 0.46). LIME's seed stability is similarly reassuring in the wrong way, since it stays stable where its surrogate fits poorly (mean $R^2$ 0.41 on the weaker half of signals vs.\ 0.77). The cue that worked was signal strength (AUC 0.80). Attribution therefore suits \emph{triage}, flagging strong identity effects for human review, but not \emph{certifying} a filter as fair: its errors concentrate on weak signals, which is where a costly false ``no bias found'' would come from.
 
-\subsection{``Removing'' a Word Isn't Neutral}
-\begin{itemize}
-  \item Negative sufficiency: keeping only the top words scores higher than the full sentence (report sentences $-3.4$). A sentence cut down to a few words is out of distribution, and the filter sees bare insults with none of the softening context~\cite{hase2021ood}, \cite{deyoung2020eraser}.
-  \item Baseline sensitivity: ranking holds ($\rho \geq 0.97$ across dots / delete / mask) but magnitudes shift: MAE 0.94 $\rightarrow$ 0.70, control-word $|\phi|$ 0.64 $\rightarrow$ 0.39. ``Choosing a good baseline can be difficult''~\cite{munn2022xai}.
-  \item Ties back to the first subsection: ranks are robust, magnitudes depend on the baseline.
-  \item Sanity check that works: comprehensiveness on control sentences $\approx 0$ for every explainer.
-\end{itemize}
-
-\subsection{Agreeing and Repeating Is Not Being Right}
-\begin{itemize}
-  \item The presentation's 78/88 top-word agreement doesn't count as validation. Both explainers remove words, so they make correlated errors~\cite{krishna2022disagreement}.
-  \item SHAP--LIME disagreement predicts the worst SHAP errors with AUC 0.46, worse than chance.
-  \item LIME is stable across seeds (top word changes in only 4\% of sentences at 5000 samples) but on weak signals it is consistently a poor fit ($R^2 \approx 0.45$ vs.\ 0.87).
-\end{itemize}
-
-\subsection{Triage, Not Certify}
-\begin{itemize}
-  \item Reliable on strong signals, worse on weak ones. Weak signal strength \emph{does} predict errors (AUC 0.80); low $R^2$ only weakly (0.64).
-  \item In an audit a false ``no bias found'' is the costly mistake.
-  \item Explainers can be gamed adversarially~\cite{slack2020fooling}.
-  \item Our references only exist because we built the inputs ourselves. A real auditor facing a black box won't have them.
-  \item Practical takeaway (feeds the Conclusion): use signal strength, not disagreement, as the flag for human review.
-\end{itemize}
-
-\subsection{``Debiased'' Doesn't Mean Identity-Insensitive}
-\begin{itemize}
-  \item Detoxify \texttt{unbiased} was trained for aggregate fairness across many real comments~\cite{borkan2019nuanced}, not to give the same score when the identity word in a single sentence is swapped. So it can be ``unbiased'' by one definition and biased by another.
-  \item Analogy, one sentence max: a marker who docks every essay from one group by 10 marks keeps the ordering within the group fair, but swapping the name on one essay changes the mark.
-  \item Caveat: \texttt{original} and \texttt{unbiased} also differ in architecture (BERT vs.\ RoBERTa), which muddies the comparison.
-\end{itemize}
-
-\subsection{Rudin's Debate}
-\begin{itemize}
-  \item AUC: transparent filter 0.897 vs.\ Detoxify 0.928 / 0.971. Small-to-moderate gap, so an auditor could reasonably argue for the simple model~\cite{rudin2019stop}.
-  \item Its coefficients: gay $+2.83$, muslim $+1.90$, black $+1.87$ vs.\ controls $-0.26$ to $-0.39$. The bias comes from the training data, not the design. Transparency makes it visible but doesn't fix it.
-  \item Bonus: on this filter SHAP matched exact Shapley values ($\rho = 1.0$ / 0.98), so where explanations can be checked, they hold up.
-\end{itemize}
-
-\subsection{Explanations Can't Decide What ``Fair'' Means}
-\begin{itemize}
-  \item Faithful to the model doesn't mean right about the world. Whether removing such text is a harm is a normative question about whose language counts~\cite{gururangan2022whose}.
-  \item The counterfactual swap is causal within the model, not in the world: it says nothing about which communities vanish from the corpus or what the LLM then learns~\cite{munn2022xai} (textbook p53).
-\end{itemize}
+\subsection{``Debiased'' Is Not Identity-Insensitive}\label{sec:disc-debias}
+\texttt{unbiased} was trained to reduce bias aggregated over real comments~\cite{borkan2019nuanced}, not to score a sentence identically when its identity word is swapped, so it can meet one fairness definition and fail ours. Transparency alone does not fix this either: our logistic filter, only modestly less accurate (AUC 0.897 vs.\ 0.928 and 0.971), learned the same bias from its data (gay $+2.83$) and simply makes it visible~\cite{rudin2019stop}.

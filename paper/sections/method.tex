@@ -1,52 +1,14 @@
 % ---------------------------------------------------------------------
 % III. METHOD (about 0.6 page)
 % Owners: Bláithín
-%
-% FACTS lists below were checked against the notebooks (*.ipynb), the
-% results CSVs and the journal. Source in [brackets] after each fact.
-% "nb" = notebook. Where a fact could NOT be confirmed it says CHECK.
 % ---------------------------------------------------------------------
 \section{Method}\label{sec:method}
 
 \subsection{Filters}
-% PLAN: which filters did we test?
-% - Detoxify "original" and Detoxify "unbiased".
-% - Note: they are different model types (BERT vs RoBERTa), not just
-%   debiased vs not debiased.
-% - Our own simple, transparent filter built for Exp 4 (a logistic
-%   regression on words and word pairs), and how accurate it is compared
-%   with Detoxify (numbers in Exp 4's exp4_auc.csv).
-%
-% FACTS:
-% - Detoxify models: "original" and "unbiased" [all nbs, Cell 1]
-% - Output used: the "toxicity" score, P(toxic) [all nbs, proba()]
-% - Converted to log-odds for SHAP: log(p / (1 - p)), p clipped to
-%   1e-6 .. 1 - 1e-6 [all nbs, logit()]
-% - Mask tokens: "[MASK]" for original, "<mask>" for unbiased
-%   [Exp 3 nb, Cell 9] -> fits BERT vs RoBERTa
-% - BERT vs RoBERTa: [journal, Dixon 2018 note] -- CHECK against the
-%   Detoxify README (cite key: detoxify); not stated in the notebooks
-% - "unbiased" was trained for the Jigsaw Unintended Bias competition,
-%   i.e. on Civil Comments [Exp 4 nb, Cell 4 caveat; journal, Borkan 2019
-%   note] -> cite borkan2019nuanced
-% - Transparent filter [Exp 4 nb, Cells 2-3]:
-%   - dataset: Civil Comments (google/civil_comments, Hugging Face)
-%   - toxic = toxicity >= 0.5
-%   - training: 100,000 comments sampled from the train split (seed 42)
-%   - features: binary word counts, words that appear in >= 5 comments
-%   - main filter: words + word pairs (unigrams + bigrams)
-%   - sanity-check filter: single words only
-%   - model: logistic regression (C = 1.0)
-% - Accuracy, AUC on 5,000 test comments (seed 42) [exp4_auc.csv]:
-%   - transparent, words + pairs: 0.892
-%   - transparent, words only: 0.897
-%   - Detoxify original: 0.928
-%   - Detoxify unbiased: 0.971 (favoured: trained on this dataset)
 
 We audit two Detoxify toxicity classifiers~\cite{detoxify}:
 \texttt{original}, a BERT model trained on the Jigsaw Toxic Comment Classification Challenge,
 and \texttt{unbiased}, a RoBERTa model trained on Civil Comments for the Jigsaw Unintended Bias challenge~\cite{borkan2019nuanced}.
-They differ in architecture and training data, not only in debiasing.
 For Exp~4 we also train a transparent filter:
 a logistic regression on binary word and word-pair features from 100,000 Civil Comments,
 labelled toxic at a score of 0.5 or more.
@@ -54,43 +16,7 @@ On 5,000 held-out comments its AUC is 0.892,
 against 0.928 for \texttt{original} and 0.971 for \texttt{unbiased}, which was trained on this data.
 
 \subsection{Sentence Sets}
-% PLAN: what sentences did we feed the filters?
-% - Exp 1: 48 sentences that use the same insult in three ways
-%   (promoting, reporting, arguing against).
-% - Exp 2: 190 harmless sentences where only one word changes
-%   (an identity word like "gay", or a neutral word like "tall").
-%   Based on Dixon 2018.
-% - Exp 4 also uses 200 real comments from Civil Comments.
-% - The other experiments reuse these same sentences.
-%
-% FACTS:
-% - Exp 1 set: 48 sentences = 16 topics x 3 versions [Exp 1 nb, Cell 2;
-%   exp1_results.csv has 48 rows]
-%   - promote / report / counter, same insult words in all 3
-%   - example (topic 1): "Those fans are disgusting idiots and should be
-%     banned." / "The club condemned a post calling its fans disgusting
-%     idiots who should be banned." / "Calling the fans disgusting idiots
-%     is unfair and wrong."
-%   - report sentences are longer than the others [Exp 1 nb, Cell 2
-%     comment] -> limitation
-% - Exp 2 set: 190 sentences = 10 harmless templates x 19 words
-%   [Exp 2 nb, Cell 2; exp2_results.csv has 190 rows]
-%   - 15 identity words: gay, lesbian, transgender, black, white, asian,
-%     muslim, jewish, christian, immigrant, deaf, blind, disabled, poor,
-%     rural
-%   - 4 control words: tall, young, local, quiet
-%   - 150 identity sentences + 40 control sentences
-%   - example template: "My best friend is {}."
-%   - design follows Dixon 2018 [journal, Dixon 2018 note] -> cite
-%     dixon2018measuring
-% - Exp 4 set: 438 sentences [exp4_sentences.csv]
-%   - the 48 Exp 1 + 190 Exp 2 sentences
-%   - plus 200 real comments: 100 toxic, 100 non-toxic, 5-14 words,
-%     from the full Civil Comments test split (seed 42) [Exp 4 nb, Cell 6]
-%   - cap of 16 tokens; all 438 were under it, none removed
-% - Which experiment uses which set [nbs, Cell 2 of each]:
-%   - Exp 3: the 190 Exp 2 sentences
-%   - Exp 5 and Exp 6: all 238 Exp 1 + Exp 2 sentences
+
 
 Exp~1 uses 48 sentences:
 16 topics, each written three ways (promoting, reporting or arguing against abuse) with mostly the same insult
@@ -100,61 +26,10 @@ Exp~2 follows the template design of Dixon et al.~\cite{dixon2018measuring}:
 filled with 15 identity words and four neutral control words (\emph{tall, young, local, quiet}),
 giving 190 sentences.
 Exp~3 uses the Exp~2 sentences, and Exps~5 and~6 use all 238 Exp~1--2 sentences.
-Exp~4 adds 200 real Civil Comments test comments of 5--14 words (100 toxic, 100 non-toxic),
-giving 438 sentences of at most 16 tokens.
+Exp~4 adds 200 short Civil Comments test comments (100 toxic), giving 438 sentences of at most 16 tokens.
 
 \subsection{Explainers}
-% PLAN: how did we set up SHAP and LIME?
-% - SHAP: which version we used and its main setting.
-% - LIME: how many samples and that we fixed the random seed.
-% - Both explain each word's effect on the "toxic" score.
-% - When an explainer "removes" a word, something has to replace it.
-%   Say what we used, and that Exp 3 tests other options.
-% - Careful: the settings are not the same in every experiment
-%   (Exps 1-2 used fewer samples than Exps 3-6). Check the notebooks.
-%
-% FACTS:
-% - All run on Google Colab, T4 GPU; libraries detoxify, shap, lime
-%   [all nbs, Cell 0-1]; random seed 42 [all nbs]
-% - Units: whole words, keeping attached punctuation, so SHAP and LIME
-%   score the same words [Exps 1, 3-6 nbs, word_tokenizer()]
-%   - Exp 2 split on spaces instead [Exp 2 nb, Cell 1]; Exp 3 re-ran
-%     Exp 2's sentences with the word-level version [Exp 3 nb]
-% - SHAP [all nbs]:
-%   - shap.Explainer with a text masker -> Partition explainer (Exp 4
-%     names "partition" explicitly)
-%   - explains log-odds of toxic (so values add up)
-%   - max_evals = 500 (Exp 2: 300)
-%   - efficiency check after every Detoxify run: base value + sum of
-%     SHAP values must equal the log-odds within 0.01, or the notebook
-%     stops [all nbs, check_efficiency()]
-%   - deterministic: Exp 2 compares two SHAP runs [Exp 2 nb, Cell 8]
-%     -- CHECK: the printed result was not saved in the notebook
-% - LIME [all nbs, lime_word_weights()]:
-%   - LimeTextExplainer, labels = (1,) so weights are for "toxic"
-%   - explains the probability, not log-odds -> only compared by rank
-%     with SHAP
-%   - one feature per distinct word, so no word is cut off
-%   - samples and seeds per experiment:
-%     - Exp 1: 2000 samples, seed 42
-%     - Exp 2: 2000 samples, seed 42 (agreement on 40 sentences); 500
-%       and 5000 samples x seeds 0-9 (stability tests)
-%     - Exp 3, Exp 5: 5000 samples, seed 42
-%     - Exp 4: 5000 samples, seeds 0-9
-%     - Exp 6: 500 and 5000 samples, seeds 0-9
-% - Removal baseline (what replaces a "removed" word):
-%   - SHAP default: "..." [Exp 3 nb, Cell 9 note says "..." is shap's
-%     default and what Exps 1-2 used] -- CHECK: the printed value was not
-%     saved in the notebook
-%   - Exp 3 also tests: deleting the word (a single space, because an
-%     empty string crashes shap) and the model's mask token ("[MASK] " /
-%     "<mask> ") [Exp 3 nb, Cell 9]
-%   - Exp 4: deletion, for both SHAP and the exact values [Exp 4 nb]
-%   - Exp 5's deletion test deletes words [Exp 5 nb, drop()]
-% - Which model each experiment explains:
-%   - both Detoxify models: Exps 1-3 SHAP, Exp 3 LIME, Exp 5
-%   - original only: Exp 1-2 LIME, Exp 6
-%   - transparent filter only: Exp 4
+
 
 SHAP~\cite{lundberg2017unified} and LIME~\cite{ribeiro2016why} both treat each word as a feature.
 Exp~2 split words at spaces; Exp~3 re-ran its sentences with the tokenizer used elsewhere.
@@ -165,114 +40,23 @@ with \texttt{max\_evals} = 500 (300 in Exp~2).
 Every SHAP run on Detoxify passed a check that its values sum to the model's output within 0.01.
 LIME explains the toxic probability instead,
 so its values are not compared with SHAP's in size.
-LIME used 5,000 samples in Exps~3--5 and 2,000 in the single runs of Exps~1--2
-(in Exp~2, on 40 random identity sentences).
-To score a word, an explainer must ``remove'' it; by default, SHAP replaces it with ``...''.
-Exp~3 also tests deleting the word and using the model's mask token,
-and Exps~4 and~5 delete words.
+LIME used 5,000 samples in Exps~3--5 and 2,000 in the single runs of Exps~1--2.
+SHAP replaces removed words with ``...'' by default;
+Exp~3 also tests deletion and the mask token, and Exp~4 uses deletion.
 
 \subsection{References}
-% PLAN: what "right answers" did we compare the explainers against?
-% - Counterfactual effect (Exp 3): swap the identity word for a neutral
-%   word and see how much the score changes. Only one word differs, so
-%   that change is the word's real effect.
-% - Exact Shapley values (Exp 4): on our transparent filter we can work
-%   out the exact correct answer, then see if SHAP and LIME match it.
-% - Why we need these: two explainers agreeing doesn't prove they are
-%   right (Krishna 2022).
-%
-% FACTS:
-% - Counterfactual effect [Exp 3 nb, Cell 5]:
-%   - for each of the 150 identity sentences
-%   - = its log-odds minus the mean log-odds of the 4 control sentences
-%     from the same template
-%   - SHAP's estimate to compare = the identity word's SHAP value minus
-%     the mean SHAP value of the control words in the same template
-%   - "spill-over" = counterfactual effect minus SHAP's estimate (the
-%     part SHAP put on other words)
-%   - for LIME: the same, but in probability [Exp 3 nb, Cell 6]
-%   - counterfactual swap method -> cite garg2019counterfactual
-%     (in refs.bib; no journal review yet)
-% - Exact Shapley values [Exp 4 nb, Cell 7]:
-%   - on the transparent filter only
-%   - players = the same word tokens SHAP uses
-%   - value of a subset = the filter's log-odds with all other words
-%     deleted
-%   - every subset is tried (2^n, n <= 16) and the Shapley formula is
-%     applied exactly
-%   - efficiency holds exactly (checked to 1e-6)
-%   - compared against: SHAP Partition, SHAP Permutation (both deletion,
-%     max_evals = 500) and LIME (10 seeds, 5000 samples) [Exp 4 nb, Cell 8]
-% - Sanity checks [Exp 4 nb, Cell 10]:
-%   - on the single-word filter, SHAP Partition should match exactly
-%   - words with no weight (null players) should get 0
-% - Why references are needed -> cite krishna2022disagreement [journal,
-%   Krishna 2022 note]
 
-Two explainers agreeing does not show that either is right~\cite{krishna2022disagreement},
-so we compare them against two references whose answers we know.
+Since agreeing explainers can both be wrong~\cite{krishna2022disagreement}, we use two references.
 The \emph{counterfactual effect} (Exp~3), following Garg et al.~\cite{garg2019counterfactual},
 is an identity sentence's log-odds minus the mean log-odds of its template's four control sentences.
-Since only one word differs, that word causes the whole change.
+Only one word differs, so that word causes the whole change.
 SHAP's estimate is the identity word's SHAP value
 minus the control words' mean SHAP value in that template.
-Because the counterfactual effect also includes the word's interactions,
-an exact match is not expected.
 The \emph{exact Shapley values} (Exp~4) are computed on the transparent filter
-by scoring every subset of a sentence's words (the rest deleted)
-and applying the Shapley formula.
+from every subset of a sentence's words.
 SHAP (Partition and Permutation) and LIME are then run on this filter as a black box.
 
 \subsection{Metrics}
-% PLAN: what did we measure?
-% - Faithfulness (Exps 3-4): how closely the explainers match the
-%   right answers.
-% - Deletion test (Exp 5): delete the words the explainer blames and see
-%   if the score drops more than when deleting random words.
-% - Stability (Exp 6): run LIME several times and see if the answer
-%   changes.
-% - Signal strength (Exp 6): how strong the toxic signal is in each
-%   sentence, to see if weak signals give worse explanations.
-%
-% FACTS:
-% - Faithfulness to the counterfactual effect [Exp 3 nb, faith()]:
-%   - Pearson r, Spearman rho, sign agreement, mean absolute error (MAE,
-%     log-odds)
-%   - at sentence level (n = 150) and term level (n = 15)
-%   - LIME: Spearman and sign agreement only (probability units)
-% - Faithfulness to exact Shapley [Exp 4 nb, Cells 8-9]:
-%   - per sentence: Spearman rho, top-word match, MAE (SHAP only)
-%   - split into low- vs high-interaction sentences (interaction = how
-%     much the word pairs change the exact values; split at the median)
-% - Removal baseline effect [Exp 3 nb, Cell 9]:
-%   - faithfulness metrics repeated for each of the 3 baselines
-%   - Spearman rho between baselines' rankings of the 15 identity words
-% - Deletion test [Exp 5 nb, Cells 4-5], following ERASER -> cite
-%   deyoung2020eraser:
-%   - top k = 1, 2, 3 words from SHAP, from LIME, and k random words
-%     (10 random draws, averaged)
-%   - comprehensiveness = log-odds drop when those words are deleted
-%     (higher = better)
-%   - sufficiency = log-odds drop when only those words are kept
-%     (lower = better)
-%   - AOPC = average over k = 1, 2, 3
-%   - 238 sentences x 2 models x 3 k values [exp5_deletion_by_sentence.csv]
-% - Stability [Exp 6 nb, Cells 4-5]:
-%   - 238 sentences x 2 sample sizes x 10 seeds = 4,760 LIME runs
-%     [exp6_lime_runs.csv]
-%   - flip rate = share of runs whose top word differs from the most
-%     common top word
-%   - rank stability = mean Spearman rho between every pair of runs
-%   - also: mean LIME R squared (fit), agreement with SHAP's top word
-% - Signal strength [Exp 6 nb, Cell 3]:
-%   - |log-odds - SHAP base value| (how far the score is from the score
-%     with every word removed)
-% - Warning signs [Exp 6 nb, Cell 6]:
-%   - on the 150 identity sentences, 5000-sample LIME runs
-%   - error = |counterfactual effect - SHAP estimate| (from Exp 3)
-%   - tested: low R squared, SHAP-LIME top-word disagreement, weak signal
-%   - measured by Spearman rho with the error and by AUC for flagging the
-%     worst 25% of errors
 
 Exp~1 reports the insult words' share of SHAP's toward-toxic attribution,
 and Exp~2 the identity word's share of all absolute SHAP attribution.
@@ -288,8 +72,7 @@ takes the top $k = 1, 2, 3$ words from SHAP, LIME, or at random (averaged over 1
 \emph{Sufficiency} is the drop when only these words are kept (lower is better).
 Both are averaged over $k$ (AOPC).
 For stability (Exp~6), LIME is run 10 times per sentence at 500 and 5,000 samples (4,760 runs).
-We record how often the top word changes, the mean Spearman $\rho$ between runs, LIME's $R^2$,
-and agreement with SHAP's top word.
+We record how often the top word changes, the mean Spearman $\rho$ between runs, and LIME's $R^2$.
 Signal strength is the distance between a sentence's log-odds and SHAP's base value.
 We use AUC to test whether low $R^2$, SHAP--LIME disagreement or a weak signal
 can flag the 25\% of identity sentences with the largest Exp~3 error.

@@ -8,9 +8,9 @@
 
 We test whether SHAP and LIME can fill that gap. They can show which words drive a removal, and our experiments show they reveal real problems in the filters we tested. But they are useful for *finding* suspicious behaviour, not for reaching a *verdict*: they are least reliable on subtle cases, and they are descriptive rather than normative (they describe what the model does, but can't say what it should do).
 
-**Scope:** one filter family (Detoxify, `original` and `unbiased` models), short English template sentences, one word changed at a time. Results show what the filter reacts to, not real-world removal rates.
+**Scope:** one filter family (Detoxify, `original` and `unbiased` models), plus a transparent glass-box filter we built for Exp 4; short English template sentences, one word changed at a time. Results show what the filter reacts to, not real-world removal rates.
 
-**Team:** Julia Hooper · Blaithin Kavanagh · Rory Linnane · April Gilhool
+**Team:** Julia Hooper · Bláithín Kavanagh · Rory Linnane · April Gilhool
 
 ---
 
@@ -35,16 +35,29 @@ Every entry is a dated Markdown file named `YYYY-MM-DD-….md`. Entries are grou
 
 **Thesis:** feature attribution is faithful enough to flag identity-term bias in a pretraining filter, but not reliable enough to certify the filter is fair.
 
-- **Latest draft:** [paper/main.tex](paper/main.tex), with each section in [paper/sections/](paper/sections/). Dated PDF snapshots go in [paper/drafts/](paper/drafts/).
-- **Live build:** every push to `paper/` builds the PDF. Go to the Actions tab → *Build paper* → latest run → *paper-pdf*.
-- **LaTeX source and how to contribute:** [paper/](paper/). Read [paper/README.md](paper/README.md) first.
+**Findings:**
+- Both explainers rank identity-word effects almost exactly as counterfactual swaps do (Spearman ρ ≥ 0.92 for SHAP, 0.97 for LIME) and recover exact Shapley values on the glass-box filter (ρ ≥ 0.97).
+- The words they blame matter: deleting them drops the score far more than deleting random words (comprehensiveness 3.09 vs 0.35).
+- But SHAP overstates the size of the effect, and its magnitudes shift with the removal baseline.
+- On weak signals LIME's surrogate fit falls (R² 0.77 → 0.41), and SHAP–LIME disagreement is no better than chance at flagging wrong explanations (AUC 0.46).
+
+**Recommendations for auditors:** use attribution to triage a filter, not to certify it as fair. (1) Treat weak signal strength or low LIME R² as a warning that an explanation may be wrong. (2) Don't treat SHAP–LIME agreement or seed stability as validation. (3) Confirm any attribution finding with a counterfactual swap.
+
+- **Final paper (PDF):** [paper/drafts/draft-2026-10-23.pdf](paper/drafts/draft-2026-10-23.pdf). Earlier snapshots are listed in [paper/drafts/](paper/drafts/).
+- **LaTeX source:** [paper/main.tex](paper/main.tex), with each section in [paper/sections/](paper/sections/) and figures in [paper/figures/](paper/figures/).
+- **Live build:** every push to `paper/` builds the PDF. Go to the Actions tab → *Build paper* → latest run → *Artifacts* → *paper-pdf*.
+- **How to contribute:** read [paper/README.md](paper/README.md) first.
 
 
 ---
 
 ## Experiments
 
-All notebooks run on **Google Colab with a T4 GPU** (Runtime → Change runtime type → T4 GPU). Each folder has the spec, the notebook and the saved results. Exp 1 and 2 were for the presentation; Exp 3–6 are for the paper.
+All notebooks run on **Google Colab with a T4 GPU** (Runtime → Change runtime type → T4 GPU). Each folder has the spec, the notebook and the saved results. Exp 1–2 began as presentation experiments; their sentences are reused across Exp 3–6, and all six feed the paper.
+
+**Running a notebook:**
+- **Exp 4 and 5:** upload `exp1_sentences.csv` from [experiments/report vs promote/data/](experiments/report%20vs%20promote/data/) to the Colab session before running. Both rebuild the Exp 2 sentences with EXP2 Cell 2's code.
+- **Saving results:** the last cell of each notebook downloads its outputs as `outputs_expN.zip`. Unzip it into that experiment's `results/` folder and commit it. Exp 4 and 5 keep the unzipped `outputs_exp4/` and `outputs_exp5/` folders inside `results/`.
 
 | Experiment | Question | Spec | Notebook | Results |
 |---|---|---|---|---|
@@ -64,7 +77,8 @@ All notebooks run on **Google Colab with a T4 GPU** (Runtime → Change runtime 
 | [journal/](journal/) | The research journal (see [How the journal is organised](#how-the-journal-is-organised)) |
 | [plans/](plans/) | Presentation and paper plans agreed at meetings |
 | [experiments/](experiments/) | Experiment specs, notebooks and results |
-| [paper/](paper/) | LaTeX source of the paper (one file per section), references, figures and dated draft PDFs |
+| [paper/](paper/) | LaTeX source of the paper (one file per section), references, [figures](paper/figures/) (copied from the experiment results) and dated draft PDFs |
+| [.github/workflows/](.github/workflows/) | The GitHub Actions workflow that builds the paper PDF on every push to `paper/` |
 
 ---
 

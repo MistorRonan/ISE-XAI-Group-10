@@ -24,12 +24,8 @@ Every entry is a dated Markdown file named `YYYY-MM-DD-….md`. Entries are grou
 | [journal/meetings/](journal/meetings/) | **Meeting minutes** | Agenda, discussion, decisions and action items |
 | [journal/sources/](journal/sources/) | **Source review**, one per paper | Full reference, TL;DR, key findings, why it matters to us, concerns, and the report sections it feeds |
 | [journal/notes/](journal/notes/) | **Ad-hoc note** | Early ideas that came before a weekly entry |
-| [journal/templates/](journal/templates/) | Templates | [Weekly recap](journal/templates/weekly-recap.md), [meeting](journal/templates/meeting.md) and [source review](journal/templates/source-review.md) |
+| [journal/templates/](journal/templates/) | Templates | [Source review](journal/templates/source-review.md) |
 | [plans/](plans/) | **Plans agreed at meetings** | The [presentation plan](plans/2026-10-06-presentation-plan.md) (06/10) and the [paper plan](plans/2026-10-18-paper-plan.md) (18/10), updated as decisions change |
-
----
-
-
 
 ---
 
